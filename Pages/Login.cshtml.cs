@@ -35,7 +35,9 @@ namespace CapstoneDraft.Pages
                 var userLogin = await _loginManager.PasswordSignInAsync(Username, Password, isPersistent: false, lockoutOnFailure: true);
                 if (userLogin.Succeeded)
                 {
-                    // Capture last active timestamp in order to use in report section
+                    // Capture user's last active timestamp in order to use in report section
+                    var loggedInUser = await _loginManager.UserManager.FindByNameAsync(Username);
+                    await _loginManager.UserManager.UpdateAsync(loggedInUser);
                 }
             }
         }
