@@ -24,6 +24,9 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthorization();
+app.UseAuthentication();
+
 app.MapRazorPages(); // allows the Razor .cshtml pages to be used as endpoints in app
 app.MapBlazorHub();
 app.MapFallbackToPage("/_Host");
