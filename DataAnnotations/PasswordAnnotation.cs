@@ -4,6 +4,7 @@ namespace CapstoneDraft.DataAnnotations
 {
     public class PasswordAnnotation : ValidationAttribute // Example of inheritance for assignment requirements
     {
+        // Overriding base IsValid class enables polymorphism of password object per assignment requirements
         public override bool IsValid(object value)
         {
             // Creating custom password annotation to meet stadard security requirement for assignment
