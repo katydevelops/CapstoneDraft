@@ -3,3 +3,9 @@ body {
     font-family: 'Century Gothic', sans-serif;
     padding: 10px;
 }
+
+navbar {
+    padding: 10px 0;
+    justify-content: space-around;
+    display: flex;
+}

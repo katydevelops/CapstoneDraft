@@ -3,25 +3,18 @@
 
 <PageTitle>Safety Net</PageTitle>
 
-<div class="page">
-    <div class="sidebar">
-        <NavMenu />
-    </div>
+<nav class="navbar">
+    <a href="/feed" class="nav-link">Feed</a>
+    <a href="/userprofile" class="nav-link">Profile</a>
+    <a href="/reports" class="nav-link">Reports</a>
+    <a href="/search" class="nav-link">Search</a>
+    <a href="/" class="nav-link">Logout</a>
+</nav>
 
-    <main>
-        <div class="top-row px-4">
-            <a href="https://docs.microsoft.com/aspnet/" target="_blank">About</a>
-        </div>
-
-        <article class="content px-4">
-            @Body
-        </article>
-    </main>
+<div>
+    @Body
 </div>
 
 @code {
-    protected override async Task OnInitializedAsync()
-    {
-        bool userAuthonticated = CheckAuthentication();
-    }
+
 }

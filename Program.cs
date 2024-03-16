@@ -9,6 +9,7 @@ builder.Services.AddServerSideBlazor();
 
 // Services that will be used in Safety Net app
 
+
 var app = builder.Build();
 
 if (!app.Environment.IsDevelopment())
