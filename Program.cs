@@ -24,8 +24,11 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-app.UseAuthorization();
+// ASP.NET Core Middleware that allows a user to be authenticated into the app and then will allow for authorization to persist across the app
+// Per documentation, UseAuthentication() must always come before the UseAuthorizatiom() middleware to work properly
 app.UseAuthentication();
+app.UseAuthorization();
+
 
 app.MapRazorPages(); // allows the Razor .cshtml pages to be used as endpoints in app
 app.MapBlazorHub();
