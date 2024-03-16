@@ -1,6 +1,7 @@
 ﻿@inherits LayoutComponentBase
+@inject NavigationManager NavigationManager
 
-<PageTitle>CapstoneDraft</PageTitle>
+<PageTitle>Safety Net</PageTitle>
 
 <div class="page">
     <div class="sidebar">
@@ -17,3 +18,10 @@
         </article>
     </main>
 </div>
+
+@code {
+    protected override async Task OnInitializedAsync()
+    {
+        bool userAuthonticated = CheckAuthentication();
+    }
+}
