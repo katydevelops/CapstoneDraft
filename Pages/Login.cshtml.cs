@@ -37,7 +37,12 @@ namespace CapstoneDraft.Pages
                 {
                     // Capture user's last active timestamp in order to use in report section
                     var loggedInUser = await _loginManager.UserManager.FindByNameAsync(Username);
-                    await _loginManager.UserManager.UpdateAsync(loggedInUser);
+                    if (loggedInUser != null)
+                    {
+                        loggedInUser.LastActive = DateTime.UtcNow;
+                        await _loginManager.UserManager.UpdateAsync(loggedInUser);
+                    }
+                    
                 }
             }
         }
