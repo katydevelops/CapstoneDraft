@@ -27,7 +27,13 @@ namespace CapstoneDraft.Pages
         // Use IActionResult return type because method will need to handle various login situations such as the user being able to login or a user getting locked out
         public async Task<IActionResult> OnPostAsync()
         {
-        
+            try
+            {
+                // PasswordSignInAsync provided by ASP Identity will check if the password matches the correct on in the database and update to either true or false
+                // IsPersistent will be marked to false for this app to meet the security requirement of assignment but preventing users from staying logged in to the app
+                // LockoutOnFailure will be marked to true to meet security requirement of assingment from preventing possible brute force attacks
+                userLogin = await _loginManager.PasswordSignInAsync(Username, Password, isPersistent: false, lockoutOnFailure: true);
+            }
         }
     }
 }
