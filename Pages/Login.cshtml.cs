@@ -32,7 +32,11 @@ namespace CapstoneDraft.Pages
                 // PasswordSignInAsync provided by ASP Identity will check if the password matches the correct on in the database and update to either true or false
                 // IsPersistent will be marked to false for this app to meet the security requirement of assignment but preventing users from staying logged in to the app
                 // LockoutOnFailure will be marked to true to meet security requirement of assingment from preventing possible brute force attacks
-                userLogin = await _loginManager.PasswordSignInAsync(Username, Password, isPersistent: false, lockoutOnFailure: true);
+                var userLogin = await _loginManager.PasswordSignInAsync(Username, Password, isPersistent: false, lockoutOnFailure: true);
+                if (userLogin.Succeeded)
+                {
+
+                }
             }
         }
     }
