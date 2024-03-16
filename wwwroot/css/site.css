@@ -4,8 +4,20 @@ body {
     padding: 10px;
 }
 
+
 navbar {
     padding: 10px 0;
     justify-content: space-around;
     display: flex;
+}
+
+
+.nav-link{
+    text-decoration:none;
+    color: midnightblue;
+}
+
+
+.nav-link:hover{
+    color: #F7E3AB;
 }
