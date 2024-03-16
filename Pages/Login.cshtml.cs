@@ -22,5 +22,12 @@ namespace CapstoneDraft.Pages
         public string Username { get; set; }
         [BindProperty]
         public string Password { get; set; }
+
+        // Need OnPostAsync handler because the user is sending an HTTP Post request when they click the login button
+        // Use IActionResult return type because method will need to handle various login situations such as the user being able to login or a user getting locked out
+        public async Task<IActionResult> OnPostAsync()
+        {
+        
+        }
     }
 }
