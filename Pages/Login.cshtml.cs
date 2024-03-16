@@ -20,6 +20,7 @@ namespace CapstoneDraft.Pages
         // BindProperty will capture data from input fields that the user enters during login
         [BindProperty]
         public string Username { get; set; }
-
+        [BindProperty]
+        public string Password { get; set; }
     }
 }
