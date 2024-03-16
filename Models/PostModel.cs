@@ -2,5 +2,7 @@
 {
     public class PostModel
     {
+        public int PostId { get; set; }
+
     }
 }
