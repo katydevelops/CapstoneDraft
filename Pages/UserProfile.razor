@@ -58,7 +58,10 @@
     private UserModel userModel = new();
     private ChangeUserPassword changeUserPassword = new();
     private bool DisplayPasswordChangeMessage = false; // Display a success message to let use know password has been update
+    private bool DisplayErrorMessage = false;
+    private bool DisplayProfileUpdatedMessage = false;
 
+    // Class to hold the current password and new password which will be used in ChangePasswordAsync built-in ASP Core method
     public class ChangeUserPassword
     {
         public string CurrentPassword { get; set; }
@@ -74,6 +77,15 @@
 
     private async Task UpdateUserProfileAsync()
     {
-        
+        IdentityResult profileSuccessfullyUpdated = await UserManager.UpdateAsync(userModel);
+        if (profileSuccessfullyUpdated.Succeeded)
+        {
+            DisplayProfileUpdatedMessage = true;
+            return;
+        }
+        else
+        {
+            DisplayErrorMessage = true;
+        }
     }
 }

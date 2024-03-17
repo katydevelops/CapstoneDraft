@@ -7,7 +7,6 @@ namespace CapstoneDraft.Services
     public class UserService
     {
         private readonly CapstoneContext _databaseConnection;
-        private readonly IPasswordHasher<UserModel> _iPasswordHasher;
         private readonly SignInManager<UserModel> _loginManager;
         private readonly UserManager<UserModel> userManager;
     }

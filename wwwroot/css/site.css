@@ -1,7 +1,7 @@
 body {
     background-color: #A9C7EE;
     font-family: 'Century Gothic', sans-serif;
-    padding: 10px;
+    padding: 25px;
     margin: 0;
 }
 
@@ -34,7 +34,7 @@ navbar {
     flex-direction: column;
     justify-content: flex-start; /*needed to prevent element overflow into the nav bar*/
     padding-top: 60px;
-    margin: 30px;
+    margin-top: 30px;
 }
 
 
@@ -134,3 +134,10 @@ ul{
         height: 30px;
         position: absolute;
     }
+
+
+.footer {
+    padding: 10px 0;
+    text-align: center;
+    margin-bottom: 10px;
+}
