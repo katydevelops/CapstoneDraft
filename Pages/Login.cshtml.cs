@@ -39,11 +39,16 @@ namespace CapstoneDraft.Pages
                     var loggedInUser = await _loginManager.UserManager.FindByNameAsync(Username);
                     if (loggedInUser != null)
                     {
-                        loggedInUser.LastActive = DateTime.UtcNow;
+                        loggedInUser.UserLastActiveTimeStamp = DateTime.UtcNow;
                         await _loginManager.UserManager.UpdateAsync(loggedInUser);
                     }
                     // If the login is successful, redirect the authenticated user over to the main feed page
                     return LocalRedirect("~/feed");
+                }
+                // Since lockout failure is turned on, enable a specific error message to let the user know and also to meet security requirement of assignment
+                else if (userLogin.IsLockedOut)
+                {
+
                 }
             }
         }
