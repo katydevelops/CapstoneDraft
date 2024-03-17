@@ -16,17 +16,30 @@
         <EditForm Model="@userModel" OnValidSubmit="UpdateUserProfileAsync">
             <DataAnnotationsValidator />
             <ValidationSummary />
-            <div class="custom-input-elements">
+                <div class="custom-form-elements">
                 <label for="firstName">First Name:</label>
-                    <InputText id="firstName" @bind-Value="@userModel.FirstName" class="custom-form-elements" />
+                    <InputText id="firstName" @bind-Value="@userModel.FirstName" class="custom-input-elements" />
             </div>
-
+                <div class="custom-form-elements">
+                <label for="lastName">Last Name:</label>
+                    <InputText id="lastName" @bind-Value="@userModel.LastName" class="custom-input-elementss" />
+            </div>
+            <div class="custom-form-elements">
+                <label for="email">E-Mail Address:</label>
+                    <InputText id="email" @bind-Value="@userModel.Email" class="custom-input-elements" />
+            </div>
+            <div class="custom-form-elements">
+                <label for="phone">Phone Number:</label>
+                <InputText id="phone" @bind-Value="@userModel.PhoneNumber" class="custom-input-elements" />
+            </div>
+            <div class="custom-form-elements">
+                <button type="submit" class="animated-yellow-button">Save Changes</button>
+            </div>
         </EditForm>
         <div class="social-media-card">
-            <h1>hi</h1>
-            <h1>hi</h1>
-            <h1>hi</h1>
+            <h2>Update Password</h2>
         </div>
+
     </div>
 </div>
 </div>
