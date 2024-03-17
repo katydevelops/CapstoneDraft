@@ -9,7 +9,7 @@ namespace CapstoneDraft.Models
         [Required]
         public string PostCategory { get; set; }
         [Required]
-        public string NameOfPostAuthor { get; set; }
+        public string AuthorName { get; set; }
         [Required]
         public string UserLocation { get; set; }
         [Required]
@@ -19,7 +19,7 @@ namespace CapstoneDraft.Models
         public string? PostPhoto { get; set; } // Allow photo to be nullable incase user doesn't want to post a photo
         public DateTime PostCreatedTimestamp { get; set; } = DateTime.UtcNow;
         public int PostLikes { get; set; } = 0; // Initialize post likes to zero
-        public virtual UserModel PostAuthor { get; set; }
+        public virtual UserModel User { get; set; }
         public virtual ICollection<CommentModel> PostComments { get; set; } = new List<CommentModel>();
     }
 }
