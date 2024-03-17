@@ -13,5 +13,7 @@ namespace CapstoneDraft.Data
         public DbSet<PostModel> Posts { get; set; }
         public DbSet<CommentModel> Comments { get; set; }
 
+        // Needed to include constructor that accepts DbContextOptions in order to properly register SQLite as underlying EF database that will be used in Safety Net
+        public CapstoneContext(DbContextOptions<CapstoneContext> options) : base(options) { }
     }
 }
