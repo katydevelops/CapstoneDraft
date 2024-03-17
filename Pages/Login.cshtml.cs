@@ -53,6 +53,10 @@ namespace CapstoneDraft.Pages
                 {
                     LoginFormErrorMessage = "Your account has been locked due to too many failed attempts!";
                 }
+                else
+                {
+                    LoginFormErrorMessage = "Your login has failed. Please check your username and password and try again";
+                }
             }
         }
     }
