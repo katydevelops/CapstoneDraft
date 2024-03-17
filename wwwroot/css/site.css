@@ -19,10 +19,11 @@ navbar {
 
 
 .nav-link:hover{
-    color: #F7E3AB;
+    color: #F7E3AB; /* Gold accent color to be used as a part of design */
 }
 
 
+/* Will create full-sized viewport container needed for styling and whitespace effect */
 .fullsize-container {
     height: 100vh;
     display: flex;
@@ -31,6 +32,8 @@ navbar {
     justify-content: center;
 }
 
+
+/* Will center elements in middle of the page as a stylistic choice */
 .center-form {
     gap: 1rem;
     display: flex;
