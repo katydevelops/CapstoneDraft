@@ -12,9 +12,6 @@ namespace CapstoneDraft.Data
         public DbSet<UserModel> Users { get; set; }
         public DbSet<PostModel> Posts { get; set; }
         public DbSet<CommentModel> Comments { get; set; }
-        public static async Task Initialize(CapstoneContext databaseConnection, UserManager<UserModel> userManager)
-        {
-            databaseConnection.Database.Migrate();
-        }
+
     }
 }
