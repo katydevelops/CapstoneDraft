@@ -2,6 +2,7 @@ body {
     background-color: #A9C7EE;
     font-family: 'Century Gothic', sans-serif;
     padding: 10px;
+    margin: 0;
 }
 
 
@@ -30,6 +31,8 @@ navbar {
     align-items: center;
     flex-direction: column;
     justify-content: center;
+    padding-top: 60px;
+    margin: 30px;
 }
 
 
@@ -88,6 +91,7 @@ h2 {
     border-radius: 15px;
 }
 
+
 .yellow-animated-button:hover
 {
     background-color: #F7E2AB;
@@ -106,6 +110,7 @@ ul{
     border-radius: 0.7rem;
     box-shadow: 0 5px 10px #808080;
     margin: 1rem auto;
+    padding: 1rem;
 }
 
 
@@ -115,6 +120,8 @@ ul{
     border-radius: 0.7rem;
     margin-bottom: 1rem;
     box-shadow: 0 5px 10px #808080;
+    padding: 2rem;
+    margin: 2rem;
 }
 
 

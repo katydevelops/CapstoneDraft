@@ -9,7 +9,7 @@
 @inject UserManager<UserModel> UserManager
 @inject SignInManager<UserModel> LoginManager
 
-    <div class="fullsize-container">
+<div class="fullsize-container">
     <div class="social-media-container">
         <div class="social-media-card">
             <h1>Edit Profile</h1>
@@ -33,15 +33,25 @@
                 <InputText id="phone" @bind-Value="@userModel.PhoneNumber" class="custom-input-elements" />
             </div>
             <div class="custom-form-elements">
-                <button type="submit" class="animated-yellow-button">Save Changes</button>
+                <button type="submit" class="yellow-animated-button">Save Changes!</button>
             </div>
         </EditForm>
-        <div class="social-media-card">
             <h2>Update Password</h2>
+            <EditForm Model="@changeUserPassword" OnValidSubmit="UpdatePasswordAsync">
+                <div class="custom-form-elements">
+                    <label for="currentPassword">Current Password:</label>
+                    <InputText id="currentPassword" @bind-Value="@changeUserPassword.CurrentPassword" class="custom-input-elements" />
+                </div>
+                <div class="custom-form-elements">
+                    <label for="newPassword">New Password:</label>
+                    <InputText id="newPassword" @bind-Value="@changeUserPassword.NewPassword" class="custom-input-elements" />
+                </div>
+                <div class="custom-form-elements">
+                    <button type="submit" class="yellow-animated-button">Update Password!</button>
+                </div>
+            </EditForm>
         </div>
-
     </div>
-</div>
 </div>
 
 @code {
