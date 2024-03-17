@@ -10,7 +10,8 @@
         <div class="social-media-card">
             <h2>Search User Posts and Comments</h2>
             <form @onsubmit="SearchPostsAndCommentsAsync">
-
+                <input type="text" @bind="searchQuery" placeholder="Enter your search query!" class="custom-input-elements" />
+                <button type="submit" class="yellow-animated-button">Search!</button>
             </form>
         </div>
 </div>
@@ -18,6 +19,7 @@
 
 
 @code {
+    private string searchQuery;
     private string searchResultsErrorMessage;
 
     private async Task SearchPostsAndCommentsAsync()
