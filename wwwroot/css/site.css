@@ -10,6 +10,8 @@ navbar {
     padding: 10px 0;
     justify-content: space-around;
     display: flex;
+    position: fixed;
+    width: 100%;
 }
 
 
@@ -30,7 +32,7 @@ navbar {
     display: flex;
     align-items: center;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start; /*needed to prevent element overflow into the nav bar*/
     padding-top: 60px;
     margin: 30px;
 }
