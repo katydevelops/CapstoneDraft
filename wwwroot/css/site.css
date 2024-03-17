@@ -42,9 +42,22 @@ navbar {
 }
 
 
-.custom-form{
+.custom-form-elements {
     width: 100%;
     display: flex;
     align-items: center;
     flex-direction: column;
+}
+
+
+.custom-input-elements {
+    border-radius: 0.20rem;
+    margin-bottom: 1rem;
+    max-width: 300px;
+    border: 1px solid #F7E3AB;
+}
+
+
+h1 {
+    color: yellow; 
 }

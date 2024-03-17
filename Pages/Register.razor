@@ -5,6 +5,28 @@
 @inject UserManager<UserModel> userManager;
 @inject NavigationManager NavigationManager
 
-@code {
+@* Wrap register form in data annotations validator to capture missing properties marked as [Required] in the model and also ensure that username and password match custom annotation set *@
+<div class="fullsize-container">
+    <h1>Welcome! Please register for Safety App below!</h1>
+    <div class="center-form">
+        <EditForm Model="@registerModelInstance" OnValidSubmit="@ProcessUserRegistration">
+            <DataAnnotationsValidator>
+                <ValidationSummary>
+                    <div class="custom-form-elements">
+                        <InputText id="firstName" class=""
+                    </div>
+                </ValidationSummary>
+            </DataAnnotationsValidator>
+        </EditForm>
+    </div>
+</div>
 
+@code {
+    private RegisterModel registerModelInstance = new RegisterModel();
+
+
+    private async Task ProcessUserRegistration()
+    {
+        
+    }
 }
