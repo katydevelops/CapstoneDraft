@@ -51,7 +51,7 @@ namespace CapstoneDraft.Pages
                 // Since lockout failure is turned on, enable a specific error message to let the user know and also to meet security requirement of assignment
                 else if (userLogin.IsLockedOut)
                 {
-                    ErrorMessage = ""
+                    LoginFormErrorMessage = "Your account has been locked due to too many failed attempts!";
                 }
             }
         }
