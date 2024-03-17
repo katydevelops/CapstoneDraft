@@ -58,6 +58,10 @@ namespace CapstoneDraft.Pages
                     LoginFormErrorMessage = "Your login has failed. Please check your username and password and try again";
                 }
             }
+            catch (Exception error)
+            {
+                LoginFormErrorMessage = $"Login failed due to the following issue {error.Message}";
+            }
         }
     }
 }
