@@ -60,6 +60,16 @@
         };
         // Connect the username that the user creates with the password they choose using UserManager's CreateAsync built-in method
         var userRegistration = await userManager.CreateAsync(newlyCreatedUser, registerModelInstance.Password);
+        if (userRegistration.Succeeded)
+        {
+            registerSuccessMessage = "Your registration was successful!";
+            StateHasChanged();
+            NavigationManager.NavigateTo("/", true);
+        }
+        else
+        {
+            registerErrorMessage = "Your registration was not succesful, please try again!";
+        }
     }
   
 }
