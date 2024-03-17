@@ -26,16 +26,19 @@
 </div>
 @code {
     private UserModel userModel = new();
-    private NewPassword newPassword = new();
+    private ChangeUserPassword changeUserPassword = new();
+    private bool DisplayPasswordChangeMessage = false; // Display a success message to let use know password has been update
 
-    public class NewPassword
+    public class ChangeUserPassword
     {
-        public string UserCurrentPassword { get; set; }
-        public string UserNewPassword { get; set; }
+        public string CurrentPassword { get; set; }
+        public string NewPassword { get; set; }
     }
 
-    private async Task ChangeUserPassword()
+    private async Task UpdatePasswordAsync()
     {
-        await UserManager.ChangePasswordAsync(userModel, changeUserPassword.)
+        // Use built in ChangePasswordAsync method to update new password in the database and display success message to user
+        await UserManager.ChangePasswordAsync(userModel, changeUserPassword.CurrentPassword, changeUserPassword.NewPassword);
+        DisplayPasswordChangeMessage = true;
     }
 }
