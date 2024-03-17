@@ -49,6 +49,17 @@
 
     private async Task ProcessUserRegistration()
     {
-        
+        // Create a new user object and store all data from the register input fields
+        var newlyCreatedUser = new UserModel
+        {
+            FirstName = registerModelInstance.FirstName,
+            LastName = registerModelInstance.LastName,
+            UserName = registerModelInstance.Username,
+            PhoneNumber = registerModelInstance.Phone,
+            Email = registerModelInstance.Email
+        };
+        // Connect the username that the user creates with the password they choose using UserManager's CreateAsync built-in method
+        var userRegistration = await userManager.CreateAsync(newlyCreatedUser, registerModelInstance.Password);
     }
+  
 }
