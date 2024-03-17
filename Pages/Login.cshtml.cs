@@ -62,7 +62,7 @@ namespace CapstoneDraft.Pages
             {
                 LoginFormErrorMessage = $"Login failed due to the following issue {error.Message}";
             }
-            return Page();
+            return Page(); // Return page to reresh the UI to the user
         }
     }
 }
