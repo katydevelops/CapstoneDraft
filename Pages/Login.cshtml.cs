@@ -62,6 +62,7 @@ namespace CapstoneDraft.Pages
             {
                 LoginFormErrorMessage = $"Login failed due to the following issue {error.Message}";
             }
+            return Page();
         }
     }
 }
