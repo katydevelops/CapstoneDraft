@@ -42,7 +42,7 @@ namespace CapstoneDraft.Pages
                         loggedInUser.LastActive = DateTime.UtcNow;
                         await _loginManager.UserManager.UpdateAsync(loggedInUser);
                     }
-                    
+                    return LocalRedirect("~/feed");
                 }
             }
         }

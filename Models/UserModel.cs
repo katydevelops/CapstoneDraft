@@ -10,8 +10,8 @@ namespace CapstoneDraft.Models
         public DateTime? UserLastActiveTimeStamp { get; set; }
 
         // Create collection data structure to store the user's affiliated posts and comments
-        public virtual ICollection<Post> UsersPosts { get; set; } = new List<Post>();
-        public virtual ICollection<Comment> UsersComments { get; set; } = new List<Comment>();
+        public virtual ICollection<PostModel> UsersPosts { get; set; } = new List<PostModel>();
+        public virtual ICollection<CommentModel> UsersComments { get; set; } = new List<CommentModel>();
 
         // Store the user creation times in UTC in the database
         public UserModel ()
