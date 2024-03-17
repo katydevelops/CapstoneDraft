@@ -1,5 +1,8 @@
 ﻿@page "/EditPost/{postId:int}"
-
+@using CapstoneDraft.Models;
+@using CapstoneDraft.Services;
+@inject PostService PostService
+@inject NavigationManager NavigationManager
 
 @code {
 
