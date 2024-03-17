@@ -55,14 +55,14 @@ namespace CapstoneDraft.Pages
                 }
                 else
                 {
-                    LoginFormErrorMessage = "Your login has failed. Please check your username and password and try again";
+                    LoginFormErrorMessage = "Your login has failed. Please check your username and password and try again!";
                 }
             }
             catch (Exception error)
             {
                 LoginFormErrorMessage = $"Login failed due to the following issue {error.Message}";
             }
-            return Page(); // Return page to reresh the UI to the user
+            return Page(); // Return page to refresh the UI and re-render the page to the user to try again
         }
     }
 }
