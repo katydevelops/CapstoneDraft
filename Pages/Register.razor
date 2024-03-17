@@ -10,8 +10,8 @@
     <h1>Welcome! Please register for Safety App below!</h1>
     <div class="center-form">
         <EditForm Model="@registerModelInstance" OnValidSubmit="@ProcessUserRegistration">
-            <DataAnnotationsValidator>
-                <ValidationSummary>
+            <DataAnnotationsValidator />
+                <ValidationSummary />
                     <div class="custom-form-elements">
                         <InputText id="firstName" class="custom-input-elements" @bind-Value="@registerModelInstance.FirstName" placeholder="First Name" />
                     </div>
@@ -33,8 +33,6 @@
                     <div class="custom-form-elements">
                         <button type="submit" class="yellow-animated-button">Register!</button>
                     </div>
-                </ValidationSummary>
-            </DataAnnotationsValidator>
         </EditForm>
     </div>
 </div>
