@@ -17,6 +17,9 @@ namespace CapstoneDraft.Pages
             _loginManager = loginManager;
         }
 
+        // Create error message variable that will display relevant messages to user
+        public string LoginFormErrorMessage { get; set; }
+
         // BindProperty will capture data from input fields that the user enters during login
         [BindProperty]
         public string Username { get; set; }
@@ -48,7 +51,7 @@ namespace CapstoneDraft.Pages
                 // Since lockout failure is turned on, enable a specific error message to let the user know and also to meet security requirement of assignment
                 else if (userLogin.IsLockedOut)
                 {
-
+                    ErrorMessage = ""
                 }
             }
         }
