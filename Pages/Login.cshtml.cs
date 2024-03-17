@@ -42,6 +42,7 @@ namespace CapstoneDraft.Pages
                         loggedInUser.LastActive = DateTime.UtcNow;
                         await _loginManager.UserManager.UpdateAsync(loggedInUser);
                     }
+                    // If the login is successful, redirect the authenticated user over to the main feed page
                     return LocalRedirect("~/feed");
                 }
             }
