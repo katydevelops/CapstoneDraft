@@ -1,11 +1,15 @@
 using CapstoneDraft.Data;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
+
+// Configure SQLite Database using Entity Framework and set connection string
+builder.Services.AddDbContext<CapstoneContext>(options => options.UseSqlite(builder.Configuration.GetConnectionString("CapstoneDraftConnectionString")));
 
 // Services that will be used in Safety Net app
 
