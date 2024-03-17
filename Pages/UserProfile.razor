@@ -4,6 +4,38 @@
 @using CapstoneDraft.Services;
 @using Microsoft.AspNetCore.Identity;
 
-@code {
+@inject AuthenticationStateProvider AuthenticationStateProvider
+@inject NavigationManager NavigationManager
+@inject UserManager<UserModel> UserManager
+@inject SignInManager<UserModel> LoginManager
 
+    <div class="fullsize-container">
+
+    
+    <div class="social-media-container">
+        <div class="social-media-card">
+            <h1>Edit Profile</h1>
+        <EditForm Model=""
+        </div>
+        <div class="social-media-card">
+            <h1>hi</h1>
+            <h1>hi</h1>
+            <h1>hi</h1>
+        </div>
+    </div>
+</div>
+@code {
+    private UserModel userModel = new();
+    private NewPassword newPassword = new();
+
+    public class NewPassword
+    {
+        public string UserCurrentPassword { get; set; }
+        public string UserNewPassword { get; set; }
+    }
+
+    private async Task ChangeUserPassword()
+    {
+        await UserManager.ChangePasswordAsync(userModel, changeUserPassword.)
+    }
 }
