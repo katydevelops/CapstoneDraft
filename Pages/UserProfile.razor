@@ -10,13 +10,18 @@
 @inject SignInManager<UserModel> LoginManager
 
     <div class="fullsize-container">
-
-    
     <div class="social-media-container">
         <div class="social-media-card">
             <h1>Edit Profile</h1>
-        <EditForm Model=""
-        </div>
+        <EditForm Model="@userModel" OnValidSubmit="UpdateUserProfileAsync">
+            <DataAnnotationsValidator />
+            <ValidationSummary />
+            <div class="custom-input-elements">
+                <label for="firstName">First Name:</label>
+                    <InputText id="firstName" @bind-Value="@userModel.FirstName" class="custom-form-elements" />
+            </div>
+
+        </EditForm>
         <div class="social-media-card">
             <h1>hi</h1>
             <h1>hi</h1>
@@ -24,6 +29,8 @@
         </div>
     </div>
 </div>
+</div>
+
 @code {
     private UserModel userModel = new();
     private ChangeUserPassword changeUserPassword = new();
@@ -40,5 +47,10 @@
         // Use built in ChangePasswordAsync method to update new password in the database and display success message to user
         await UserManager.ChangePasswordAsync(userModel, changeUserPassword.CurrentPassword, changeUserPassword.NewPassword);
         DisplayPasswordChangeMessage = true;
+    }
+
+    private async Task UpdateUserProfileAsync()
+    {
+        
     }
 }
