@@ -4,6 +4,7 @@ namespace CapstoneDraft.Models
 {
     public class PostModel
     {
+        [Key]
         public int PostId { get; set; }
         public string UserId { get; set; } // Links the post to the correct user; need to set to string as that's what IdentityUser will use
         [Required]
