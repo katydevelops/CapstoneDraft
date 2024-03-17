@@ -7,12 +7,13 @@
 
 @* Wrap register form in data annotations validator to capture missing properties marked as [Required] in the model and also ensure that username and password match custom annotation set *@
 <div class="fullsize-container">
-    <h1>Welcome!</h1>
-    <h2>Please register for Safety App below!</h2>
-    <div class="center-form">
-        <EditForm Model="@registerModelInstance" OnValidSubmit="@ProcessUserRegistration">
-            <DataAnnotationsValidator />
-                <ValidationSummary />
+    <div class="social-media-container">
+            <h1>Welcome!</h1>
+            <h2>Please register for Safety App below!</h2>
+            <div class="center-form">
+                <EditForm Model="@registerModelInstance" OnValidSubmit="@ProcessUserRegistration">
+                    <DataAnnotationsValidator />
+                    <ValidationSummary />
                     <div class="custom-form-elements">
                         <InputText id="firstName" class="custom-input-elements" @bind-Value="@registerModelInstance.FirstName" placeholder="First Name" />
                     </div>
@@ -34,9 +35,11 @@
                     <div class="custom-form-elements">
                         <button type="submit" class="yellow-animated-button">Register!</button>
                     </div>
-        </EditForm>
-    </div>
+                </EditForm>
+            </div>
+        </div>
 </div>
+
 
 @code {
     private RegisterModel registerModelInstance = new RegisterModel();
