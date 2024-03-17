@@ -13,7 +13,10 @@
             <DataAnnotationsValidator>
                 <ValidationSummary>
                     <div class="custom-form-elements">
-                        <InputText id="firstName" class=""
+                        <InputText id="firstName" class="custom-input-elements" @bind-Value="@registerModelInstance.FirstName" placeholder="First Name" />
+                    </div>
+                    <div class="custom-form-elements">
+                        <InputText id="lastName" class="custom-input-elements" @bind-Value="@registerModelInstance.LastName" placeholder="Last Name" />
                     </div>
                 </ValidationSummary>
             </DataAnnotationsValidator>
