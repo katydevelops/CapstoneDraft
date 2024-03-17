@@ -61,3 +61,22 @@ navbar {
 h1 {
     color: yellow; 
 }
+
+
+.yellow-animated-button{
+    background-color: #EDF1F5;
+    color: #51739D;
+    margin: 20px auto; 
+    display: block;
+    text-align: center;
+    padding: 10px 20px;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.yellow-animated-button
+{
+    background-color: #F7E2AB;
+    transform: scale(1.00);
+    box-shadow: 0 4px 8px rgba(0,0, 0, 0.2);
+}
