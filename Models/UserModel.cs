@@ -2,7 +2,8 @@
 
 namespace CapstoneDraft.Models
 {
-    public class UserModel : IdentityUser
+    // Inheriting from ASP.NET IdentityUser is a convenient way to take avantage of the built-in functionality from the Identity API such as PasswordHash and LockedOutEnable(to meet the security requiremennts of this assignment) as well as automatically preventing duplicate usernames and emails from being stored in the database
+    public class UserModel : IdentityUser // Example of inheritance in Safety Net
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
