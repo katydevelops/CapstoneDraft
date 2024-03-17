@@ -5,7 +5,23 @@
 @inject PostService PostService
 @inject NavigationManager NavigationManager
 
+<div class="fullsize-container">
+    <div class="social-media-container">
+        <div class="social-media-card">
+            <h2>Search User Posts and Comments</h2>
+            <form @onsubmit="SearchPostsAndCommentsAsync">
+
+            </form>
+        </div>
+</div>
+    </div>
+
 
 @code {
+    private string searchResultsErrorMessage;
 
+    private async Task SearchPostsAndCommentsAsync()
+    {
+        
+    }
 }
