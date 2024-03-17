@@ -28,10 +28,10 @@
                         <InputText id="email" class="custom-input-elements" @bind-Value="@registerModelInstance.Email" placeholder="E-Mail Address" />
                     </div>
                     <div class="custom-form-elements">
-                        <InputText type="password" id="password" class="custom-input-elements" @bind-Value="@registerModelInstance.Password" placeholder="Last Name" />
+                        <InputText type="password" id="password" class="custom-input-elements" @bind-Value="@registerModelInstance.Password" placeholder="Create your secure password" />
                     </div>
                     <div class="custom-form-elements">
-                        <InputText id="lastName" class="custom-input-elements" @bind-Value="@registerModelInstance.LastName" placeholder="Create your secure password" />
+                        <button type="submit" class="btn btn-primary">Register!</button>
                     </div>
                 </ValidationSummary>
             </DataAnnotationsValidator>
