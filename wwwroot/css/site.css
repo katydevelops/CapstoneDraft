@@ -21,3 +21,27 @@ navbar {
 .nav-link:hover{
     color: #F7E3AB;
 }
+
+
+.fullsize-container {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.center-form {
+    gap: 1rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+.custom-form{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}

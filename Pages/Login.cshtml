@@ -5,14 +5,19 @@
     Layout = "_Layout";
 }
 
-<form method="post" class="login-form">
-    <h1>Safety Net</h1>
-    <div class="form-grup">
-        <label for="Username">Username</label>
-        <input type="text" class="form-control" id="Username" name="Username" value="@Model.Username" />
-    </div>
-    <div class="form-group">
-        <label for="Password">Password</label>
-        <input type="Password" class="form-control" id="Password" name="Password" />
-    </div>
-</form>
+<div class="fullsize-container">
+    <form method="post" class="center-form">
+        <h1>Safety Net</h1>
+        <div class="custom-form">
+            <label for="Username">Username</label>
+            <input type="text" class="form-control" id="Username" name="Username" value="@Model.Username" />
+        </div>
+        <div class="custom-form">
+            <label for="Password">Password</label>
+            <input type="Password" class="form-control" id="Password" name="Password" />
+        </div>
+        <button type="submit" class="btn btn-primary">Login</button>
+    </form>
+    <br />
+    <p> Don't have an account? <a href="/register">Register here!</a></p>
+</div>
