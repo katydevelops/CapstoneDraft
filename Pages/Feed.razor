@@ -14,6 +14,7 @@
             <div class="social-media-card">
                 <p>@feedPost.PostMessageBody</p>
                 <p>Posted by @(feedPost.AuthorName) on @feedPost.PostCreatedTimestamp.ToString("MM/dd/yy")</p>
+                    <img class="feed-photo" src="@($"/{feedPost.PostPhoto}")" asp-append-version="true" alt="Post image" />
         </div>
     </div>
 </div>
