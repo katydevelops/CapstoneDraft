@@ -5,6 +5,10 @@
 @inject AuthenticationStateProvider AuthenticationStateProvider
 @inject NavigationManager NavigationManager
 
+@if (feedPosts == null)
+{
+    
+}
 @foreach (var feedPost in feedPosts)
 {
     <div class="fullsize-container">
