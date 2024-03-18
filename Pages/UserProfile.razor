@@ -87,12 +87,14 @@
         }
     }
 
+    // User all built-in methods of ASP.NET Core to fetch the state of the user, extract the the user identity details and store it into a variable that will then be used to fetch the user ID and model data if the user is properly authenticated
     protected override async Task OnInitializedAsync()
     {
         var userAuthenticationState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
         var currentLoggedInUser = userAuthenticationState.User;
         if (currentLoggedInUser.Identity.IsAuthenticated)
         {
+            // The data that 
             var userId = UserManager.GetUserId(currentLoggedInUser);
             userModel = await UserManager.FindByIdAsync(userId);
         }

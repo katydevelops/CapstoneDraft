@@ -21,11 +21,6 @@ namespace CapstoneDraft.Services
             _userManager = userManager;
         }
 
-        // Utilize built
-        public async Task<UserModel> FetchUserIdAsync(string userId)
-        {
-            return await _userManager.FindByIdAsync(userId);
-        }
 
 
     }
