@@ -8,6 +8,17 @@ namespace CapstoneDraft.Services
     {
         private readonly CapstoneContext _databaseConnection;
         private readonly SignInManager<UserModel> _loginManager;
-        private readonly UserManager<UserModel> userManager;
+        private readonly UserManager<UserModel> _userManager;
+
+
+        public UserService(
+            CapstoneContext databaseConnection,
+            UserManager<UserModel> userManager,
+            SignInManager<UserModel> loginManager)
+        {
+            _databaseConnection = databaseConnection;
+            _loginManager = loginManager;
+            _userManager = userManager;
+        }
     }
 }

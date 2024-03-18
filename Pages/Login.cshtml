@@ -6,8 +6,9 @@
 }
 
 <div class="fullsize-container">
+    <h1>Safety Net</h1>
     <form method="post" class="center-form">
-        <h1>Safety Net</h1>
+        @Html.AntiForgeryToken() <!-- Received 400 status codes until I enabled AntiForgeryToken; this is a built-in security measure ASP.NET to prevent cross-site scripting-->
         <div class="custom-form-elements">
             <label for="Username">Username</label>
             <input type="text" class="custom-input-elements" id="Username" name="Username" value="@Model.Username" />

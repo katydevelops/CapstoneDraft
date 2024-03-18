@@ -86,4 +86,15 @@
             DisplayErrorMessage = true;
         }
     }
+
+    private override async Task OnInitializedAsync()
+    {
+        var userAuthenticationState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        var currentLoggedInUser = userAuthenticationState.User;
+        if (userAuthenticationState.Identity.IsAuthenticated)
+        {
+            var userId = UserManager.GetUserId(currentLoggedInUser);
+            user = await UserService.FetchUserIdAsync(userId);
+        }
+    }
 }

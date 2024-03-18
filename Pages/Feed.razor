@@ -1,4 +1,17 @@
-﻿<h3>Feed</h3>
+﻿@page "/feed"
+@using CapstoneDraft.Models
+@using CapstoneDraft.Services
+@inject PostService PostService
+@inject AuthenticationStateProvider AuthenticationStateProvider
+@inject NavigationManager NavigationManager
+
+<div class="fullsize-container">
+    <div class="social-media-container">
+        <div class="social-media-card">
+            <h2>Welcome to the feed!!</h2>
+        </div>
+    </div>
+</div>
 
 @code {
 

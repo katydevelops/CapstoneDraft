@@ -36,7 +36,15 @@
                         <button type="submit" class="yellow-animated-button">Register!</button>
                     </div>
                 </EditForm>
-            </div>
+            @if (!string.IsNullOrEmpty(registerSuccessMessage))
+            {
+                <div class="alert alert-success" role="alert">@registerSuccessMessage</div>
+            }
+            @if (!string.IsNullOrEmpty(registerErrorMessage))
+            {
+                <div class="alert alert-danger" role="alert">@registerErrorMessage</div>
+            }
+        </div>
         </div>
 </div>
 
@@ -64,6 +72,7 @@
         {
             registerSuccessMessage = "Your registration was successful!";
             StateHasChanged();
+            await Task.Delay(4000);
             NavigationManager.NavigateTo("/", true);
         }
         else
