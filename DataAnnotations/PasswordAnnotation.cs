@@ -7,7 +7,7 @@ namespace CapstoneDraft.DataAnnotations
         // Overriding base IsValid class enables polymorphism of password object per assignment requirements
         public override bool IsValid(object value)
         {
-            // Creating custom password annotation to meet stadard security requirement for assignment
+            // Creating custom password annotation including requiring a number and a special character to meet stadard security requirement for assignment
             var validPassword = value as string;
             if (validPassword.Length < 10)
             {
@@ -17,6 +17,11 @@ namespace CapstoneDraft.DataAnnotations
             if(!validPassword.Any(char.IsDigit))
             {
                 ErrorMessage = "Your password must contain at least one number!";
+                return false;
+            }
+            if (!validPassword.Any(specialChar => !char.IsLetterOrDigit(specialChar)))
+            {
+                ErrorMessage = "Your password must contain at least one alphanumeric character!";
                 return false;
             }
             return true;
