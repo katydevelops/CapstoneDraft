@@ -1,4 +1,5 @@
 ﻿using CapstoneDraft.Data;
+using CapstoneDraft.Models;
 
 namespace CapstoneDraft.Services
 {
@@ -10,5 +11,7 @@ namespace CapstoneDraft.Services
         {
             _databaseConnection = databaseConnection;
         }
+
+        public async Task<List<PostModel>>
     }
 }
