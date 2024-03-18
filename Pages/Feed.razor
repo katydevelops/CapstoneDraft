@@ -9,9 +9,11 @@
 {
     <div class="fullsize-container">
     <div class="social-media-container">
-        <div class="social-media-card">
             <h4>Name: @feedPost.AuthorName</h4>
             <h5>Subject:  @feedPost.PostSubject</h5>
+            <div class="social-media-card">
+                <p>@feedPost.PostMessageBody</p>
+                <p>Posted by @(feedPost.AuthorName) on @feedPost.PostCreatedTimestamp.ToString("MM/dd/yy")</p>
         </div>
     </div>
 </div>
