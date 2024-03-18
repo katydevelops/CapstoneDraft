@@ -13,10 +13,10 @@ namespace CapstoneDraft.Services
             _databaseConnection = databaseConnection;
         }
 
-        // Fetch the post details and include the author name, comments, user who posted the comments and order by most recent to older posts
+        // Fetch the post details and include the post details, affiliated comments, user who posted the comments and order by most recent to older posts
         public async Task<List<PostModel>> FetchFeedPostAsync()
         {
-            return await _databaseConnection.Posts.Include(post => post.AuthorName).Include(post => post.PostComments).ThenInclude(comment => comment.User).OrderByDescending(post => post.PostCreatedTimestamp).ToListAsync();
+            return await _databaseConnection.Posts.Include(post => post.PostComments).ThenInclude(comment => comment.User).OrderByDescending(post => post.PostCreatedTimestamp).ToListAsync();
         }
     }
 }

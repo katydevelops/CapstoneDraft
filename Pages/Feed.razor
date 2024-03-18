@@ -28,5 +28,8 @@
 @code {
     public List<PostModel> feedPosts;
 
-
+    protected override async Task OnInitializedAsync()
+    {
+        feedPosts = await PostService.FetchFeedPostAsync();
+    }
 }
