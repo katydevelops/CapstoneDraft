@@ -91,7 +91,7 @@
     {
         var userAuthenticationState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
         var currentLoggedInUser = userAuthenticationState.User;
-        if (userAuthenticationState.Identity.IsAuthenticated)
+        if (currentLoggedInUser.Identity.IsAuthenticated)
         {
             var userId = UserManager.GetUserId(currentLoggedInUser);
             userModel = await UserManager.FindByIdAsync(userId);
