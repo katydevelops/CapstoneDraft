@@ -21,7 +21,7 @@ namespace CapstoneDraft.DataAnnotations
             }
             if (!validPassword.Any(specialChar => !char.IsLetterOrDigit(specialChar)))
             {
-                ErrorMessage = "Your password must contain at least one alphanumeric character!";
+                ErrorMessage = "Your password must contain at least one special character!";
                 return false;
             }
             return true;
