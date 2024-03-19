@@ -30,7 +30,6 @@
         <div class="custom-form-elements">
             <label for="authorName">Name: </label>
             <InputText id="authorName" @bind-Value="tempFormData.TempPostNameOfPostAuthor" class="custom-input-elements" />
-
         </div>
     </EditForm>
 }
@@ -39,8 +38,15 @@
     private TemporaryPostModel tempFormData = new TemporaryPostModel();
     private bool userAuthenticated = false;
 
+    // Fetch authentication state for user using built in ASP.NET methods and if they are authenticated then load the add new post functionality by trigger flag on load
+    protected override async Task OnInitializedAsync()
+    {
+    var userAuthenticationState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+    userAuthenticated = userAuthenticationState.User.Identity.IsAuthenticated;
+    }
+
     private async Task ProcessNewPost()
     {
-
+    
     }
 }
