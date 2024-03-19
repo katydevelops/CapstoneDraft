@@ -20,7 +20,9 @@
         <ValidationSummary />
         <div class="custom-form-elements">
             <label for="postCategory">Category:</label>
+            <InputSelect id="postCategory" @bind-Value="tempFormData.TempPostCategory" class="custom-input-elements" required>
 
+            </InputSelect>
         </div>
     </EditForm>
 }
