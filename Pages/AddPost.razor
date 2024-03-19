@@ -33,6 +33,24 @@
             <label for="name">Name: </label>
             <InputText id="name" @bind-Value="tempFormData.TempPostNameOfPostAuthor" class="custom-input-elements" />
         </div>
+        <div class="custom-form-elements">
+            <label for="location">Location:</label>
+            <InputText id="location" @bind-Value="formData.Location" class="form-control" />
+        </div>
+        <div class="custom-form-elements">
+            <label for="subject">Subject:</label>
+            <InputText id="subject" @bind-Value="formData.Subject" class="form-control" />
+         </div>
+        <div class="custom-form-elements">
+                <label for="body">Message:</label>
+                <InputTextArea id="body" @bind-Value="formData.Body" class="form-control" />
+            </div>
+        <div class="custom-form-elements">
+                <InputFile OnChange="HandleFileSelected" class="form-control" />
+            </div>
+        <div class="card-footer">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
     </EditForm>
 }
 
