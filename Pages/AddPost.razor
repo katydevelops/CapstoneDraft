@@ -69,7 +69,13 @@
         Logger.LogInformation($"Post will be created with image path: {newPost.PostPhoto}");
         try
         {
-            await.PostService.
+            await PostService.AddNewPostAsync(newPost);
+            NavigationManager.NavigateTo("/feed");
         }
+        catch
+        {
+            AddPostErrorMessage = "Your post cannot be created at this time. Please try again.";
+        }
+        tempFormData = new TemporaryPostModel();
     }
 }
