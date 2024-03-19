@@ -35,15 +35,15 @@
         </div>
         <div class="custom-form-elements">
             <label for="location">Location:</label>
-            <InputText id="location" @bind-Value="formData.Location" class="custom-input-elements" />
+            <InputText id="location" @bind-Value="tempFormData.Location" class="custom-input-elements" />
         </div>
         <div class="custom-form-elements">
             <label for="subject">Subject:</label>
-            <InputText id="subject" @bind-Value="formData.Subject" class="custom-input-elements" />
+            <InputText id="subject" @bind-Value="tempFormData.Subject" class="custom-input-elements" />
          </div>
         <div class="custom-form-elements">
                 <label for="body">Message:</label>
-            <InputTextArea id="body" @bind-Value="formData.Body" class="custom-input-elements" />
+            <InputTextArea id="body" @bind-Value="tempFormData.Body" class="custom-input-elements" />
             </div>
         <div class="custom-form-elements">
             <InputFile OnChange="ProcessNewPost" class="form-control" />
