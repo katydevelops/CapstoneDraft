@@ -53,6 +53,14 @@
         </div>
     </EditForm>
 }
+else
+{
+    <p>You need to be logged in to create a post!</p>
+}
+@if(!string.IsNullOrEmpty(AddPostErrorMessage))
+{
+    <div class="alert alert-danger" role="alert">@AddPostErrorMessage</div>
+}
 
 @code {
     private TemporaryPostModel tempFormData = new TemporaryPostModel();
