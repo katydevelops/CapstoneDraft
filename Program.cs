@@ -7,8 +7,14 @@ using Microsoft.AspNetCore.Components.Server;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
+
 
 var builder = WebApplication.CreateBuilder(args);
+
+// Add Logger for development process only 
+builder.Logging.ClearProviders();
+builder.Logging.AddConsole();
 
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
