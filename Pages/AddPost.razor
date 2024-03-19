@@ -66,5 +66,10 @@
                 UserId = currentUserId,
                 PostPhoto = tempFormData.TempPostPhoto
             };
+        Logger.LogInformation($"Post will be created with image path: {newPost.PostPhoto}");
+        try
+        {
+            await.PostService.
+        }
     }
 }

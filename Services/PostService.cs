@@ -18,5 +18,12 @@ namespace CapstoneDraft.Services
         {
             return await _databaseConnection.Posts.Include(post => post.PostComments).ThenInclude(comment => comment.User).OrderByDescending(post => post.PostCreatedTimestamp).ToListAsync();
         }
+
+        // Add the newly created post to the database using built-in Entity Framework method
+        public async Task AddNewPostAsync(PostModel postModel)
+        {
+            _databaseConnection.Posts.Add(postModel);
+            await _databaseConnection.SaveChangesAsync();
+        }
     }
 }
