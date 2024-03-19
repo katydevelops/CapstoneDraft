@@ -55,12 +55,15 @@
             AddPostErrorMessage = "You must include your name with you post!";
         }
         var currentUserId = await GetCurrentId();
-        var newPost = new  PostModel
-        {
-            AuthorName = tempFormData.TempPostNameOfPostAuthor,
-            PostCategory = tempFormData.TempPostCategory,
-            PostMessageBody = tempFormData.TempPostMessageBody,
-            UserLocation = tempFormData.
+        var newPost = new PostModel
+            {
+                AuthorName = tempFormData.TempPostNameOfPostAuthor,
+                PostCategory = tempFormData.TempPostCategory,
+                UserLocation = tempFormData.TempPostUserLocation,
+                PostSubject = tempFormData.TempPostSubject,
+                PostMessageBody = tempFormData.TempPostMessageBody,
+                PostCreatedTimestamp = DateTime.UtcNow;
+
         }
     }
 }
