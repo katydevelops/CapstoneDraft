@@ -5,6 +5,7 @@
 
 @inject PostService PostService
 @inject NavigationManager NavigationManager
+@inject UserManager<UserModel> UserManager
 @inject AuthenticationStateProvider AuthenticationStateProvider
 @inject ILogger<AddPost> Logger
 
@@ -55,6 +56,7 @@
             AddPostErrorMessage = "You must include your name with you post!";
         }
         var loggedInUser = (await AuthenticationStateProvider.GetAuthenticationStateAsync()).User;
+        var loggedInUserId = UserManager.GetUserId(user);
         var newPost = new PostModel
             {
                 AuthorName = tempFormData.TempPostNameOfPostAuthor,
@@ -63,7 +65,7 @@
                 PostSubject = tempFormData.TempPostSubject,
                 PostMessageBody = tempFormData.TempPostMessageBody,
                 PostCreatedTimestamp = DateTime.UtcNow,
-                UserId = currentUserId,
+                UserId = loggedInUserId,
                 PostPhoto = tempFormData.TempPostPhoto
             };
         Logger.LogInformation($"Post will be created with image path: {newPost.PostPhoto}");
