@@ -9,13 +9,16 @@
 
 <div class="fullsize-container">
     <div class="social-media-container">
-        <div class="social-media-card">
             <h3>Create a New Post</h3>
-        </div>
     </div>
 </div>
 
+@if (userAuthenticated)
+{
+    
+}
 
 @code {
-
+    private TemporaryPostModel tempFormData = new TemporaryPostModel();
+    private bool userAuthenticated = false;
 }
