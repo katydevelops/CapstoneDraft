@@ -15,10 +15,17 @@
 
 @if (userAuthenticated)
 {
-    
+    <EditForm Model="@tempFormData" OnValidSubmit="ProcessNewPost">
+        <DataAnnotationsValidator />
+    </EditForm>
 }
 
 @code {
     private TemporaryPostModel tempFormData = new TemporaryPostModel();
     private bool userAuthenticated = false;
+
+    private async Task ProcessNewPost()
+    {
+
+    }
 }
