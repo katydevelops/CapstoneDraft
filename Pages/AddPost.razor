@@ -9,49 +9,54 @@
 @inject AuthenticationStateProvider AuthenticationStateProvider
 @inject ILogger<AddPost> Logger
 
-<div class="fullsize-container">
-    <div class="social-media-container">
-            <h3>Create a New Post</h3>
-    </div>
-</div>
+
+            
 
 @if (userAuthenticated)
 {
-    <EditForm Model="@tempFormData" OnValidSubmit="ProcessNewPost">
-        <DataAnnotationsValidator />
-        <ValidationSummary />
-        <div class="custom-form-elements">
-            <label for="postCategory">Category: </label>
-            <InputSelect id="postCategory" @bind-Value="tempFormData.TempPostCategory" class="custom-input-elements" required>
-                <option value="">Select a Category</option>
-                <option value="Safety Tip">Safety Tip</option>
-                <option value="Safety Event">Safety Event</option>
-                <option value="Report a Safety Incident">Report a Safety Incident</option>
-            </InputSelect>
+    <div class="fullsize-container">
+        <div class="social-media-container">
+            <div class="social-media-card">
+                <h3>Create a New Post</h3>
+                <EditForm Model="@tempFormData" OnValidSubmit="ProcessNewPost">
+                    <DataAnnotationsValidator />
+                    <ValidationSummary />
+
+                    <div class="custom-form-elements">
+                        <label for="postCategory">Category: </label>
+                        <InputSelect id="postCategory" @bind-Value="tempFormData.TempPostCategory" class="custom-input-elements" required>
+                            <option value="">Select a Category</option>
+                            <option value="Safety Tip">Safety Tip</option>
+                            <option value="Safety Event">Safety Event</option>
+                            <option value="Report a Safety Incident">Report a Safety Incident</option>
+                        </InputSelect>
+                    </div>
+                    <div class="custom-form-elements">
+                        <label for="name">Name: </label>
+                        <InputText id="name" @bind-Value="tempFormData.TempPostNameOfPostAuthor" class="custom-input-elements" />
+                    </div>
+                    <div class="custom-form-elements">
+                        <label for="location">Location:</label>
+                        <InputText id="location" @bind-Value="tempFormData.TempPostUserLocation" class="custom-input-elements" />
+                    </div>
+                    <div class="custom-form-elements">
+                        <label for="subject">Subject:</label>
+                        <InputText id="subject" @bind-Value="tempFormData.TempPostSubject" class="custom-input-elements" />
+                     </div>
+                    <div class="custom-form-elements">
+                            <label for="body">Message:</label>
+                        <InputTextArea id="body" @bind-Value="tempFormData.TempPostMessageBody" class="custom-input-elements" />
+                        </div>
+                    <div class="custom-form-elements">
+                        <InputFile OnChange="ProcessAddPhoto" class="custom-input-elements" />
+                        </div>
+                    <div class="custom-form-elements">
+                        <button type="submit" class="yellow-animated-button">Submit</button>
+                    </div>
+                </EditForm>
         </div>
-        <div class="custom-form-elements">
-            <label for="name">Name: </label>
-            <InputText id="name" @bind-Value="tempFormData.TempPostNameOfPostAuthor" class="custom-input-elements" />
-        </div>
-        <div class="custom-form-elements">
-            <label for="location">Location:</label>
-            <InputText id="location" @bind-Value="tempFormData.TempPostUserLocation" class="custom-input-elements" />
-        </div>
-        <div class="custom-form-elements">
-            <label for="subject">Subject:</label>
-            <InputText id="subject" @bind-Value="tempFormData.TempPostSubject" class="custom-input-elements" />
-         </div>
-        <div class="custom-form-elements">
-                <label for="body">Message:</label>
-            <InputTextArea id="body" @bind-Value="tempFormData.TempPostMessageBody" class="custom-input-elements" />
-            </div>
-        <div class="custom-form-elements">
-            <InputFile OnChange="ProcessNewPost" class="custom-input-elements" />
-            </div>
-        <div class="custom-form-elements">
-            <button type="submit" class="yellow-animated-button">Submit</button>
-        </div>
-    </EditForm>
+    </div>
+</div>
 }
 else
 {
@@ -106,4 +111,10 @@ else
         }
         tempFormData = new TemporaryPostModel();
     }
+
+    private async Task ProcessAddedPhoto()
+    {
+        
+    }
+
 }
