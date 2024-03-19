@@ -44,6 +44,7 @@
     {
     var userAuthenticationState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
     userAuthenticated = userAuthenticationState.User.Identity.IsAuthenticated;
+    Logger.LogInformation("User authenticated status: {Authenticated}", userAuthenticated);
     }
 
     private async Task ProcessNewPost()
