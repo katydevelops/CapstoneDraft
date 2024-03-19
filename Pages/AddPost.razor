@@ -54,7 +54,7 @@
         {
             AddPostErrorMessage = "You must include your name with you post!";
         }
-        var currentUserId = await GetCurrentUserId();
+        var loggedInUser = (await AuthenticationStateProvider.GetAuthenticationStateAsync()).User;
         var newPost = new PostModel
             {
                 AuthorName = tempFormData.TempPostNameOfPostAuthor,
