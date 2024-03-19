@@ -29,8 +29,8 @@
             </InputSelect>
         </div>
         <div class="custom-form-elements">
-            <label for="authorName">Name: </label>
-            <InputText id="authorName" @bind-Value="tempFormData.TempPostNameOfPostAuthor" class="custom-input-elements" />
+            <label for="name">Name: </label>
+            <InputText id="name" @bind-Value="tempFormData.TempPostNameOfPostAuthor" class="custom-input-elements" />
         </div>
     </EditForm>
 }
@@ -38,17 +38,21 @@
 @code {
     private TemporaryPostModel tempFormData = new TemporaryPostModel();
     private bool userAuthenticated = false;
+    private string AddPostErrorMessage;
 
     // Fetch authentication state for user using built in ASP.NET methods and if they are authenticated then load the add new post functionality by trigger flag on load
     protected override async Task OnInitializedAsync()
     {
-    var userAuthenticationState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
-    userAuthenticated = userAuthenticationState.User.Identity.IsAuthenticated;
-    Logger.LogInformation("User authenticated status: {Authenticated}", userAuthenticated);
+        var userAuthenticationState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        userAuthenticated = userAuthenticationState.User.Identity.IsAuthenticated;
+        Logger.LogInformation("User authenticated status: {Authenticated}", userAuthenticated);
     }
 
     private async Task ProcessNewPost()
     {
-    
+        if (string.IsNullOrWhiteSpace(tempFormData.TempPostNameOfPostAuthor))
+        {
+            AddPostErrorMessage = "You must include your name with you post!";
+        }
     }
 }
