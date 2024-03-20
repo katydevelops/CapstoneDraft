@@ -1,6 +1,8 @@
 ﻿@page "/search"
 @using CapstoneDraft.Models
 @using CapstoneDraft.Services
+using System.Text.RegularExpressions;
+
 
 @inject PostService PostService
 @inject NavigationManager NavigationManager
@@ -35,5 +37,18 @@
         {
             searchResultsErrorMessage = "There was an error while retrieving your search result - please try again!";
         }
+    }
+
+    private string HighlightSearchQuery(string text, string searchedQuery)
+    {
+        // To be able to include searches where the user includes spaces, need to split at the white space to search multiple words
+        if (string.IsNullOrWhiteSpace(searchedQuery)) return text;
+        string[] searchedWordsWithoutSpace = searchedQuery.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+        // 
+        foreach (string word in searchedWordsWithoutSpace)
+        {
+            text = Regex.Replace(word, $"<span class='highlight'>{word}</span>", RegexOptions.IgnoreCase);
+        }
+        return text;
     }
 }
