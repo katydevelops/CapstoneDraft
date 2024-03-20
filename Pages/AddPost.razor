@@ -21,7 +21,6 @@
                 <EditForm Model="@tempFormData" OnValidSubmit="ProcessNewPost">
                     <DataAnnotationsValidator />
                     <ValidationSummary />
-
                     <div class="custom-form-elements">
                         <label for="postCategory">Category: </label>
                         <InputSelect id="postCategory" @bind-Value="tempFormData.TempPostCategory" class="custom-input-elements" required>
@@ -116,9 +115,8 @@ else
     {
         // Create folder for added photos to be upladed to in wwwroot
         var fileDirectory = Path.Combine("wwwroot", "Uploaded_Photos");
-        var fileSize = 1.5 * 1024 * 1024;
+        var fileSize = 3 * 1024 * 1024; // Needed to make a long for OpenReadSteam to accept
         var photoFileExtension = Path.GetExtension(photoFile.Name);
-
         try
         {
             // If the Uploaded Photos folder doesn't yet exist, create ie
@@ -127,9 +125,9 @@ else
                 Directory.CreateDirectory(fileDirectory);
             }
             // Use memory stream to compress the image in memory before storing the compressed image to the database
-            using (var MemoryStream = new MemoryStream())
+            using (var memoryStream = new MemoryStream())
             {
-                
+                await photoFile.OpenReadStream(fileSize).CopyToAsync(memoryStream);
             }
         }
             
