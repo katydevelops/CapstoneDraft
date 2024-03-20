@@ -52,6 +52,20 @@
         return text;
     }
 
+    private string GetPostWithSearchQueryPreview(string text, string searchedQuery)
+    {
+        // Find the index of the items that were searched by the user
+        var searchIndex = text.IndexOf(searchedQuery, StringComparison.OrdinalIgnoreCase);
+        if (searchIndex > 0)
+        {
+            var startSearchIndex = Math.Max(0, searchIndex - 25);
+            var endSearchIndex = Math.Min(text.Length, searchIndex + 25 + searchedQuery.Length);
+            var querySearchPreview = text.Substring(startSearchIndex, endSearchIndex - startSearchIndex);
+            return $"{querySearchPreview} . . .";
+        }
+        return text;
+    }
+
     private void ViewPost(int postId)
     {
         NavigationManager.NavigateTo($"/post/{postId}");
