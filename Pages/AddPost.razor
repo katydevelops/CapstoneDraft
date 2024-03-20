@@ -118,7 +118,7 @@ else
         var fileSize = 3 * 1024 * 1024; // Needed to make a long for OpenReadSteam to accept
         var photoFileExtension = Path.GetExtension(photoFile.Name);
         var randomFileName = Path.GetRandomFileName() + photoFileExtension;
-        var photoFilePath = Path.Combine(fileDirectory, p)
+        var photoFilePath = Path.Combine(fileDirectory, randomFileName);
         try
         {
             // If the Uploaded Photos folder doesn't yet exist, create ie
