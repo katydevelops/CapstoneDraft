@@ -1,10 +1,10 @@
 ﻿@typeparam TItem
 
-@if (Query != null && Headers != null)
+@if (Query != null && ColumnTitle != null)
 
 
 @code {
     [Parameter] public IEnumerable<TItem> Query { get; set; }
-    [Parameter]
+    [Parameter] public IEnumerable<string> ColumnTitle { get; set; }
     [Parameter]
 }
