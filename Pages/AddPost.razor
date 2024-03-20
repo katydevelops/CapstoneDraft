@@ -119,6 +119,13 @@ else
         var fileSize = 1.5 * 1024 * 1024;
         var photoFileExtension = Path.GetExtension(photoFile.Name);
 
+        try
+        {
+            if (!Directory.Exists(fileDirectory))
+            {
+                Directory.CreateDirectory(fileDirectory);
+            }
+        }
     }
 
 }
