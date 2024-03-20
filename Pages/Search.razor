@@ -31,5 +31,9 @@
         {
             queryResults = await PostService.QueryPostsAndCommentsAsync(searchQuery);
         }
+        catch
+        {
+            searchResultsErrorMessage = "There was an error while retrieving your search result - please try again!";
+        }
     }
 }
