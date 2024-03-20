@@ -25,5 +25,10 @@ namespace CapstoneDraft.Services
             _databaseConnection.Posts.Add(postModel);
             await _databaseConnection.SaveChangesAsync();
         }
+
+        public async Task <List<PostModel>> QueryPostsAndCommentsAsync(string searchQuery)
+        {
+
+        }
     }
 }

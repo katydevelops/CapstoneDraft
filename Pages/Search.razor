@@ -27,4 +27,9 @@
     {
         // Clear old error message
         searchResultsErrorMessage = string.Empty;
+        try
+        {
+            queryResults = await PostService.QueryPostsAndCommentsAsync(searchQuery);
+        }
     }
+}
