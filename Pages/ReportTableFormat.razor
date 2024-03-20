@@ -6,5 +6,5 @@
 @code {
     [Parameter] public IEnumerable<TItem> Query { get; set; }
     [Parameter] public IEnumerable<string> ColumnTitle { get; set; }
-    [Parameter]
+    [Parameter] public Func<TItem, IEnumerable<object>> QueryResults { get; set; }
 }
