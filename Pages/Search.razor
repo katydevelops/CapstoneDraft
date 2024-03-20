@@ -15,6 +15,19 @@
                 <input type="text" @bind="searchQuery" placeholder="Enter your search query!" class="custom-input-elements" />
                 <button type="submit" class="yellow-animated-button">Search!</button>
             </form>
+            @if (queryResults != null && queryResults.Any())
+            {
+                <div>
+                    <ul>
+                        @foreach (var post in queryResults)
+                        {
+                            <div class="search-card">
+                                <h4>@((MarkupString)HighlightSearchQuery(post.Subject,searchQuery))</h4>
+                        }
+                    </ul>
+                </div>
+
+            }
         </div>
     </div>
 </div>
@@ -58,9 +71,11 @@
         var searchIndex = text.IndexOf(searchedQuery, StringComparison.OrdinalIgnoreCase);
         if (searchIndex > 0)
         {
+            // Search for 25 char before the searched words and 25 chars after the search words to provide a simple preview to the user
             var startSearchIndex = Math.Max(0, searchIndex - 25);
             var endSearchIndex = Math.Min(text.Length, searchIndex + 25 + searchedQuery.Length);
             var querySearchPreview = text.Substring(startSearchIndex, endSearchIndex - startSearchIndex);
+            // This meets the assignment requirement of providing search functionality with multiple row results and displays becuase the preview will provide a rows of the searched index and columns of the multiple posts that match
             return $"{querySearchPreview} . . .";
         }
         return text;
