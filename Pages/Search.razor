@@ -23,6 +23,7 @@
                         {
                             <div class="search-card">
                                 <h4>@((MarkupString)HighlightSearchQuery(post.Subject,searchQuery))</h4>
+                                <p>@GetPostWithSearchQueryPreview(post.PostMessageBody, searchQuery)</p>
                         }
                     </ul>
                 </div>
