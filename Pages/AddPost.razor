@@ -121,11 +121,18 @@ else
 
         try
         {
+            // If the Uploaded Photos folder doesn't yet exist, create ie
             if (!Directory.Exists(fileDirectory))
             {
                 Directory.CreateDirectory(fileDirectory);
             }
+            // Use memory stream to compress the image in memory before storing the compressed image to the database
+            using (var MemoryStream = new MemoryStream())
+            {
+                
+            }
         }
+            
     }
 
 }
