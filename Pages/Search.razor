@@ -44,10 +44,10 @@
         // To be able to include searches where the user includes spaces, need to split at the white space to search multiple words
         if (string.IsNullOrWhiteSpace(searchedQuery)) return text;
         string[] searchedWordsWithoutSpace = searchedQuery.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
-        // 
+        // Highlight the searched words after the white space is removed and ignore case sensitivity
         foreach (string word in searchedWordsWithoutSpace)
         {
-            text = Regex.Replace(text, $@"{word}", $@"<span class='highlight'>{word}</span>", RegexOptions.IgnoreCase);
+            text = Regex.Replace(text, word, $@"<span class='highlightSearchQuery'>{word}</span>", RegexOptions.IgnoreCase);
         }
         return text;
     }
