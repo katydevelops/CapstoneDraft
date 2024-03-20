@@ -148,7 +148,8 @@ ul{
 }
 
 
-.search-card{
+.search-card {
     background: white;
     border-radius: 0.4rem;
+    box-shadow: 0 5px 10px #808080
 }
