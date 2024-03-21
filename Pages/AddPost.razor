@@ -1,7 +1,13 @@
 ﻿@page "/AddPost"
 @using CapstoneDraft.Models;
 @using CapstoneDraft.Services;
-
+@using SixLabors.ImageSharp;
+@using SixLabors.ImageSharp.Formats;
+@using SixLabors.ImageSharp.Processing;
+@using SixLabors.ImageSharp.Formats.Jpeg;
+@using SixLabors.ImageSharp.Formats.Png
+@using System.IO
+@using Microsoft.AspNetCore.Components.Forms
 
 @inject PostService PostService
 @inject NavigationManager NavigationManager
@@ -140,13 +146,33 @@ else
         return createUploadFolder;
     }
 
+    private async Task CompressImageSizeAsync(Stream uploadFileStream, string filePath, string fileExtension)
+    {
+        using (var photo = Image.Load(uploadFileStream))
+        {
+            photo.Mutate(image => image.Resize(new ResizeOptions
+            {
+                Mode = ResizeMode.Max,
+                Size = new Size(500),
+            }));
+            IImageEncoder photoType = SetPhotoType(fileExtension);
+            await photo.SaveAsync(filePath, photoType);
+        }
+    }
+
+    private IImageEncoder SetPhotoType(string photoType) => photoType.ToLower() switch
+    {
+        ".jpg" or ".jpeg" => new JpegEncoder {Quality = 50 },
+        ".png" => new PngEncoder(),
+    };
+
     private async Task<string> ProcessSelectedPhotoAsync(IBrowserFile photoFile)
     {
         // Create folder for added photos to be upladed to in wwwroot
-        var fileDirectory = Path.Combine("wwwroot", "Uploaded_Photos");
-        var fileSize = 3 * 1024 * 1024; // Needed to make a long for OpenReadSteam to accept
+        var fileDirectory = CreateUploadedPhotoDirectory("wwwroot", "Uploaded_Photos");
+        const long fileSize = 3 * 1024 * 1024; // Needed to make a long for OpenReadSteam to accept
         var photoFileExtension = Path.GetExtension(photoFile.Name);
-        var randomFileName = Path.GetRandomFileName() + photoFileExtension;
+        var randomFileName = CreateRandomFileName(photoFileExtension);
         var photoFilePath = Path.Combine(fileDirectory, randomFileName);
         try
         {
