@@ -173,6 +173,7 @@ else
             {
                 await CompressImageSizeAsync(uploadFileSteam, photoFilePath, photoFileExtension);
             }
+            return Path.GetRelativePath("wwwroot", photoFilePath);
         }
         catch (Exception error)
         {
