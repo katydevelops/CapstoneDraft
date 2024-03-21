@@ -138,6 +138,10 @@ else
                     Logger.LogInformation($"Confirmed file exists at path: {uploadedPhotoPath}");
                     tempFormData.TempPostPhoto = selectedFilePath;
                 }
+                else
+                {
+                    Logger.Logger.LogWarning($"File not found at expected path: {fullPath}"); ($"File not found at expected path: {fullPath}");
+                }
             }
             else
             {
