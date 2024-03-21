@@ -1,6 +1,7 @@
 ﻿using CapstoneDraft.Data;
 using CapstoneDraft.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Hosting;
 
 namespace CapstoneDraft.Services
 {
@@ -31,6 +32,14 @@ namespace CapstoneDraft.Services
             try
             {
                 var lowerCaseQuery = searchQuery.ToLower() ?? string.Empty;
+                var queryResults = await _databaseConnection.Posts.Include(post => post.PostComments).Where(post => EF.Functions.Like(post.PostSubject.ToLower(), $"%{lowerCaseQuery}%") ||
+                    EF.Functions.Like(post.PostSubject.ToLower(), $"%{lowerCaseQuery}%") ||
+                    EF.Functions.Like(post.PostMessageBody.ToLower(), $"%{lowerCaseQuery}%") ||
+                    EF.Functions.Like(post.AuthorName.ToLower(), $"%{lowerCaseQuery}%") ||
+                    EF.Functions.Like(post.PostCategory.ToLower(), $"%{lowerCaseQuery}%") ||
+                    EF.Functions.Like(post.UserLocation.ToLower(), $"%{lowerCaseQuery}%") ||
+                    post.PostComments.Any(comments => EF.Functions.Like(comments.CommentText.ToLower(), $"%{lowerCaseQuery}%"))).ToListAsync();
+                return queryResults;
             }
             catch
             {
