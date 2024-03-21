@@ -136,7 +136,7 @@ else
                 if (File.Exists(uploadedPhotoPath))
                 {
                     Logger.LogInformation($"Confirmed file exists at path: {uploadedPhotoPath}");
-
+                    tempFormData.TempPostPhoto = selectedFilePath;
                 }
             }
             else
