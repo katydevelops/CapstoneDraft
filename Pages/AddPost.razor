@@ -140,7 +140,8 @@ else
                 }
                 else
                 {
-                    Logger.Logger.LogWarning($"File not found at expected path: {fullPath}"); ($"File not found at expected path: {fullPath}");
+                    Logger.LogWarning($"File not found at expected path: {selectedFilePath}");
+                    AddPostErrorMessage = "There was an issue locating the processed file on the server.";
                 }
             }
             else
