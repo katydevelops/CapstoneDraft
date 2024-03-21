@@ -35,5 +35,5 @@ else
 @code {
     [Parameter] public IEnumerable<TItem> Query { get; set; }
     [Parameter] public IEnumerable<string> ColumnTitles { get; set; }
-    [Parameter] public Func<TItem, IEnumerable<object>> QueryResults { get; set; }
+    [Parameter] public Func<TItem, IEnumerable<object>> QueryResults { get; set; } // Return a collection of objects received and display them each in a table row
 }
