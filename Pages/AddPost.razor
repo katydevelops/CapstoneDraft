@@ -209,7 +209,10 @@ else
 
     private async Task CompressImageSizeAsync(Stream uploadFileStream, string photoFilePath, string photoFileExtension)
     {
-        using (var photo = Image.Load(uploadFileStream))
+        using var compressPhotoStream = new MemoryStream();
+        await uploadFileStream.CopyToAsync(compressPhotoStream);
+        compressPhotoStream.Position = 0;
+        using (var photo = Image.Load(compressPhotoStream))
         {
             photo.Mutate(image => image.Resize(new ResizeOptions
                 {
