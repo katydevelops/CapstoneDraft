@@ -135,7 +135,7 @@ else
                 var uploadedPhotoPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", selectedFilePath);
                 if (File.Exists(uploadedPhotoPath))
                 {
-                    Logger.LogInformation($"Confirmed file exists at path: {fullPath}");
+                    Logger.LogInformation($"Confirmed file exists at path: {uploadedPhotoPath}");
 
                 }
             }
