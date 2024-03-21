@@ -119,8 +119,13 @@ else
 
     private async Task ProcessFileUploadAsync(InputFileChangeEventArgs args)
     {
-        const long fileSizeLimit = 3 * 1024 * 1024;
+        const long fileSizeLimit = 6 * 1024 * 1024;
         var selectedFile = args.File;
+        if (selectedFile.Size > fileSizeLimit)
+        {
+            AddPostErrorMessage = "Your files size cannot exceed 3 MB - please upload a smaller photo!";
+            return;
+        }
         if (selectedFile != null)
         {
             try
