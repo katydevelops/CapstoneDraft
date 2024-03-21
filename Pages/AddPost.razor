@@ -126,16 +126,18 @@ else
             AddPostErrorMessage = "Your files size cannot exceed 3 MB - please upload a smaller photo!";
             return;
         }
-        if (selectedFile != null)
+        try
         {
-            try
+            AddPostErrorMessage = string.Empty;
+            var selectedFilePath = await ProcessSelectedPhotoAsync(selectedFile);
+            if (!string.IsNullOrEmpty(selectedFilePath))
             {
-                var filePath = await ProcessSelectedPhotoAsync(selectedFile);
-                tempFormData.TempPostPhotoFilePath = filePath;
+                tempFormData.TempPostPhotoFilePath = selectedFilePath;
+                AddPostErrorMessage = string.Empty;
             }
-            catch (Exception error)
+            else
             {
-                Logger.LogInformation(error, "There was an error uploading your file");
+                AddPostErrorMessage = "There was an error processing the file you are attempting to upload - please try again!";
             }
         }
     }
