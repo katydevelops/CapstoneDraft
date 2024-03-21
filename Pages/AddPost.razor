@@ -133,8 +133,11 @@ else
             if (!string.IsNullOrEmpty(selectedFilePath))
             {
                 var uploadedPhotoPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", selectedFilePath);
-                tempFormData.TempPostPhoto = selectedFilePath;
-                AddPostErrorMessage = string.Empty;
+                if (File.Exists(uploadedPhotoPath))
+                {
+                    Logger.LogInformation($"Confirmed file exists at path: {fullPath}");
+
+                }
             }
             else
             {
