@@ -146,19 +146,6 @@ else
         return createUploadFolder;
     }
 
-    private async Task CompressImageSizeAsync(Stream uploadFileStream, string filePath, string fileExtension)
-    {
-        using (var photo = Image.Load(uploadFileStream))
-        {
-            photo.Mutate(image => image.Resize(new ResizeOptions
-            {
-                Mode = ResizeMode.Max,
-                Size = new Size(500),
-            }));
-            IImageEncoder photoType = SetPhotoType(fileExtension);
-            await photo.SaveAsync(filePath, photoType);
-        }
-    }
 
     private IImageEncoder SetPhotoType(string photoType) => photoType.ToLower() switch
     {
@@ -182,15 +169,28 @@ else
                 AddPostErrorMessage = "Your selected photo exceeds the maximum file size limit! Please try a different photo!";
             }
             // Use memory stream to compress the image in memory before storing the compressed image to the database
-            using (var memoryStream = new MemoryStream())
+            await using (var uploadFileSteam = photoFile.OpenReadStream(fileSizeLimit))
             {
-                await photoFile.OpenReadStream(fileSize).CopyToAsync(memoryStream);
+                await CompressImageSizeAsync(uploadFileSteam, photoFilePath, photoFileExtension);
             }
         }
-        catch
+        catch (Exception error)
         {
-            
+            Logger.LogInformation(error, "You are receiving an error with the iamge you are trying to upload - please try agian");
         }
     }
 
+    private async Task CompressImageSizeAsync(Stream uploadFileStream, string photoFilePath, string photoFileExtension)
+    {
+        using (var photo = Image.Load(uploadFileStream))
+        {
+            photo.Mutate(image => image.Resize(new ResizeOptions
+                {
+                    Mode = ResizeMode.Max,
+                    Size = new Size(500),
+                }));
+            IImageEncoder photoType = SetPhotoType(photoFileExtension);
+            await photo.SaveAsync(photoFilePath, photoType);
+        }
+    }
 }
