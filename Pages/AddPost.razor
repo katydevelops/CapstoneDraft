@@ -132,13 +132,18 @@ else
             var selectedFilePath = await ProcessSelectedPhotoAsync(selectedFile);
             if (!string.IsNullOrEmpty(selectedFilePath))
             {
-                tempFormData.TempPostPhotoFilePath = selectedFilePath;
+                var uploadedPhotoPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", selectedFilePath);
+                tempFormData.TempPostPhoto = selectedFilePath;
                 AddPostErrorMessage = string.Empty;
             }
             else
             {
                 AddPostErrorMessage = "There was an error processing the file you are attempting to upload - please try again!";
             }
+        }
+        catch (Exception error)
+        {
+            Logger.LogInformation(error, "There was an error processing the file - please try again.");
         }
     }
 
@@ -180,8 +185,12 @@ else
             await using (var uploadFileSteam = photoFile.OpenReadStream(fileSizeLimit))
             {
                 await CompressImageSizeAsync(uploadFileSteam, photoFilePath, photoFileExtension);
+                Logger.LogInformation($"Processing file: {photoFile.Name}, Size: {photoFile.Size}, Directory: {fileDirectory}");
+
             }
             return Path.GetRelativePath("wwwroot", photoFilePath);
+            Logger.LogInformation($"Photo processed and saved at: {photoFilePath}");
+
         }
         catch (Exception error)
         {
