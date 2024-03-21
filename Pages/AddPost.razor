@@ -177,9 +177,9 @@ else
         try
         {
             // If the Uploaded Photos folder doesn't yet exist, create ie
-            if (photoFile > fileSizeLimit))
+            if (photoFile.Size > fileSizeLimit)
             {
-                Directory.CreateDirectory(fileDirectory);
+                AddPostErrorMessage = "Your selected photo exceeds the maximum file size limit! Please try a different photo!";
             }
             // Use memory stream to compress the image in memory before storing the compressed image to the database
             using (var memoryStream = new MemoryStream())
