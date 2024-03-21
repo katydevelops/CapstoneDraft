@@ -18,7 +18,7 @@
         <div class="social-media-container">
             <div class="social-media-card">
                 <h3>Create a New Post</h3>
-                <EditForm Model="@tempFormData" OnValidSubmit="ProcessNewPost">
+                <EditForm Model="@tempFormData" OnValidSubmit="ProcessNewPostAsync">
                     <DataAnnotationsValidator />
                     <ValidationSummary />
                     <div class="custom-form-elements">
@@ -47,7 +47,7 @@
                         <InputTextArea id="body" @bind-Value="tempFormData.TempPostMessageBody" class="custom-input-elements" />
                         </div>
                     <div class="custom-form-elements">
-                        <InputFile OnChange="ProcessFileUpload" class="custom-input-elements" />
+                        <InputFile OnChange="ProcessFileUploadAsync" class="custom-input-elements" />
                         </div>
                     <div class="custom-form-elements">
                         <button type="submit" class="yellow-animated-button">Submit</button>
@@ -79,7 +79,7 @@ else
         Logger.LogInformation("User authenticated status: {Authenticated}", userAuthenticated);
     }
 
-    private async Task ProcessNewPost()
+    private async Task ProcessNewPostAsync()
     {
         if (string.IsNullOrWhiteSpace(tempFormData.TempPostNameOfPostAuthor))
         {
@@ -111,14 +111,14 @@ else
         tempFormData = new TemporaryPostModel();
     }
 
-    private async Task ProcessFileUpload(InputFileChangeEventArgs args)
+    private async Task ProcessFileUploadAsync(InputFileChangeEventArgs args)
     {
         var selectedFile = args.File;
         if (selectedFile != null)
         {
             try
             {
-                var filePath = await UploadFileAsync(selectedFile);
+                var filePath = await ProcessSelectedPhotoAsync(selectedFile);
                 tempFormData.TempPostPhotoFilePath = filePath;
             }
             catch (Exception error)
@@ -128,7 +128,7 @@ else
         }
     }
 
-    private async Task ProcessSelectedPhoto(IBrowserFile photoFile)
+    private async Task<string> ProcessSelectedPhotoAsync(IBrowserFile photoFile)
     {
         // Create folder for added photos to be upladed to in wwwroot
         var fileDirectory = Path.Combine("wwwroot", "Uploaded_Photos");
