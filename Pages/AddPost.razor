@@ -47,7 +47,7 @@
                         <InputTextArea id="body" @bind-Value="tempFormData.TempPostMessageBody" class="custom-input-elements" />
                         </div>
                     <div class="custom-form-elements">
-                        <InputFile OnChange="ProcessUserFileUpload" class="custom-input-elements" />
+                        <InputFile OnChange="ProcessFileUpload" class="custom-input-elements" />
                         </div>
                     <div class="custom-form-elements">
                         <button type="submit" class="yellow-animated-button">Submit</button>
@@ -111,9 +111,21 @@ else
         tempFormData = new TemporaryPostModel();
     }
 
-    private async Task ProcessUserFileUpload(InputFileChangeEventArgs args)
+    private async Task ProcessFileUpload(InputFileChangeEventArgs args)
     {
-        
+        var selectedFile = args.File;
+        if (selectedFile != null)
+        {
+            try
+            {
+                var filePath = await UploadFileAsync(selectedFile);
+                tempFormData.TempPostPhotoFilePath = filePath;
+            }
+            catch (Exception error)
+            {
+                Logger.LogInformation(error, "There was an error uploading your file");
+            }
+        }
     }
 
     private async Task ProcessSelectedPhoto(IBrowserFile photoFile)
