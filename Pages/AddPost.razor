@@ -130,6 +130,16 @@ else
 
     private string CreateRandomFileName(string fileExtentsion) => $"{Guid.NewGuid()}{fileExtentsion}";
 
+    private string CreateUploadedPhotoDirectory(string rootFile, string uploadedPhotoDirectory)
+    {
+        var createUploadFolder = Path.Combine(rootFile, uploadedPhotoDirectory);
+        if (!Directory.Exists(createUploadFolder))
+        {
+            Directory.CreateDirectory(createUploadFolder);
+        }
+        return createUploadFolder;
+    }
+
     private async Task<string> ProcessSelectedPhotoAsync(IBrowserFile photoFile)
     {
         // Create folder for added photos to be upladed to in wwwroot
