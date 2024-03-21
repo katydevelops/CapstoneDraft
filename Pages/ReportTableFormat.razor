@@ -12,10 +12,13 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (var result in Query)
+            @foreach (var data in Query)
             {
                 <tr>
-
+                    @foreach (var result in QueryResults(data))
+                    {
+                        
+                    }
                 </tr>
             }
         </tbody>
