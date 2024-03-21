@@ -177,6 +177,7 @@ else
         catch (Exception error)
         {
             Logger.LogInformation(error, "You are receiving an error with the iamge you are trying to upload - please try agian");
+            throw;
         }
     }
 
