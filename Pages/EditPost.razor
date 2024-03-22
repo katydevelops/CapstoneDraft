@@ -109,9 +109,10 @@
         }
         var loggedInUser = (await AuthenticationStateProvider.GetAuthenticationStateAsync()).User;
         var loggedInUserId = UserManager.GetUserId(loggedInUser);
+        postModel = await PostService.FetchPostAsync(EditPostId);
         if (postModel == null)
         {
-            
+            EditPostErrorMessage = "This post does not exist - please try again!";
         }
     }
 
