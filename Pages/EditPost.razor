@@ -18,4 +18,9 @@
 @code {
     [Parameter]
     public int EditPostId { get; set; }
+    private TemporaryPostModel tempFormData = new();
+    private PostModel postModel;
+    private string EditPostErrorMessage;
+    private bool userAuthenticated;
+    private bool postAuthor;
 }
