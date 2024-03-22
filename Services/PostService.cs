@@ -21,9 +21,9 @@ namespace CapstoneDraft.Services
         }
 
         // Add the newly created post to the database using built-in Entity Framework method
-        public async Task AddNewPostAsync(PostModel postModel)
+        public async Task AddNewPostAsync(PostModel post)
         {
-            _databaseConnection.Posts.Add(postModel);
+            _databaseConnection.Posts.Add(post);
             await _databaseConnection.SaveChangesAsync();
         }
 
@@ -51,5 +51,7 @@ namespace CapstoneDraft.Services
         {
             return await _databaseConnection.Posts.Include(post => post.User).Include(post => post.PostComments).FirstOrDefaultAsync(post => post.PostId == postId);
         }
+
+        public async Task UpdatePostAsync(PostModel post)
     }
 }

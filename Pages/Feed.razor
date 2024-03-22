@@ -7,20 +7,29 @@
 @inject AuthenticationStateProvider AuthenticationStateProvider
 @inject NavigationManager NavigationManager
 
-@if (feedPosts == null)
+@if (posts == null)
 {
     <h1>There are currently no posts in the feed!</h1>
 }
-@foreach (var feedPost in feedPosts)
+@foreach (var post in posts)
 {
     <div class="fullsize-container">
     <div class="social-media-container">
-            <h4>Name: @feedPost.AuthorName</h4>
-            <h5>Subject:  @feedPost.PostSubject</h5>
+            <h4>Name: @post.AuthorName</h4>
+            <h5>Subject:  @post.PostSubject</h5>
             <div class="social-media-card">
-                <p>@feedPost.PostMessageBody</p>
-                <p>Posted by @(feedPost.AuthorName) on @feedPost.PostCreatedTimestamp.ToString("MM/dd/yy")</p>
-                    <img class="feed-photo" src="@($"/{feedPost.PostPhoto}")" asp-append-version="true" alt="Post image" />
+                <p>@post.PostMessageBody</p>
+                <p>Posted by @(post.AuthorName) on @post.PostCreatedTimestamp.ToString("MM/dd/yy")</p>
+                <img class="feed-photo" src="@($"/{post.PostPhoto}")" asp-append-version="true" alt="Post image" />
+        </div>
+            <div class="feed-button-container">
+                <button class="btn btn-danger" @onclick="() => LikePostAsync(post)">😍 Like (@post.PostLikes)</button>
+                <div>
+                    @if (post.UserId == currentUserId)
+                    {
+                        <button class="btn btn-warning" @onclick="() => EditPostAsync(post.UserId)">Edit</button>
+                    }
+                </div>
         </div>
     </div>
 </div>
@@ -28,7 +37,7 @@
 
 
 @code {
-    public List<PostModel> feedPosts;
+    public List<PostModel> posts;
     private string commentText;
     private int editedCommentId;
     private string currentUserId;
@@ -43,8 +52,13 @@
         {
             var loggedInUserId = UserManager.GetUserId(loggedInUser);
             currentUserId = loggedInUserId;
-            feedPosts = await PostService.FetchFeedPostAsync();
+            posts = await PostService.FetchFeedPostAsync();
         }
+    }
 
+    private async Task LikePostAsync(PostModel Post)
+    {
+        Post.PostLikes++;
+        await PostService.UpdatePostAsync(post);
     }
 }
