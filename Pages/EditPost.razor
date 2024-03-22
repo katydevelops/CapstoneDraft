@@ -104,7 +104,7 @@
         Logger.LogInformation("User authenticated status: {Authenticated}", userAuthenticated);
         if (!userAuthenticated)
         {
-            NavigationManager.NavigateTo("/login");
+            NavigationManager.NavigateTo("/");
             return;
         }
         var loggedInUser = (await AuthenticationStateProvider.GetAuthenticationStateAsync()).User;
@@ -113,6 +113,11 @@
         if (postModel == null)
         {
             EditPostErrorMessage = "This post does not exist - please try again!";
+        }
+        postAuthor = postModel.UserId == loggedInUserId;
+        if (!postAuthor)
+        {
+            NavigationManager.NavigateTo("/");
         }
     }
 

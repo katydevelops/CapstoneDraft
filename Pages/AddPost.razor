@@ -118,9 +118,9 @@ else
         tempFormData = new TemporaryPostModel();
     }
 
-    private async Task ProcessFileUploadAsync(InputFileChangeEventArgs e)
+    private async Task ProcessFileUploadAsync(InputFileChangeEventArgs args)
     {
-        var file = e.File;
+        var file = args.File;
         if (file != null)
         {
             try
