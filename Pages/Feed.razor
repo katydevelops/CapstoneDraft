@@ -27,7 +27,7 @@
                 <div>
                     @if (post.UserId == currentUserId)
                     {
-                        <button class="btn btn-warning" @onclick="() => EditPostAsync(post.UserId)">Edit</button>
+                        <button class="btn btn-warning" @onclick="() => EditPost(post.UserId)">Edit</button>
                     }
                 </div>
         </div>
@@ -59,6 +59,6 @@
     private async Task LikePostAsync(PostModel Post)
     {
         Post.PostLikes++;
-        await PostService.UpdatePostAsync(post);
+        await PostService.EditPostAsync(Post);
     }
 }
