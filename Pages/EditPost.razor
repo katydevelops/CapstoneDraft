@@ -5,7 +5,7 @@
 @inject NavigationManager NavigationManager
 @inject AuthenticationStateProvider AuthenticationStateProvider
 @inject UploadPhotoService UploadPhotoService
-
+@inject ILogger<EditPost> Logger
 
 
 <div class="fullsize-container">
@@ -74,9 +74,13 @@
                                 <button type="submit" class="yellow-animated-button">Save!</button>
                             </div>
                         </EditForm>
-                        </div>
-                    </div>
-                </div>
+                        @if (!String.IsNullOrEmpty(EditPostErrorMessage))
+                        {
+                            <div class="alert alert-danger" role="alert">@EditPostErrorMessage</div>
+                        }
+                     </div>
+                 </div>
+            </div>
             }
         </div>
     </div>
@@ -91,6 +95,17 @@
     private bool ShowImageRemovedAlert;
     private bool userAuthenticated;
     private bool postAuthor;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var userAuthenticationState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        userAuthenticated = userAuthenticationState.User.Identity.IsAuthenticated;
+        Logger.LogInformation("User authenticated status: {Authenticated}", userAuthenticated);
+        if (!userAuthenticated)
+        {
+            NavigationManager
+        }
+    }
 
     private async Task SubmitUpdatedPostAsync()
     {
