@@ -10,7 +10,6 @@
 
 <div class="fullsize-container">
     <div class="social-media-container">
-        <div class="social-media-card">
             <h2>Edit Post Test</h2>
             @if (!userAuthenticated)
             {
@@ -20,9 +19,30 @@
             {
                 <p>You are not the author of this post - your request is denied!</p>
             }
+            else
+            {
+                <div>
+                    <div>
+                        <div class="social-media-card">
+                            <h3>Edit Post</h3>
+                            <EditForm Model="tempFormData" OnValidSubmit="SubmitUpdatedPost" novalidate>
+                                <div>
+                                    <label for="category" class="custom-form-elements">Category: </label>
+                                    <InputSelect id="category" @bind-Value="tempFormData.TempPostCategory" class="custom-input-elements" required>
+                                        <option value="">Select a Category</option>
+                                        <option value="Safety Tip">Safety Tip</option>
+                                        <option value="Safety Event">Safety Event</option>
+                                        <option value="Report a Safety Incident">Report a Safety Incident</option>
+                                    </InputSelect>
+                                </div>
+                            </EditForm>
+                        </div>
+                    </div>
+                </div>
+            }
         </div>
     </div>
-</div>
+
 
 @code {
     [Parameter]
@@ -32,4 +52,9 @@
     private string EditPostErrorMessage;
     private bool userAuthenticated;
     private bool postAuthor;
+
+    private async Task SubmitUpdatedPost()
+    {
+                
+    }
 }
