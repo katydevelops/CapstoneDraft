@@ -70,6 +70,6 @@
 
     private async Task DeletePostAsync(int postId)
     {
-        
+        var postPendingDeletion = posts.FirstOrDefault(post => post.PostId == postId);
     }
 }
