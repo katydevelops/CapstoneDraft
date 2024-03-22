@@ -58,5 +58,14 @@ namespace CapstoneDraft.Services
             _databaseConnection.Entry(post).State = EntityState.Modified;
             await _databaseConnection.SaveChangesAsync(); 
         }
+
+        public async Task RemovePostAsync(int postId)
+        {
+            var postPendingDeletion = await _databaseConnection.Posts.FindAsync(postId);
+            if (postPendingDeletion != null)
+            {
+                _databaseConnection.Posts.Remove(postPendingDeletion);
+            }
+        }
     }
 }
