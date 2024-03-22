@@ -35,6 +35,7 @@
 
     protected override async Task OnInitializedAsync()
     {
+        var userAuthenticationState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
         feedPosts = await PostService.FetchFeedPostAsync();
     }
 }
