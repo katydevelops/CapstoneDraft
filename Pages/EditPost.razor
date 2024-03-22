@@ -125,7 +125,12 @@
 
     private void LoadPostDetails(PostModel postModel)
     {
-        
+        tempFormData.TempPostCategory = postModel.PostCategory;
+        tempFormData.TempPostNameOfPostAuthor = postModel.AuthorName;
+        tempFormData.TempPostUserLocation = postModel.UserLocation;
+        tempFormData.TempPostSubject = postModel.PostSubject;
+        tempFormData.TempPostMessageBody = postModel.PostMessageBody;
+        tempFormData.TempPostPhoto = postModel.PostPhoto;
     }
 
     private async Task SubmitUpdatedPostAsync()
