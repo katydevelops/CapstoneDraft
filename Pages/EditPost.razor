@@ -163,6 +163,14 @@
 
     private async Task ProcessNewImageAsync()
     {
-        
+
+    }
+
+    private void RemoveImage()
+    {
+        tempFormData.TempPostPhoto = null;
+        postModel.PostPhoto = null;
+        ShowImageRemovedAlert = true;
+        StateHasChanged();
     }
 }
