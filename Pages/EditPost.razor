@@ -28,12 +28,15 @@
                             <EditForm Model="tempFormData" OnValidSubmit="SubmitUpdatedPost" novalidate>
                                 <div>
                                     <label for="category" class="custom-form-elements">Category: </label>
-                                    <InputSelect id="category" @bind-Value="tempFormData.TempPostCategory" class="custom-input-elements" required>
-                                        <option value="">Select a Category</option>
-                                        <option value="Safety Tip">Safety Tip</option>
-                                        <option value="Safety Event">Safety Event</option>
-                                        <option value="Report a Safety Incident">Report a Safety Incident</option>
-                                    </InputSelect>
+                                        <InputSelect id="category" @bind-Value="tempFormData.TempPostCategory" class="custom-input-elements" required>
+                                            <option value="">Select a Category</option>
+                                            <option value="Safety Tip">Safety Tip</option>
+                                            <option value="Safety Event">Safety Event</option>
+                                            <option value="Report a Safety Incident">Report a Safety Incident</option>
+                                        </InputSelect>
+                                </div>
+                                <div class="custom-form-elements">
+                                    <label for="name">Name: </label>
                                 </div>
                             </EditForm>
                         </div>
