@@ -2,6 +2,7 @@
 @using CapstoneDraft.Models;
 @using CapstoneDraft.Services;
 @inject PostService PostService
+@inject UserManager<UserModel> UserManager
 @inject NavigationManager NavigationManager
 @inject AuthenticationStateProvider AuthenticationStateProvider
 @inject UploadPhotoService UploadPhotoService
@@ -106,6 +107,7 @@
             NavigationManager.NavigateTo("/login");
             return;
         }
+        var loggedInUserId = UserManager.GetUserId(loggedInUser);
     }
 
     private async Task SubmitUpdatedPostAsync()
