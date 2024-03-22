@@ -140,6 +140,12 @@
             EditPostErrorMessage = "You are not authorized to edit this post!";
             return;
         }
+        LoadPostInputFields();
+    }
+
+    private void LoadPostInputFields()
+    {
+        postModel.PostCategory = tempFormData.TempPostCategory;
     }
 
     private async Task ProcessNewImageAsync()
