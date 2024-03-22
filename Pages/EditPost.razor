@@ -51,8 +51,11 @@
                                     <label for="name">Post Message: </label>
                                 <InputText id="message" class="custom-input-elements" @bind-Value="@tempFormData.TempPostMessageBody" />
                                 </div>
-
-                            </EditForm>
+                            @if (!string.IsNullOrEmpty(postModel.PostPhoto))
+                            {
+                                
+                            }
+                        </EditForm>
                         </div>
                     </div>
                 </div>
