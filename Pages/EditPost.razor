@@ -68,6 +68,7 @@
                             }
                             <div>
                                 <label for="updated-image" class="custom-form-elements">New Image: </label>
+                                <InputFile id="updated-image" OnChange="@ProcessNewImage"
                             </div>
                         </EditForm>
                         </div>
@@ -88,8 +89,13 @@
     private bool userAuthenticated;
     private bool postAuthor;
 
-    private async Task SubmitUpdatedPost()
+    private async Task SubmitUpdatedPostAsync()
     {
-                
+
+    }
+
+    private async Task ProcessNewImageAsync()
+    {
+        
     }
 }
