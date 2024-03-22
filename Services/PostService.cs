@@ -52,6 +52,11 @@ namespace CapstoneDraft.Services
             return await _databaseConnection.Posts.Include(post => post.User).Include(post => post.PostComments).FirstOrDefaultAsync(post => post.PostId == postId);
         }
 
-        public async Task UpdatePostAsync(PostModel post)
+        public async Task EditPostAsync(PostModel post)
+        {
+            // Observe the changes that were made to the post using the EF Modified keyword - this will submit the updated values to the database when SaveChangesAsync is called
+            _databaseConnection.Entry(post).State = EntityState.Modified;
+            await _databaseConnection.SaveChangesAsync(); 
+        }
     }
 }
