@@ -135,7 +135,10 @@
 
     private async Task SubmitUpdatedPostAsync()
     {
-
+        if (!postAuthor || !userAuthenticated)
+        {
+            
+        }
     }
 
     private async Task ProcessNewImageAsync()
