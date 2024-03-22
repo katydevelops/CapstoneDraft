@@ -9,6 +9,7 @@
 @using System.IO
 @using Microsoft.AspNetCore.Components.Forms
 
+@inject UploadPhotoService _uploadPhotoService
 @inject PostService PostService
 @inject NavigationManager NavigationManager
 @inject UserManager<UserModel> UserManager
@@ -117,110 +118,23 @@ else
         tempFormData = new TemporaryPostModel();
     }
 
-    private async Task ProcessFileUploadAsync(InputFileChangeEventArgs args)
+    private async Task ProcessFileUploadAsync(InputFileChangeEventArgs e)
     {
-        const long fileSizeLimit = 6 * 1024 * 1024;
-        var selectedFile = args.File;
-        if (selectedFile.Size > fileSizeLimit)
+        var file = e.File;
+        if (file != null)
         {
-            AddPostErrorMessage = "Your files size cannot exceed 3 MB - please upload a smaller photo!";
-            return;
-        }
-        try
-        {
-            AddPostErrorMessage = string.Empty;
-            var selectedFilePath = await ProcessSelectedPhotoAsync(selectedFile);
-            if (!string.IsNullOrEmpty(selectedFilePath))
+            try
             {
-                var uploadedPhotoPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", selectedFilePath);
-                if (File.Exists(uploadedPhotoPath))
-                {
-                    Logger.LogInformation($"Confirmed file exists at path: {uploadedPhotoPath}");
-                    tempFormData.TempPostPhoto = selectedFilePath;
-                }
-                else
-                {
-                    Logger.LogWarning($"File not found at expected path: {selectedFilePath}");
-                    AddPostErrorMessage = "There was an issue locating the processed file on the server.";
-                }
+                // Call the service to process the file and get the saved path
+                var savedFilePath = await _uploadPhotoService.ProcessSelectedPhotoAsync(file);
+                // Update the UI model with the path of the saved file
+                tempFormData.TempPostPhoto = savedFilePath;
             }
-            else
+            catch (Exception ex)
             {
-                AddPostErrorMessage = "There was an error processing the file you are attempting to upload - please try again!";
+                Logger.LogError(ex, "Error uploading file.");
+                AddPostErrorMessage = "An error occurred while processing the file. Please try again.";
             }
-        }
-        catch (Exception error)
-        {
-            Logger.LogInformation(error, "There was an error processing the file - please try again.");
-        }
-    }
-
-    private string CreateRandomFileName(string fileExtentsion) => $"{Guid.NewGuid()}{fileExtentsion}";
-
-    private string CreateUploadedPhotoDirectory(string rootFile, string uploadedPhotoDirectory)
-    {
-        var createUploadFolder = Path.Combine(rootFile, uploadedPhotoDirectory);
-        if (!Directory.Exists(createUploadFolder))
-        {
-            Directory.CreateDirectory(createUploadFolder);
-        }
-        return createUploadFolder;
-    }
-
-
-    private IImageEncoder SetPhotoType(string photoType) => photoType.ToLower() switch
-    {
-        ".jpg" or ".jpeg" => new JpegEncoder {Quality = 50 },
-        ".png" => new PngEncoder(),
-    };
-
-    private async Task<string> ProcessSelectedPhotoAsync(IBrowserFile photoFile)
-    {
-        // Create folder for added photos to be upladed to in wwwroot
-        var fileDirectory = CreateUploadedPhotoDirectory("wwwroot", "Uploaded_Photos");
-        const long fileSizeLimit = 3 * 1024 * 1024; // Needed to make a long for OpenReadSteam to accept
-        var photoFileExtension = Path.GetExtension(photoFile.Name);
-        var randomFileName = CreateRandomFileName(photoFileExtension);
-        var photoFilePath = Path.Combine(fileDirectory, randomFileName);
-        try
-        {
-            // If the Uploaded Photos folder doesn't yet exist, create ie
-            if (photoFile.Size > fileSizeLimit)
-            {
-                AddPostErrorMessage = "Your selected photo exceeds the maximum file size limit! Please try a different photo!";
-            }
-            // Use memory stream to compress the image in memory before storing the compressed image to the database
-            await using (var uploadFileSteam = photoFile.OpenReadStream(fileSizeLimit))
-            {
-                await CompressImageSizeAsync(uploadFileSteam, photoFilePath, photoFileExtension);
-                Logger.LogInformation($"Processing file: {photoFile.Name}, Size: {photoFile.Size}, Directory: {fileDirectory}");
-
-            }
-            return Path.GetRelativePath("wwwroot", photoFilePath);
-            Logger.LogInformation($"Photo processed and saved at: {photoFilePath}");
-
-        }
-        catch (Exception error)
-        {
-            Logger.LogInformation(error, "You are receiving an error with the iamge you are trying to upload - please try agian");
-            throw;
-        }
-    }
-
-    private async Task CompressImageSizeAsync(Stream uploadFileStream, string photoFilePath, string photoFileExtension)
-    {
-        using var compressPhotoStream = new MemoryStream();
-        await uploadFileStream.CopyToAsync(compressPhotoStream);
-        compressPhotoStream.Position = 0;
-        using (var photo = Image.Load(compressPhotoStream))
-        {
-            photo.Mutate(image => image.Resize(new ResizeOptions
-                {
-                    Mode = ResizeMode.Max,
-                    Size = new Size(500),
-                }));
-            IImageEncoder photoType = SetPhotoType(photoFileExtension);
-            await photo.SaveAsync(photoFilePath, photoType);
         }
     }
 }

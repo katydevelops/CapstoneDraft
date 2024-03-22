@@ -30,6 +30,8 @@ builder.Services.AddDefaultIdentity<UserModel>(options => options.SignIn.Require
 builder.Services.AddScoped<UserService>();
 builder.Services.AddScoped<PostService>();
 builder.Services.AddScoped<ReportService>();
+builder.Services.AddScoped<UploadPhotoService>();
+
 
 
 var app = builder.Build();
