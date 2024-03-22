@@ -34,6 +34,7 @@
                 <div>
                     <form @onsubmit="@(async () => await AddComment(post))">
                         <input type="text" @bind="commentText" class="custom-form-elements" placeholder="Add a comment" />
+                        <button type="submit" class="btn btn-primary">🗯 Comment</button>
                     </form>
                 </div>
         </div>
