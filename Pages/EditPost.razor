@@ -103,7 +103,8 @@
         Logger.LogInformation("User authenticated status: {Authenticated}", userAuthenticated);
         if (!userAuthenticated)
         {
-            NavigationManager
+            NavigationManager.NavigateTo("/login");
+            return;
         }
     }
 
