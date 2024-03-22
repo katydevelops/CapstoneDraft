@@ -12,7 +12,10 @@
     <div class="social-media-container">
         <div class="social-media-card">
             <h2>Edit Post Test</h2>
-            @
+            @if (!userAuthenticated)
+            {
+                <p>Please login in order to edit posts!</p>
+            }
         </div>
     </div>
 </div>
