@@ -166,7 +166,7 @@
         var newSelectedImage = args.File;
         if (newSelectedImage != null)
         {
-            
+            var newSelectedImagePath = await UploadPhotoService.ProcessSelectedPhotoAsync(newSelectedImage);
         }
     }
 
