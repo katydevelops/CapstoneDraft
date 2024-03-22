@@ -27,7 +27,8 @@
                 <div>
                     @if (post.UserId == currentUserId)
                     {
-                        <button class="btn btn-warning" @onclick="() => EditPost(post.UserId)">Edit</button>
+                        <button class="btn btn-warning" @onclick="() => EditPost(post.PostId)">Edit</button>
+                        <button class="btn btn-danger" @onclick="() => DeletePost(post.PostId)">Delete</button>
                     }
                 </div>
         </div>
