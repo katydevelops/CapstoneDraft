@@ -23,7 +23,7 @@ builder.Services.AddServerSideBlazor();
 builder.Services.AddDbContext<CapstoneContext>(options => options.UseSqlite(builder.Configuration.GetConnectionString("CapstoneDraftConnectionString")));
 
 // Configure ASP.NET Identity in application to handle authentication and authorization and set require confirmed user account to false for easier testing to prevent having to verify real email addresses
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false).AddRoles<IdentityRole>().AddEntityFrameworkStores<CapstoneContext>();
+builder.Services.AddDefaultIdentity<UserModel>(options => options.SignIn.RequireConfirmedAccount = false).AddRoles<IdentityRole>().AddEntityFrameworkStores<CapstoneContext>();
 
 
 // Services that will be used in Safety Net app

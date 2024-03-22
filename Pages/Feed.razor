@@ -3,7 +3,7 @@
 @using CapstoneDraft.Services
 @using Microsoft.AspNetCore.Identity
 @inject PostService PostService
-@inject UserManager<IdentityUser> UserManager
+@inject UserManager<UserModel> userManager;
 @inject AuthenticationStateProvider AuthenticationStateProvider
 @inject NavigationManager NavigationManager
 

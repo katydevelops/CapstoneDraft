@@ -2,7 +2,7 @@
 @using CapstoneDraft.Models;
 @using CapstoneDraft.Services;
 @inject PostService PostService
-@inject UserManager<IdentityUser> UserManager
+@inject UserManager<UserModel> userManager;
 @inject NavigationManager NavigationManager
 @inject AuthenticationStateProvider AuthenticationStateProvider
 @inject UploadPhotoService UploadPhotoService

@@ -2,7 +2,7 @@
 
 @using CapstoneDraft.Models;
 @using CapstoneDraft.Services;
-@inject UserManager<IdentityUser> UserManager
+@inject UserManager<UserModel> userManager;
 @inject NavigationManager NavigationManager
 
 @* Wrap register form in data annotations validator to capture missing properties marked as [Required] in the model and also ensure that username and password match custom annotation set *@
