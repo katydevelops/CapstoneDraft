@@ -60,6 +60,12 @@
                                     </div>
                                 </div>
                             }
+                            else if (ShowImageRemovedAlert)
+                            {
+                                <div class="alert alert-success">
+                                    Image removed! Please select a new image below!
+                                </div>
+                            }
                         </EditForm>
                         </div>
                     </div>
@@ -75,6 +81,7 @@
     private TemporaryPostModel tempFormData = new();
     private PostModel postModel;
     private string EditPostErrorMessage;
+    private bool ShowImageRemovedAlert;
     private bool userAuthenticated;
     private bool postAuthor;
 
