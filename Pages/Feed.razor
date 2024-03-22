@@ -37,6 +37,12 @@
     {
         var userAuthenticationState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
         var loggedInUser = userAuthenticationState.User;
-        feedPosts = await PostService.FetchFeedPostAsync();
+        if (loggedInUser.Identity.IsAuthenticated)
+        {
+            var loggedInUserId = UserManager.GetUserId(loggedInUser);
+            currentUserId = loggedInUserId;
+            feedPosts = await PostService.FetchFeedPostAsync();
+        }
+
     }
 }
