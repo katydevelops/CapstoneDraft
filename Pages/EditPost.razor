@@ -107,7 +107,12 @@
             NavigationManager.NavigateTo("/login");
             return;
         }
+        var loggedInUser = (await AuthenticationStateProvider.GetAuthenticationStateAsync()).User;
         var loggedInUserId = UserManager.GetUserId(loggedInUser);
+        if (postModel == null)
+        {
+            
+        }
     }
 
     private async Task SubmitUpdatedPostAsync()
