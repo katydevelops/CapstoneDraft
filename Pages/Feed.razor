@@ -74,6 +74,8 @@
         if (postPendingDeletion != null && postPendingDeletion.UserId == currentUserId)
         {
             await PostService.RemovePostAsync(postId);
+            posts.Remove(postPendingDeletion);
+            StateHasChanged();
         }
     }
 }
