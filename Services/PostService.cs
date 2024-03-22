@@ -46,5 +46,10 @@ namespace CapstoneDraft.Services
                 throw;
             }
         }
+
+        public async Task<PostModel> FetchPostAsync(int postId)
+        {
+            return await _databaseConnection.Posts.Include(post => post.User).Include(post => post.PostComments).FirstOrDefaultAsync(post => post.PostId == postId);
+        }
     }
 }
