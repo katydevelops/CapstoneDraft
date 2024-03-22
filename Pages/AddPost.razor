@@ -9,7 +9,7 @@
 @using System.IO
 @using Microsoft.AspNetCore.Components.Forms
 
-@inject UploadPhotoService _uploadPhotoService
+@inject UploadPhotoService UploadPhotoService
 @inject PostService PostService
 @inject NavigationManager NavigationManager
 @inject UserManager<UserModel> UserManager
@@ -126,7 +126,7 @@ else
             try
             {
                 // Call the service to process the file and get the saved path
-                var savedFilePath = await _uploadPhotoService.ProcessSelectedPhotoAsync(file);
+                var savedFilePath = await UploadPhotoService.ProcessSelectedPhotoAsync(file);
                 // Update the UI model with the path of the saved file
                 tempFormData.TempPostPhoto = savedFilePath;
             }
