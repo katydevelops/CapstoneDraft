@@ -167,6 +167,7 @@
         if (newSelectedImage != null)
         {
             var newSelectedImagePath = await UploadPhotoService.ProcessSelectedPhotoAsync(newSelectedImage);
+            tempFormData.TempPostPhoto = newSelectedImagePath;
         }
     }
 
