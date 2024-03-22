@@ -163,7 +163,11 @@
 
     private async Task ProcessNewImageAsync(InputFileChangeEventArgs args)
     {
-
+        var newSelectedImage = args.File;
+        if (newSelectedImage != null)
+        {
+            
+        }
     }
 
     private void RemoveImage()
