@@ -28,7 +28,7 @@
                     @if (post.UserId == currentUserId)
                     {
                         <button class="btn btn-warning" @onclick="() => EditPost(post.PostId)">Edit</button>
-                        <button class="btn btn-danger" @onclick="() => DeletePost(post.PostId)">Delete</button>
+                        <button class="btn btn-danger" @onclick="() => DeletePostAsync(post.PostId)">Delete</button>
                     }
                 </div>
         </div>
@@ -66,5 +66,10 @@
     private void EditPost(int postId)
     {
         NavigationManager.NavigateTo($"/EditPost/{postId}");
+    }
+
+    private async Task DeletePostAsync(int postId)
+    {
+        
     }
 }
