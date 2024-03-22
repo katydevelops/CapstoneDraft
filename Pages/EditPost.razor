@@ -150,6 +150,15 @@
         postModel.UserLocation = tempFormData.TempPostUserLocation;
         postModel.PostSubject = tempFormData.TempPostSubject;
         postModel.PostMessageBody = tempFormData.TempPostMessageBody;
+
+        if (!string.IsNullOrEmpty(tempFormData.TempPostPhoto) && tempFormData.TempPostPhoto != postModel.PostPhoto)
+        {
+            postModel.PostPhoto = tempFormData.TempPostPhoto;
+        }
+        else if (string.IsNullOrEmpty(tempFormData.TempPostPhoto))
+        {
+            postModel.PostPhoto = null;
+        }
     }
 
     private async Task ProcessNewImageAsync()
