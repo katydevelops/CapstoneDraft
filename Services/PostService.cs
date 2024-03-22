@@ -65,6 +65,7 @@ namespace CapstoneDraft.Services
             if (postPendingDeletion != null)
             {
                 _databaseConnection.Posts.Remove(postPendingDeletion);
+                await _databaseConnection.SaveChangesAsync();
             }
         }
     }
