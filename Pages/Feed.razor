@@ -135,6 +135,7 @@
 
     private async Task DeleteCommentAsync(int commentId)
     {
-        
+        var commentedDeleted = await PostService.RemoveCommentAsync(commentId, currentUserId);
+
     }
 }
