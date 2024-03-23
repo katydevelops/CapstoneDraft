@@ -20,6 +20,10 @@
                 }
                 <p>Posted by @post.AuthorName on @post.PostCreatedTimestamp.ToShortDateString()</p>
             </div>
+            @if (post.PostComments.Any())
+            {
+                
+            }
         </div>
     </div>
 }
