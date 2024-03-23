@@ -45,11 +45,23 @@
                     reportDisplayTable = CreateReportDisplayTable(totalPostPerUser, new[] { "Username", "Total Posts", "Latest Post Timestamp" },
                     item => new object[] { item.Key, item.Value.TotalPosts, item.value.LatestPostTimestamp });
                     break;
+                case 2:
+                    var total
             }
         }
         catch
         {
-            
+
+        }
+    }
+
+    private RenderFragment CreateReportDisplayTable<TIem>(IEnumerable<TItem> query, IEnumerable<string> columnTitles, Func<TItem>, IEnumerable<object>> queryResults)
+    {
+        return builder =>
+        {
+            builder.OpenComponent(0, typeof(ReportTableFormat<TItem));
+            builder.AddAttribute(1, "Query", query);
+
         }
     }
 }
