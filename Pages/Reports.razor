@@ -1,6 +1,7 @@
 ﻿@page "/reports"
 @using CapstoneDraft.Models;
 @using CapstoneDraft.Services;
+@using System.Text;
 
 @inject ReportService ReportService
 
@@ -43,7 +44,7 @@
                 case 1:
                     var totalPostPerUser = await ReportService.GetTotalPostsPerUserAsync();
                     reportDisplayTable = CreateReportDisplayTable(totalPostPerUser, new[] { "Username", "Total Posts", "Latest Post Timestamp" },
-                    item => new object[] { item.Key, item.Value.TotalPosts, item.value.LatestPostTimestamp });
+                    item => new object[] { item.Key, item.Value.TotalPosts, item.Value.LatestPostTimestamp });
                     break;
                 case 2:
                     var total
