@@ -2,16 +2,19 @@
 using CapstoneDraft.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 
 namespace CapstoneDraft.Services
 {
     public class PostService
     {
         private readonly CapstoneContext _databaseConnection;
+        private readonly ILogger<PostService> _logger;
 
         public PostService(CapstoneContext databaseConnection)
         {
             _databaseConnection = databaseConnection;
+            _logger = logger;
         }
 
         // Fetch the post details and include the post details, affiliated comments, user who posted the comments and order by most recent to older posts
@@ -106,6 +109,10 @@ namespace CapstoneDraft.Services
             {
                 _databaseConnection.Comments.Add(comment);
                 await _databaseConnection.SaveChangesAsync();
+            }
+            catch (Exception error)
+            {
+                throw;
             }
        }
     }
