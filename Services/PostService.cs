@@ -72,6 +72,16 @@ namespace CapstoneDraft.Services
         public async Task UpdateCommentAsync(int commentId, string newBody, string userId)
         {
             var commentPendingUpdate = await _databaseConnection.Comments.FirstOrDefault(comment => comment.CommentId == commentId);
+            if (commentPendingUpdate != null && commentPendingUpdate.UserId == userId) 
+            { 
+                commentPendingUpdate.Body = newBody;
+                _databaseConnection.Comments.Update(commentPendingUpdate)
+                await _databaseConnection.SaveChangesAsync();
+            }
+            else
+            {
+                throw new InvalidOperationExceptions("This comment could not be located - please try again!");
+            }
         }
     }
 }
