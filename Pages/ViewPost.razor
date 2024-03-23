@@ -26,7 +26,13 @@
                     <h4>Comments: </h4>
                     @foreach (var comment in post.PostComments)
                     {
-                        
+                        <p>@comment.CommentText</p>
+                        <p>
+                            @if (comment.User != null)
+                            {
+                                <small>Commented by @comment.User.UserName on @comment.CommentCreatedTimestamp.ToShortDateString()</small>
+                            }
+                        </p>
                     }
             }
         </div>
