@@ -159,6 +159,7 @@
         {
             comment.CommentText = commentText;
             await PostService.UpdateCommentAsync(comment.CommentId, commentText, currentUserId);
+            editedCommentId = 0;
         }
     }
 
