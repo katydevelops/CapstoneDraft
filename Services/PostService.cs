@@ -68,5 +68,10 @@ namespace CapstoneDraft.Services
                 await _databaseConnection.SaveChangesAsync();
             }
         }
+
+        public async Task UpdateCommentAsync(int commentId, string newBody, string userId)
+        {
+
+        }
     }
 }
