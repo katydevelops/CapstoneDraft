@@ -75,6 +75,11 @@
         StateHasChanged();
     }
 
+    public void ReportTableDisposed()
+    {
+        _reportTableDisposed = true;
+    }
+
     private RenderFragment CreateReportDisplayTable<TItem>(IEnumerable<TItem> query, IEnumerable<string> columnTitles, Func<TItem, IEnumerable<object>> queryResults)
     {
         return builder =>
