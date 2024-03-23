@@ -45,6 +45,7 @@
                         {
                             <input type="text" @bind="commentText" />
                             <button @onclick="() => SaveCommentAsync(comment)">Save</button>
+                            <button class="btn btn-danger" @onclick="() => CancelEditing()">Cancel</button>
                         }
                     }
                 </div>
