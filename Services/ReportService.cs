@@ -17,9 +17,9 @@ namespace CapstoneDraft.Services
             var totalPostPerUser = await _databaseConnection.Users.Select(user => new
             {
                 Username = user.UserName,
-                TotalPost = user.UsersPosts.Count(),
+                TotalPosts = user.UsersPosts.Count(),
                 LatestPostTimestamp = user.UsersPosts.Max(post => (DateTime?)post.PostCreatedTimestamp)
-            }).ToDictionaryAsync(user => user.Username, user => (user.TotalPost, user.LatestPostTimestamp));
+            }).ToDictionaryAsync(user => user.Username, user => (user.TotalPosts, user.LatestPostTimestamp));
             return totalPostPerUser;
         }
     }
