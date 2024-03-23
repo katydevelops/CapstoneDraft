@@ -32,7 +32,11 @@ namespace CapstoneDraft.Services
                     TotalComments = group.Count(),
                     LatestCommentTimestamp = group.Max(comment => (DateTime?)comment.CommentCreatedTimestamp)
                 }).ToDictionaryAsync(group => group.UserName, group => (group.TotalComments, group.LatestCommentTimestamp));
+        }
 
+        public async Task<Dictionary<string, int>> GetTotalPostsPerCategory()
+        {
+            return await _databaseConnection.Posts.GroupBy(post => post.PostCategory).Select(group => new { PostCategory = group.Key, Count = group.Count() }).ToDictionaryAsync(group => group.PostCategory, group => group.Count);
         }
     }
 
