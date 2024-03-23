@@ -136,6 +136,9 @@
     private async Task DeleteCommentAsync(int commentId)
     {
         var commentedDeleted = await PostService.RemoveCommentAsync(commentId, currentUserId);
-
+        if (commentedDeleted)
+        {
+            var commentPendingDeletion = posts.SelectMany(post => post.PostComments).FirstOrDefault(comment => comment.CommentId == commentId)
+        }
     }
 }
