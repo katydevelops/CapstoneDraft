@@ -71,7 +71,7 @@ namespace CapstoneDraft.Services
 
         public async Task UpdateCommentAsync(int commentId, string newBody, string userId)
         {
-
+            var commentPendingUpdate = await _databaseConnection.Comments.FirstOrDefault(comment => comment.CommentId == commentId);
         }
     }
 }
