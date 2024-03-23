@@ -147,6 +147,12 @@
         }
     }
 
+    private async Task RefreshFeed()
+    {
+        posts = await PostService.FetchFeedPostAsync();
+        StateHasChanged();
+    }
+
     private async Task SaveCommentAsync(CommentModel comment)
     {
         if (!string.IsNullOrWhiteSpace(commentText))
