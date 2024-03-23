@@ -88,8 +88,8 @@
 
 
 @code {
-    [Parameter]
-    public int EditPostId { get; set; }
+        [Parameter]
+        public int EditPostId { get; set; }
     private TemporaryPostModel tempFormData = new();
     private PostModel postModel;
     private string EditPostErrorMessage;
@@ -148,15 +148,8 @@
     {
         try
         {
-            var updatedpost = await PostService.EditPostAsync(postModel);
-            if (updatedpost)
-            {
-                NavigationManager.NavigateTo("/feed");
-            }
-            else
-            {
-                EditPostErrorMessage = "An error occurred while updating this post - please try again!";
-            }
+            await PostService.EditPostAsync(postModel);
+            NavigationManager.NavigateTo("/feed");
         }
         catch (Exception error)
         {
