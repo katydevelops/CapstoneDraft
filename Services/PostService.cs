@@ -80,7 +80,7 @@ namespace CapstoneDraft.Services
             }
             else
             {
-                throw new InvalidOperationExceptions("This comment could not be located - please try again!");
+                throw new InvalidOperationException("This comment could not be located - please try again!");
             }
         }
     }
