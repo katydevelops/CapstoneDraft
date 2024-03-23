@@ -99,6 +99,7 @@
 
     private void EditPost(int postId)
     {
+        Logger.LogInformation($"Navigating to edit post page for post ID: {postId}");
         NavigationManager.NavigateTo($"/EditPost/{postId}");
     }
 
