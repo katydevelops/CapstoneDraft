@@ -51,7 +51,7 @@
                         {
                             <p>@comment.CommentText</p>
                             <button class="btn btn-warning" @onclick="() => EditComment(comment)">Edit</button>
-                            <button class="btn btn-danger" @onclick="() => EditComment(comment)">Edit</button>
+                            <button class="btn btn-danger" @onclick="() => DeleteCommentAsync(comment)">Delete</button>
                         }
                     }
                 </div>
