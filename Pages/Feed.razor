@@ -139,6 +139,7 @@
 
             await PostService.AddCommentAsync(newComment);
             commentText = string.Empty;
+            await RefreshFeed();
         }
     }
 
