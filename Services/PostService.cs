@@ -83,5 +83,10 @@ namespace CapstoneDraft.Services
                 throw new InvalidOperationException("This comment could not be located - please try again!");
             }
         }
+
+        public async Task<bool> RemoveCommentAsync(int commentId, string userId)
+        {
+
+        }
     }
 }
