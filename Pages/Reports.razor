@@ -42,6 +42,9 @@
             {
                 case 1:
                     var totalPostPerUser = await ReportService.GetTotalPostsPerUserAsync();
+                    reportDisplayTable = CreateReportDisplayTable(totalPostPerUser, new[] { "Username", "Total Posts", "Latest Post Timestamp" },
+                    item => new object[] { item.Key, item.Value.TotalPosts, item.value.LatestPostTimestamp });
+                    break;
             }
         }
         catch
