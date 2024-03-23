@@ -136,6 +136,9 @@
                     CommentCreatedTimestamp = DateTime.UtcNow,
                     UserId = loggedInUserId
                 };
+
+            await PostService.AddCommentAsync(newComment);
+            commentText = string.Empty;
         }
     }
 
