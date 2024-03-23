@@ -13,7 +13,12 @@ namespace CapstoneDraft.Services
 
         public async Task<Dictionary<string, (int PostCount, DateTime? LatestPostDate)>> GetTotalPostsPerUserAsync()
         {
+            var totalPostPerUser = await _databaseConnection.Users.Select(user => new
+            {
+                Username = user.UserName,
+                TotalPost = user.UsersPosts.Count(),
 
+            });
         }
     }
 
