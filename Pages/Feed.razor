@@ -127,6 +127,7 @@
         {
             var userAuthenticationState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
             var loggedInUser = userAuthenticationState.User;
+            var loggedInUserId = UserManager.GetUserId(loggedInUser);
             var newComment = new CommentModel
             {
                 CommentText = commentText,
