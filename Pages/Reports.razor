@@ -16,12 +16,13 @@
                 <option value="4">Latest User Activity Report</option>
             </select>
         </div>
-        
+        @if ()
     </div>
 </div>
 
-@code {
-    private int selectedReport;
+        @code {
+        private int selectedReport;
+        private RenderFragment generateTable;
 
     private async Task ProcessReportNumberSelection(ChangeEventArgs args)
     {
