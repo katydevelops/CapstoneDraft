@@ -116,6 +116,7 @@
         }
         else
         {
+            Logger.LogWarning($"Unauthorized attempt to delete post ID: {postId}");
             FeedErrorMessage = "You do not have authorization to delete this post!";
         }
     }
