@@ -128,13 +128,14 @@
             var userAuthenticationState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
             var loggedInUser = userAuthenticationState.User;
             var loggedInUserId = UserManager.GetUserId(loggedInUser);
+
             var newComment = new CommentModel
-            {
-                CommentText = commentText,
-                PostId = post.PostId,
-                CommentCreatedTimestamp = DateTime.UtcNow,
-                UserId = await GetCu
-            }
+                {
+                    CommentText = commentText,
+                    PostId = post.PostId,
+                    CommentCreatedTimestamp = DateTime.UtcNow,
+                    UserId = loggedInUserId
+                };
         }
     }
 
