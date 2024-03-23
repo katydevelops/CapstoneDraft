@@ -105,6 +105,7 @@ namespace CapstoneDraft.Services
             try
             {
                 _databaseConnection.Comments.Add(comment);
+                await _databaseConnection.SaveChangesAsync();
             }
        }
     }
