@@ -114,4 +114,9 @@
             await PostService.UpdateCommentAsync(comment.CommentId, commentText, currentUserId);
         }
     }
+
+    private void CancelEdits()
+    {
+        editedCommentId = 0;
+    }
 }
