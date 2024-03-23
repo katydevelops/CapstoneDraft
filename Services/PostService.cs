@@ -96,5 +96,9 @@ namespace CapstoneDraft.Services
             return false;
         }
 
+       public async Task AddCommentAsync(CommentAttribute comment)
+       {
+
+       }
     }
 }
