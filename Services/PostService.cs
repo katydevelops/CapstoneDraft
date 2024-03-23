@@ -102,6 +102,10 @@ namespace CapstoneDraft.Services
             {
                 return;
             }
+            try
+            {
+                _databaseConnection.Comments.Add(comment);
+            }
        }
     }
 }
