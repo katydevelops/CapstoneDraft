@@ -141,8 +141,8 @@
             var commentPendingDeletion = posts.SelectMany(post => post.PostComments).FirstOrDefault(comment => comment.CommentId == commentId);
             if (commentPendingDeletion != null)
             {
-                var post = posts.FirstOrDefault(post => post.PostComments.Contains(comment));
-                post?.Comments.Remove(comment);
+                var post = posts.FirstOrDefault(post => post.PostComments.Contains(commentPendingDeletion));
+                post?.Comments.Remove(commentPendingDeletion);
             }
             else
             {
