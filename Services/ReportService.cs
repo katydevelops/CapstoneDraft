@@ -25,6 +25,13 @@ namespace CapstoneDraft.Services
 
         public async Task<Dictionary<string, (int TotalComments, DateTime? LatestCommentTimestamp)>> GetTotalCommentsPerUser()
         {
+            return await _databaseConnection.Comments.GroupBy(comment => comment.User.UserName)
+                .Select(group => new
+                {
+                    UserName = group.Key,
+                    TotalComments = group.Count(),
+                    LatestCommentTimestamp = group.Max(comment => (DateTime?)comment.CommentCreatedTimestamp)
+                }).ToDictionaryAsync(group => group.UserName, group => (group.TotalComments, group.LatestCommentTimestamp));
 
         }
     }
