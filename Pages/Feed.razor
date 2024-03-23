@@ -138,7 +138,8 @@
         var commentedDeleted = await PostService.RemoveCommentAsync(commentId, currentUserId);
         if (commentedDeleted)
         {
-            var commentPendingDeletion = posts.SelectMany(post => post.PostComments).FirstOrDefault(comment => comment.CommentId == commentId)
+            var commentPendingDeletion = posts.SelectMany(post => post.PostComments).FirstOrDefault(comment => comment.CommentId == commentId);
+            if (commentPendingDeletion)
         }
     }
 }
