@@ -75,7 +75,7 @@ namespace CapstoneDraft.Services
             if (commentPendingUpdate != null && commentPendingUpdate.UserId == userId) 
             { 
                 commentPendingUpdate.Body = newBody;
-                _databaseConnection.Comments.Update(commentPendingUpdate)
+                _databaseConnection.Comments.Update(commentPendingUpdate);
                 await _databaseConnection.SaveChangesAsync();
             }
             else
