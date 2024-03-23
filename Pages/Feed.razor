@@ -74,6 +74,7 @@
 
     protected override async Task OnInitializedAsync()
     {
+        Logger.LogInformation("Fetching user authentication state.");
         var userAuthenticationState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
         var loggedInUser = userAuthenticationState.User;
         if (loggedInUser.Identity.IsAuthenticated)
