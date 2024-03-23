@@ -87,6 +87,10 @@ namespace CapstoneDraft.Services
         public async Task<bool> RemoveCommentAsync(int commentId, string userId)
         {
             var commentPendingDeletion = await _databaseConnection.Comments.FirstOrDefaultAsync(comment => comment.CommentId == commentId);
+            if (commentPendingDeletion != null && commentPendingDeletion.UserId == userId)
+            {
+
+            }
         }
     }
 }
