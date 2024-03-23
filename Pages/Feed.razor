@@ -110,7 +110,7 @@
         if (!string.IsNullOrWhiteSpace(commentText))
         {
             comment.CommentText = commentText;
-            await PostService.UpdateCommentAsync()
+            await PostService.UpdateCommentAsync(comment.CommentId, commentText, currentUserId);
         }
     }
 }
