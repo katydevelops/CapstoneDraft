@@ -142,7 +142,7 @@
             if (commentPendingDeletion != null)
             {
                 var post = posts.FirstOrDefault(post => post.PostComments.Contains(commentPendingDeletion));
-                post?.Comments.Remove(commentPendingDeletion);
+                post?.PostComments.Remove(commentPendingDeletion);
             }
             else
             {
