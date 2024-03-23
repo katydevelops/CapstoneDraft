@@ -89,8 +89,11 @@ namespace CapstoneDraft.Services
             var commentPendingDeletion = await _databaseConnection.Comments.FirstOrDefaultAsync(comment => comment.CommentId == commentId);
             if (commentPendingDeletion != null && commentPendingDeletion.UserId == userId)
             {
-
+                _databaseConnection.Comments.Remove(commentPendingDeletion); 
+                await _databaseConnection.SaveChangesAsync();
+                return true;
             }
+            return false;
         }
     }
 }
