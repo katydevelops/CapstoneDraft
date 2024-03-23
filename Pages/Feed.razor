@@ -105,6 +105,7 @@
 
     private async Task DeletePostAsync(int postId)
     {
+        Logger.LogInformation($"Attempting to delete post ID: {postId}");
         var postPendingDeletion = posts.FirstOrDefault(post => post.PostId == postId);
         if (postPendingDeletion != null && postPendingDeletion.UserId == currentUserId)
         {
