@@ -111,6 +111,7 @@
         {
             await PostService.RemovePostAsync(postId);
             posts.Remove(postPendingDeletion);
+            Logger.LogInformation($"Post ID: {postId} deleted successfully.");
             StateHasChanged();
         }
         else
