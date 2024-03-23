@@ -30,5 +30,6 @@
     private async Task ProcessReportSelection(ChangeEventArgs args)
     {
         selectedReport = Convert.ToInt32(args.Value);
+        await GenerateReportsAsync();
     }
 }
