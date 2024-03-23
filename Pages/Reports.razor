@@ -60,6 +60,10 @@
                     var userLastActive = await.ReportService.GetUserLastActiveDetailsAsync();
                     reportDisplayTable = CreateReportDisplayTable(userLastActive, new[] { "Username", "Email", "User Last Active" },
                     report => new object[] { report.UserName, report.Email, report.UserLastActive.HasValue ? report.UserLastActive.Value.ToString("g") : "This user has never logged in!" });
+                    return;
+                default:
+                    reportDisplayTable = null;
+                    break;
             }
         }
         catch
