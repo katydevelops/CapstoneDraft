@@ -47,6 +47,10 @@
                             <button @onclick="() => SaveCommentAsync(comment)">Save</button>
                             <button class="btn btn-danger" @onclick="() => CancelEditing()">Cancel</button>
                         }
+                        else
+                        {
+                            <p>@comment.CommentText</p>
+                        }
                     }
                 </div>
         </div>
