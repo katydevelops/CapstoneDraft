@@ -30,7 +30,11 @@
                         <p>
                             @if (comment.User != null)
                             {
-                                <small>Commented by @comment.User.UserName on @comment.CommentCreatedTimestamp.ToShortDateString()</small>
+                                <small>Commented by @comment.User.UserName - @comment.CommentCreatedTimestamp.ToShortDateString()</small>
+                            }
+                            else
+                            {
+                                <small>Author of Comment Unknown - Posted - @comment.CommentCreatedTimestamp.ToShortDateString() </small>
                             }
                         </p>
                     }
