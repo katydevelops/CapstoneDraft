@@ -69,12 +69,12 @@ namespace CapstoneDraft.Services
             }
         }
 
-        public async Task UpdateCommentAsync(int commentId, string newBody, string userId)
+        public async Task UpdateCommentAsync(int commentId, string newCommentText, string userId)
         {
             var commentPendingUpdate = await _databaseConnection.Comments.Where(comment => comment.CommentId == commentId).FirstOrDefaultAsync();
             if (commentPendingUpdate != null && commentPendingUpdate.UserId == userId) 
             { 
-                commentPendingUpdate.Body = newBody;
+                commentPendingUpdate.CommentText = newCommentText;
                 _databaseConnection.Comments.Update(commentPendingUpdate);
                 await _databaseConnection.SaveChangesAsync();
             }
