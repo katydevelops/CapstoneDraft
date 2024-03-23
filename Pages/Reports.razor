@@ -47,15 +47,17 @@
                     report => new object[] { report.Key, report.Value.TotalPosts, report.Value.LatestPostTimestamp });
                     break;
                 case 2:
-                    var totalCommentsPerUser = await ReportService.GetTotalCommentsPerUser();
+                    var totalCommentsPerUser = await ReportService.GetTotalCommentsPerUserAsync();
                     reportDisplayTable = CreateReportDisplayTable(totalCommentsPerUser, new[] { "Username", "Comment Count", "Latest Comment Timestamp " },
                     report => new object[] { report.Key, report.Value.TotalComments, report.Value.LatestCommentTimestamp?.ToString("group") ?? "No comments reutrned!" });
                     break;
                 case 3:
-                    var totalPostsPerCategory = await ReportService.GetTotalPostsPerCategory();
+                    var totalPostsPerCategory = await ReportService.GetTotalPostsPerCategoryAsync();
                     reportDisplayTable = CreateReportDisplayTable(totalPostsPerCategory, new[] { "Category", "Total Posts Per Category" },
                     report => new object[] { report.Key, report.Value });
                     break;
+                case 4:
+                    var userLastActive = await.ReportService.GetUserLastActiveDetailsAsync();
             }
         }
         catch

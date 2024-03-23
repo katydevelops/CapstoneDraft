@@ -23,7 +23,7 @@ namespace CapstoneDraft.Services
             return totalPostPerUser;
         }
 
-        public async Task<Dictionary<string, (int TotalComments, DateTime? LatestCommentTimestamp)>> GetTotalCommentsPerUser()
+        public async Task<Dictionary<string, (int TotalComments, DateTime? LatestCommentTimestamp)>> GetTotalCommentsPerUserAsync()
         {
             return await _databaseConnection.Comments.GroupBy(comment => comment.User.UserName)
                 .Select(group => new
@@ -34,9 +34,14 @@ namespace CapstoneDraft.Services
                 }).ToDictionaryAsync(group => group.UserName, group => (group.TotalComments, group.LatestCommentTimestamp));
         }
 
-        public async Task<Dictionary<string, int>> GetTotalPostsPerCategory()
+        public async Task<Dictionary<string, int>> GetTotalPostsPerCategoryAsync()
         {
             return await _databaseConnection.Posts.GroupBy(post => post.PostCategory).Select(group => new { PostCategory = group.Key, Count = group.Count() }).ToDictionaryAsync(group => group.PostCategory, group => group.Count);
+        }
+
+        public async Task<List<(string UserName, string Email, DateTime? UserLastActive)>> GetUserLastActiveDetailsAsync()
+        {
+
         }
     }
 
