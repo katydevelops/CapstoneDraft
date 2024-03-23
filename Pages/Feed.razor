@@ -141,6 +141,10 @@
             commentText = string.Empty;
             await RefreshFeed();
         }
+        else
+        {
+            FeedErrorMessage = "Your comment cannot be added at this time - please try again!";
+        }
     }
 
     private async Task SaveCommentAsync(CommentModel comment)
