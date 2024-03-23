@@ -44,7 +44,7 @@
                         if (editedCommentId == comment.CommentId)
                         {
                             <input type="text" @bind="commentText" />
-
+                            <button @onclick="() => SaveCommentAsync(comment)">Save</button>
                         }
                     }
                 </div>
