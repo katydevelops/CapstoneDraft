@@ -112,6 +112,7 @@ namespace CapstoneDraft.Services
             }
             catch (Exception error)
             {
+                _logger.LogError(error, "You are receiving an error while adding this comment to the database.");
                 throw;
             }
        }
