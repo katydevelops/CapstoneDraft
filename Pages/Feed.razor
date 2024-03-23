@@ -139,7 +139,10 @@
         if (commentedDeleted)
         {
             var commentPendingDeletion = posts.SelectMany(post => post.PostComments).FirstOrDefault(comment => comment.CommentId == commentId);
-            if (commentPendingDeletion)
+            if (commentPendingDeletion != null)
+            {
+                
+            }
         }
     }
 }
