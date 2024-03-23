@@ -46,11 +46,10 @@ namespace CapstoneDraft.Services
                 {
                     user.UserName,
                     user.Email,
-                    user.UserLastActive,
+                    UserLastActive = user.UserLastActiveTimeStamp,
                 })
-                .OrderByDescending(user => user.UserLastActive)
-                .ToListAsync();
-            return userLastActive.Select(user => (user.UserName, user.Email, user.UserLastActive).ToList();
+                .OrderByDescending(user => user.UserLastActive).ToListAsync();
+            return userLastActive.Select(user => (user.UserName, user.Email, user.UserLastActive)).ToList();
         }
     }
 
