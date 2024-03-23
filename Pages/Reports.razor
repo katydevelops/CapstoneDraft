@@ -51,6 +51,9 @@
                     reportDisplayTable = CreateReportDisplayTable(totalCommentsPerUser, new[] { "Username", "Comment Count", "Latest Comment Timestamp " },
                     report => new object[] { report.Key, report.Value.TotalComments, report.Value.LatestCommentTimestamp?.ToString("group") ?? "No comments reutrned!" });
                     break;
+                case 3:
+                    var totalPostsPerCategory = await ReportService.totalPostsPerCategory();
+
             }
         }
         catch
