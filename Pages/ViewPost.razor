@@ -49,4 +49,9 @@
     [Parameter]
     public int PostId { get; set; }
     private PostModel post;
+
+    protected override async Task OnInitializedAsync()
+    {
+        post = await PostService.FetchPostAsync(PostId);
+    }
 }
