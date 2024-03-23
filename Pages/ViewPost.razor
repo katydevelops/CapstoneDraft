@@ -14,6 +14,10 @@
             </div>
             <div>
                 <p>@post.PostMessageBody</p>
+                @if (!string.IsNullOrWhiteSpace(post.PostPhoto))
+                {
+                    <img src="@post.PostPhoto" alt="Post Image" />
+                }
             </div>
         </div>
     </div>
@@ -22,6 +26,6 @@
 
 @code {
     [Parameter]
-    public int PostId { get; set;  }
+    public int PostId { get; set; }
     private PostModel post;
 }
