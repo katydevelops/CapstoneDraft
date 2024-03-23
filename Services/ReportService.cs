@@ -41,7 +41,16 @@ namespace CapstoneDraft.Services
 
         public async Task<List<(string UserName, string Email, DateTime? UserLastActive)>> GetUserLastActiveDetailsAsync()
         {
-
+            var userLastActive = await _databaseConnection.Users
+                .Select(user => new
+                {
+                    user.UserName,
+                    user.Email,
+                    user.UserLastActive,
+                })
+                .OrderByDescending(user => user.UserLastActive)
+                .ToListAsync();
+            return userLastActive.Select(user => (user.UserName, user.Email, user.UserLastActive).ToList();
         }
     }
 
