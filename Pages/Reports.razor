@@ -47,7 +47,7 @@
                     item => new object[] { item.Key, item.Value.TotalPosts, item.Value.LatestPostTimestamp });
                     break;
                 case 2:
-                    var total
+                    var totalCommentsPerUser = await ReportService.GetTotalCommentsPerUser();
             }
         }
         catch

@@ -22,6 +22,11 @@ namespace CapstoneDraft.Services
             }).ToDictionaryAsync(user => user.Username, user => (user.TotalPosts, user.LatestPostTimestamp));
             return totalPostPerUser;
         }
+
+        public async Task<Dictionary<string, (int TotalComments, DateTime? LatestCommentTimestamp)>> GetTotalCommentsPerUser()
+        {
+
+        }
     }
 
 
