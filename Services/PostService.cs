@@ -27,7 +27,7 @@ namespace CapstoneDraft.Services
             await _databaseConnection.SaveChangesAsync();
         }
 
-        public async Task <List<PostModel>> QueryPostsAndCommentsAsync(string searchQuery)
+        public async Task<List<PostModel>> QueryPostsAndCommentsAsync(string searchQuery)
         {
             try
             {
@@ -56,7 +56,7 @@ namespace CapstoneDraft.Services
         {
             // Observe the changes that were made to the post using the EF Modified keyword - this will submit the updated values to the database when SaveChangesAsync is called
             _databaseConnection.Entry(post).State = EntityState.Modified;
-            await _databaseConnection.SaveChangesAsync(); 
+            await _databaseConnection.SaveChangesAsync();
         }
 
         public async Task RemovePostAsync(int postId)
@@ -72,8 +72,8 @@ namespace CapstoneDraft.Services
         public async Task UpdateCommentAsync(int commentId, string newCommentText, string userId)
         {
             var commentPendingUpdate = await _databaseConnection.Comments.Where(comment => comment.CommentId == commentId).FirstOrDefaultAsync();
-            if (commentPendingUpdate != null && commentPendingUpdate.UserId == userId) 
-            { 
+            if (commentPendingUpdate != null && commentPendingUpdate.UserId == userId)
+            {
                 commentPendingUpdate.CommentText = newCommentText;
                 _databaseConnection.Comments.Update(commentPendingUpdate);
                 await _databaseConnection.SaveChangesAsync();
@@ -89,16 +89,19 @@ namespace CapstoneDraft.Services
             var commentPendingDeletion = await _databaseConnection.Comments.FirstOrDefaultAsync(comment => comment.CommentId == commentId);
             if (commentPendingDeletion != null && commentPendingDeletion.UserId == userId)
             {
-                _databaseConnection.Comments.Remove(commentPendingDeletion); 
+                _databaseConnection.Comments.Remove(commentPendingDeletion);
                 await _databaseConnection.SaveChangesAsync();
                 return true;
             }
             return false;
         }
 
-       public async Task AddCommentAsync(CommentAttribute comment)
-       {
-
+        public async Task AddCommentAsync(CommentModel comment)
+        {
+            if (comment == null || string.IsNullOrWhiteSpace(comment.CommentText))
+            {
+                return;
+            }
        }
     }
 }
