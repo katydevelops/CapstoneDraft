@@ -85,6 +85,10 @@
             currentUserId = loggedInUserId;
             posts = await PostService.FetchFeedPostAsync();
         }
+        else
+        {
+            Logger.LogWarning("User is not authenticated.");
+        }
     }
 
     private async Task LikePostAsync(PostModel Post)
