@@ -53,10 +53,9 @@
                     break;
                 case 3:
                     var totalPostsPerCategory = await ReportService.GetTotalPostsPerCategory();
-                    reportDisplayTable = builder =>
-                    {
-                        builder.OpenComponent(0, typeof(ReportTableFormat<KeyValuePair<string, int>>));
-                    }
+                    reportDisplayTable = CreateReportDisplayTable(totalPostsPerCategory, new[] { "Category", "Total Posts Per Category" },
+                    report => new object[] { report.Key, report.Value });
+                    break;
             }
         }
         catch
