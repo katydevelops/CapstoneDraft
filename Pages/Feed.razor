@@ -79,6 +79,7 @@
         var loggedInUser = userAuthenticationState.User;
         if (loggedInUser.Identity.IsAuthenticated)
         {
+            Logger.LogInformation("User is authenticated. Fetching posts.");
             var loggedInUserId = UserManager.GetUserId(loggedInUser);
             currentUserId = loggedInUserId;
             posts = await PostService.FetchFeedPostAsync();
