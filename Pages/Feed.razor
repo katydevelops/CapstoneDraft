@@ -50,8 +50,11 @@
                         else
                         {
                             <p>@comment.CommentText</p>
-                            <button class="btn btn-warning" @onclick="() => EditComment(comment)">Edit</button>
-                            <button class="btn btn-danger" @onclick="() => DeleteCommentAsync(comment.CommentId)">Delete</button>
+                            @if (comment.UserId == currentUserId)
+                            {
+                                <button class="btn btn-warning" @onclick="() => EditComment(comment)">Edit</button>
+                                <button class="btn btn-danger" @onclick="() => DeleteCommentAsync(comment.CommentId)">Delete</button>
+                            }
                         }
                     }
                 </div>
