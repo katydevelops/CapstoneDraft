@@ -55,15 +55,15 @@
         }
     }
 
-    private RenderFragment CreateReportDisplayTable<TIem>(IEnumerable<TItem> query, IEnumerable<string> columnTitles, Func<TItem>, IEnumerable<object>> queryResults)
+    private RenderFragment CreateReportDisplayTable<TItem>(IEnumerable<TItem> query, IEnumerable<string> columnTitles, Func<TItem, IEnumerable<object>> queryResults)
     {
         return builder =>
         {
             builder.OpenComponent(0, typeof(ReportTableFormat<TItem));
             builder.AddAttribute(1, "Query", query);
-            builder.AddAttribute(1, "Query", query);
-            builder.AddAttribute(1, "Query", query);
+            builder.AddAttribute(2, "Column Titles", columnTitles);
+            builder.AddAttribute(3, "Query Results", queryResults);
             builder.CloseComponent();
-        }
+        };
     }
 }
