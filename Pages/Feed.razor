@@ -144,11 +144,12 @@
                 var post = posts.FirstOrDefault(post => post.PostComments.Contains(commentPendingDeletion));
                 post?.PostComments.Remove(commentPendingDeletion);
             }
-            else
-            {
-                FeedErrorMessage = "You do not have authorization to delete this comment!";
-            }
-            StateHasChanged();
+        }
+        else
+        {
+            FeedErrorMessage = "You do not have authorization to delete this comment!";
+        }
+        StateHasChanged();
         }
     }
 }
