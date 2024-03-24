@@ -35,7 +35,7 @@
                     </div>
                     <div class="feed-post-footer">
                         <button class="btn btn-danger" @onclick="() => LikePostAsync(post)">😍 Like (@post.PostLikes)</button>
-                        <div class="">
+                        <div class="buttom-comment-area">
                             @if (post.UserId == currentUserId)
                             {
                                 <button class="btn btn-warning" @onclick="() => EditPost(post.PostId)">Edit</button>
