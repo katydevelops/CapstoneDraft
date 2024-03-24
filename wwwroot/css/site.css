@@ -52,8 +52,6 @@ h5 {
     margin: 20px auto;
     border-radius: 8px;
     box-shadow: 0 5px 10px #808080;
-    align-content: center;
-    text-align: center;
 }
 
 
@@ -63,6 +61,8 @@ h5 {
     display: flex;
     align-items: center;
     flex-direction: column;
+    align-content: center;
+    text-align: center;
 }
 
 
@@ -345,4 +345,15 @@ ul {
     background-size: cover;
     background-position: center;
     z-index: 1;
+}
+
+
+.neon-bg-container {
+    background-image: url('/Images/neonunsplash.jpg');
+    background-size: cover;
+    padding: 30px;
+    max-width: 900px;
+    margin: 20px auto;
+    border-radius: 8px;
+    box-shadow: 0 5px 10px #808080;
 }
