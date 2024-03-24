@@ -207,7 +207,10 @@ ul{
 }
 
 .feed-edit-comment-container{
-
+    gap: 10px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
 }
 
 
