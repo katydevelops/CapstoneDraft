@@ -8,43 +8,43 @@
 @* Wrap register form in data annotations validator to capture missing properties marked as [Required] in the model and also ensure that username and password match custom annotation set *@
 <div class="neon-bg-container">
     <div class="card">
-    <div class="social-media-card">
-            <h1>Welcome!</h1>
-            <h2>Please register for Safety App below!</h2>
-            <div class="center-form">
-                <EditForm Model="@registerModelInstance" OnValidSubmit="@ProcessUserRegistration">
-                <DataAnnotationsValidator />
-                    <div class="custom-form-elements">
-                        <InputText id="firstName" class="custom-input-elements" @bind-Value="@registerModelInstance.FirstName" placeholder="First Name" />
-                    </div>
-                    <div class="custom-form-elements">
-                        <InputText id="lastName" class="custom-input-elements" @bind-Value="@registerModelInstance.LastName" placeholder="Last Name" />
-                    </div>
-                    <div class="custom-form-elements">
-                        <InputText id="username" class="custom-input-elements" @bind-Value="@registerModelInstance.Username" placeholder="Username" />
-                    </div>
-                    <div class="custom-form-elements">
-                        <InputText id="phone" class="custom-input-elements" @bind-Value="@registerModelInstance.Phone" placeholder="Phone" />
-                    </div>
-                    <div class="custom-form-elements">
-                        <InputText id="email" class="custom-input-elements" @bind-Value="@registerModelInstance.Email" placeholder="E-Mail Address" />
-                    </div>
-                    <div class="custom-form-elements">
-                        <InputText type="password" id="password" class="custom-input-elements" @bind-Value="@registerModelInstance.Password" placeholder="Password" />
-                    </div>
-                    <div class="custom-form-elements">
-                        <button type="submit" class="yellow-animated-button">Register!</button>
-                    </div>
-                </EditForm>
-            @if (!string.IsNullOrEmpty(registerSuccessMessage))
-            {
-                <div class="alert alert-success" role="alert">@registerSuccessMessage</div>
-            }
-            @if (!string.IsNullOrEmpty(registerErrorMessage))
-            {
-                <div class="alert alert-danger" role="alert">@registerErrorMessage</div>
-            }
-        </div>
+        <div class="social-media-card">
+                <h1>Welcome!</h1>
+                <h2>Please register for Safety App below!</h2>
+                <div class="center-form">
+                    <EditForm Model="@registerModelInstance" OnValidSubmit="@ProcessUserRegistration">
+                    <DataAnnotationsValidator />
+                        <div class="custom-form-elements">
+                            <InputText id="firstName" class="custom-input-elements" @bind-Value="@registerModelInstance.FirstName" placeholder="First Name" />
+                        </div>
+                        <div class="custom-form-elements">
+                            <InputText id="lastName" class="custom-input-elements" @bind-Value="@registerModelInstance.LastName" placeholder="Last Name" />
+                        </div>
+                        <div class="custom-form-elements">
+                            <InputText id="username" class="custom-input-elements" @bind-Value="@registerModelInstance.Username" placeholder="Username" />
+                        </div>
+                        <div class="custom-form-elements">
+                            <InputText id="phone" class="custom-input-elements" @bind-Value="@registerModelInstance.Phone" placeholder="Phone" />
+                        </div>
+                        <div class="custom-form-elements">
+                            <InputText id="email" class="custom-input-elements" @bind-Value="@registerModelInstance.Email" placeholder="E-Mail Address" />
+                        </div>
+                        <div class="custom-form-elements">
+                            <InputText type="password" id="password" class="custom-input-elements" @bind-Value="@registerModelInstance.Password" placeholder="Password" />
+                        </div>
+                        <div class="custom-form-elements">
+                            <button type="submit" class="yellow-animated-button">Register!</button>
+                        </div>
+                    </EditForm>
+                @if (!string.IsNullOrEmpty(registerSuccessMessage))
+                {
+                    <div class="alert alert-success" role="alert">@registerSuccessMessage</div>
+                }
+                @if (!string.IsNullOrEmpty(registerErrorMessage))
+                {
+                    <div class="alert alert-danger" role="alert">@registerErrorMessage</div>
+                }
+            </div>
         </div>
     </div>
 </div>
