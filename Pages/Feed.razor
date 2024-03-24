@@ -9,67 +9,71 @@
 @inject ILogger<Feed> Logger
 
 <div class="container mt-4">
-    <button onclick="GoToAddPostPageAsync" class="yellow-animated-button">Create a New Post!</button>
+    <button @onclick="GoToAddPostPageAsync" class="yellow-animated-button">Create a New Post!</button>
     @if (posts == null || !posts.Any())
     {
         <h1>There are currently no posts in the feed!</h1>
     }
     @if (!string.IsNullOrEmpty(FeedErrorMessage))
     {
-       <div class="alert alert-danger" role="alert">@FeedErrorMessage</div>
+        <div class="alert alert-danger" role="alert">@FeedErrorMessage</div>
     }
-    @foreach (var post in posts)
+    else
     {
-        <div class="fullsize-container">
-        <div class="social-media-container">
-                <h4>Name: @post.AuthorName</h4>
-                <h5>Subject:  @post.PostSubject</h5>
-                <h6>Post Category: @post.PostSubject</h6>
-                <div class="social-media-card">
-                    <p>@post.PostMessageBody</p>
-                    <p>Posted by @(post.AuthorName) on @post.PostCreatedTimestamp.ToString("MM/dd/yy")</p>
-                    <img class="feed-photo" src="@($"/{post.PostPhoto}")" asp-append-version="true" alt="Post image" />
-            </div>
-                <div class="feed-button-container">
-                    <button class="btn btn-danger" @onclick="() => LikePostAsync(post)">😍 Like (@post.PostLikes)</button>
-                    <div>
-                        @if (post.UserId == currentUserId)
-                        {
-                            <button class="btn btn-warning" @onclick="() => EditPost(post.PostId)">Edit</button>
-                            <button class="btn btn-danger" @onclick="() => DeletePostAsync(post.PostId)">Delete</button>
-                        }
+        @foreach (var post in posts)
+        {
+            <div class="fullsize-container">
+                <div class="social-media-container">
+                    <h4>Name: @post.AuthorName</h4>
+                    <h5>Subject:  @post.PostSubject</h5>
+                    <h6>Post Category: @post.PostSubject</h6>
+                    <div class="social-media-card">
+                        <p>@post.PostMessageBody</p>
+                        <p>Posted by @(post.AuthorName) on @post.PostCreatedTimestamp.ToString("MM/dd/yy")</p>
+                        <img class="feed-photo" src="@($"/{post.PostPhoto}")" asp-append-version="true" alt="Post image" />
                     </div>
-                    <div>
-                        <form @onsubmit="@(async () => await AddComment(post))">
-                            <input type="text" @bind="commentText" class="custom-form-elements" placeholder="Add a comment" />
-                            <button type="submit" class="btn btn-primary">🗯 Comment</button>
-                        </form>
-                    </div>
-                    <div>
-                        <h5>Comments:</h5>
-                        @foreach (var comment in post.PostComments)
-                        {
-                            if (editedCommentId == comment.CommentId)
+                    <div class="feed-button-container">
+                        <button class="btn btn-danger" @onclick="() => LikePostAsync(post)">😍 Like (@post.PostLikes)</button>
+                        <div>
+                            @if (post.UserId == currentUserId)
                             {
-                                <input type="text" @bind="commentText" />
-                                <button @onclick="() => SaveCommentAsync(comment)">Save</button>
-                                <button class="btn btn-danger" @onclick="() => CancelEditing()">Cancel</button>
+                                <button class="btn btn-warning" @onclick="() => EditPost(post.PostId)">Edit</button>
+                                <button class="btn btn-danger" @onclick="() => DeletePostAsync(post.PostId)">Delete</button>
                             }
-                            else
+                        </div>
+                        <div>
+                            <form @onsubmit="@(async () => await AddComment(post))">
+                                <input type="text" @bind="commentText" class="custom-form-elements" placeholder="Add a comment" />
+                                <button type="submit" class="btn btn-primary">🗯 Comment</button>
+                            </form>
+                        </div>
+                        <div>
+                            <h5>Comments:</h5>
+                            @foreach (var comment in post.PostComments)
                             {
-                                <p>@comment.CommentText</p>
-                                @if (comment.UserId == currentUserId)
+                                if (editedCommentId == comment.CommentId)
                                 {
-                                    <button class="btn btn-warning" @onclick="() => EditComment(comment)">Edit</button>
-                                    <button class="btn btn-danger" @onclick="() => DeleteCommentAsync(comment.CommentId)">Delete</button>
+                                    <input type="text" @bind="commentText" />
+                                    <button @onclick="() => SaveCommentAsync(comment)">Save</button>
+                                    <button class="btn btn-danger" @onclick="() => CancelEditing()">Cancel</button>
+                                }
+                                else
+                                {
+                                    <p>@comment.CommentText</p>
+                                    @if (comment.UserId == currentUserId)
+                                    {
+                                        <button class="btn btn-warning" @onclick="() => EditComment(comment)">Edit</button>
+                                        <button class="btn btn-danger" @onclick="() => DeleteCommentAsync(comment.CommentId)">Delete</button>
+                                    }
                                 }
                             }
-                        }
+                        </div>
                     </div>
+                </div>
             </div>
-        </div>
-    </div>
+        }
     }
+
 </div>
 
 
@@ -101,7 +105,7 @@
 
     private async Task GoToAddPostPageAsync()
     {
-        NavigationManager.NavigateTo("/AddPost");
+        await NavigationManager.NavigateTo("/AddPost");
     }
 
     private async Task LikePostAsync(PostModel Post)
