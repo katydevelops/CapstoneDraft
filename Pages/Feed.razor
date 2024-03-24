@@ -40,9 +40,8 @@
                                 @if (post.UserId == currentUserId)
                                 {
                                 <button class="btn btn-warning" @onclick="() => EditPost(post.PostId)">Edit Post 📝</button>
-                                    <button class="btn btn-danger" @onclick="() => DeletePostAsync(post.PostId)">Delete Post</button>
+                                <button class="btn btn-danger" @onclick="() => DeletePostAsync(post.PostId)">Delete Post 🚮</button>
                                 }
-                            </div>
                         </div>
                         <div class="feed-comment-container">
                             <form @onsubmit="@(async () => await AddComment(post))">
