@@ -174,5 +174,8 @@ ul{
 }
 
 .feed-post-text{
-
+    color: darkslategray;
+    line-height: 1.6;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
 }
