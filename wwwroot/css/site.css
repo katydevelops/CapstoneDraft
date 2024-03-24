@@ -206,12 +206,14 @@ ul{
 
 }
 
+
 .feed-edit-comment-container{
     gap: 10px;
     display: flex;
     align-items: center;
     margin-bottom: 10px;
 }
+
 
 .comment-input{
     flex-grow: 1;
@@ -226,3 +228,29 @@ ul{
     margin-bottom: 10px;
     justify-content: start;
 }
+
+.custom-comment-btn {
+    background-color: #ffafc0; /* Soft pink */
+    border: none;
+    color: white;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 20px; /* Rounded edges */
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    outline: none;
+}
+
+
+    .custom-comment-btn:hover, .custom-comment-btn:focus {
+        background-color: #ffd3e0; /* Lighter shade for hover */
+        transform: translateY(-2px); /* Slight lift */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+
+    .custom-comment-btn:active {
+        transform: translateY(1px); /* Pressed down effect */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
