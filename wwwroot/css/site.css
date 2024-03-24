@@ -205,3 +205,11 @@ ul{
 .feed-comment-container{
 
 }
+
+
+.comment-button-containe{
+    gap: 10px;
+    display: flex;
+    margin-bottom: 10px;
+    justify-content: start;
+}
