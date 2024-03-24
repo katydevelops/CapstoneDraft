@@ -213,6 +213,12 @@ ul{
     margin-bottom: 10px;
 }
 
+.comment-input{
+    flex-grow: 1;
+    height: 40px;
+    max-width: 60%;
+}
+
 
 .comment-button-container{
     gap: 10px;
