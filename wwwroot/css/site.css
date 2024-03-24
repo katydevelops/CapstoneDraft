@@ -182,11 +182,12 @@ ul {
 }
 
 
-.feed-post-text{
+.feed-post-text {
     color: darkslategray;
     line-height: 1.6;
     font-size: 1.5rem;
     margin-bottom: 0.5rem;
+    padding: 1rem;
 }
 
 
@@ -201,12 +202,13 @@ ul {
     display: flex;
     align-items: center;
     margin-bottom: 15px;
+    padding: 1rem;
 }
 
 
 .post-like-edit-delete {
     display: flex;
-    justify-content: space-evenly; /* This will space out the buttons evenly */
+    justify-content: flex-start; /* This will space out the buttons evenly */
     align-items: center;
     padding: 1rem;
 }
@@ -221,10 +223,10 @@ ul {
 
 .feed-comment-container {
     flex: 1 1 auto; /* Allows the input to grow */
-    padding: 10px;
     margin-right: 5px; /* Adds some space before the button */
     border: 1px solid #ced4da;
     border-radius: 0.25rem;
+    padding: 1rem;
 }
 
 .feed-comment-container .custom-comment-btn {
@@ -238,6 +240,7 @@ ul {
     display: flex;
     align-items: center;
     margin-bottom: 10px;
+    padding: 1rem;
 }
 
 
@@ -248,15 +251,17 @@ ul {
     gap: 10px; /* Add space between buttons */
     margin-top: 10px; /* Add space above the button group */
     margin-bottom: 20px; /* Add space below the button group */
+    padding: 1rem;
 }
 
 
-.comment-button-container form {
-    gap: 10px;
-    display: flex;
-    margin-bottom: 10px;
-    justify-content: start;
-}
+    .comment-button-container form {
+        gap: 10px;
+        display: flex;
+        margin-bottom: 10px;
+        justify-content: start;
+        padding: 1rem;
+    }
 
 
 .custom-comment-btn {

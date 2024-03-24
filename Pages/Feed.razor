@@ -22,63 +22,63 @@
     {
         @foreach (var post in posts)
         {
-                <div class="card mb-3">
+            <div class="card mb-3">
                 <div class="feed-post-header">
                     <h4>Name: @post.AuthorName</h4>
                     <h5>Subject:  @post.PostSubject</h5>
                     <h6>Post Category: @post.PostSubject</h6>
                 </div>
-                    <div class="feed-post-body">
-                        <p class="feed-post-text">@post.PostMessageBody</p>
-                        <p class="feed-post-text">Posted by @(post.AuthorName) on @post.PostCreatedTimestamp.ToString("MM/dd/yy")</p>
-                        <img src="@($"/{post.PostPhoto}")" asp-append-version="true" alt="Post image" class="minify-img"/>
-                    </div>
-                    <div class="feed-post-footer">
-                        <div class="feed-post-button-container">
-                            <div class="post-like-edit-delete">
+                <div class="feed-post-body">
+                    <p class="feed-post-text">@post.PostMessageBody</p>
+                    <p class="feed-post-text">Posted by @(post.AuthorName) on @post.PostCreatedTimestamp.ToString("MM/dd/yy")</p>
+                    <img src="@($"/{post.PostPhoto}")" asp-append-version="true" alt="Post image" class="minify-img"/>
+                </div>
+                <div class="feed-post-footer">
+                    <div class="feed-post-button-container">
+                        <div class="post-like-edit-delete">
                             <button class="btn btn-danger" @onclick="() => LikePostAsync(post)">😍 Like (@post.PostLikes)</button>
-                                @if (post.UserId == currentUserId)
-                                {
-                                <button class="btn btn-warning" @onclick="() => EditPost(post.PostId)">Edit Post 📝</button>
-                                <button class="btn btn-danger" @onclick="() => DeletePostAsync(post.PostId)">Delete Post 🚮</button>
-                                }
-                        </div>
-                        <div class="feed-comment-container">
-                            <form @onsubmit="@(async () => await AddComment(post))">
-                                <input type="text" @bind="commentText" class="custom-form-elements" placeholder="Add a comment" />
-                                <button type="submit" class="custom-comment-btn">🗯 Comment</button>
-                            </form>
-                        </div>
-                        <div>
-                            <h5>Comments:</h5>
-                            @foreach (var comment in post.PostComments)
+                            @if (post.UserId == currentUserId)
                             {
-                                if (editedCommentId == comment.CommentId)
-                                {
+                                 <button class="btn btn-warning" @onclick="() => EditPost(post.PostId)">Edit Post 📝</button>
+                                 <button class="btn btn-danger" @onclick="() => DeletePostAsync(post.PostId)">Delete Post 🚮</button>
+                            }
+                        </div>
+                    <div class="feed-comment-container">
+                        <form @onsubmit="@(async () => await AddComment(post))">
+                            <input type="text" @bind="commentText" class="custom-form-elements" placeholder="Add a comment" />
+                            <button type="submit" class="custom-comment-btn">🗯 Comment</button>
+                        </form>
+                        </div>
+                     <div>
+                         <h5>Comments:</h5>
+                         @foreach (var comment in post.PostComments)
+                         {
+                            if (editedCommentId == comment.CommentId)
+                            {
                                 <div class="feed-edit-comment-container">
                                     <input type="text" @bind="commentText" class="comment-input"/>
                                     <button @onclick="() => SaveCommentAsync(comment)">Save</button>
                                     <button class="btn btn-danger" @onclick="() => CancelEditing()">Cancel</button>
                                 </div>
-                                }
-                                else
+                            }
+                            else
+                            {
+                                <p>@comment.CommentText</p>
+                                @if (comment.UserId == currentUserId)
                                 {
-                                    <p>@comment.CommentText</p>
-                                    @if (comment.UserId == currentUserId)
-                                    {
-                                        <div class="comment-button-container">
-                                            <button class="btn btn-warning" @onclick="() => EditComment(comment)">Edit</button>
-                                            <button class="btn btn-danger" @onclick="() => DeleteCommentAsync(comment.CommentId)">Delete</button>
-                                        </div>
-                                    }
+                                    <div class="comment-button-container">
+                                        <button class="btn btn-warning" @onclick="() => EditComment(comment)">Edit</button>
+                                        <button class="btn btn-danger" @onclick="() => DeleteCommentAsync(comment.CommentId)">Delete</button>
+                                    </div>
                                 }
                             }
-                        </div>
+                          }
+                     </div>
                     </div>
                 </div>
+            </div>
         }
     }
-
 </div>
 
 
