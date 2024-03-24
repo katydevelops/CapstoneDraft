@@ -179,3 +179,8 @@ ul{
     font-size: 1.5rem;
     margin-bottom: 0.5rem;
 }
+
+.feed-img {
+    max-width: 40%;
+    height: auto;
+}
