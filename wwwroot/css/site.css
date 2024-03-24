@@ -181,7 +181,7 @@ ul{
     height: auto;
 }
 
-.buttom-comment-area{
+.feed-buttom-container {
     gap: 10px;
     display: flex;
     align-items: center;
