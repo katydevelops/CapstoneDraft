@@ -55,7 +55,7 @@
                                 if (editedCommentId == comment.CommentId)
                                 {
                                 <div class="feed-edit-comment-container">
-                                    <input type="text" @bind="commentText" />
+                                    <input type="text" @bind="commentText" class="comment-input"/>
                                     <button @onclick="() => SaveCommentAsync(comment)">Save</button>
                                     <button class="btn btn-danger" @onclick="() => CancelEditing()">Cancel</button>
                                 </div>
