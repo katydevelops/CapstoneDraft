@@ -9,37 +9,39 @@
     <div class="fullsize-container">
         <div class="social-media-container">
             <h3>@post.PostSubject</h3>
-            <div class="social-media-card">
+            <div>
                 <h3>View Post Test</h3>
             </div>
-            <div>
-                <p>@post.PostMessageBody</p>
-                @if (!string.IsNullOrWhiteSpace(post.PostPhoto))
-                {
-                    <img src="@post.PostPhoto" alt="Post Image" />
-                }
-                <p>Posted by @post.AuthorName on @post.PostCreatedTimestamp.ToShortDateString()</p>
-            </div>
-            @if (post.PostComments.Any())
-            {
+            <div class="card">
                 <div>
-                    <h4>Comments: </h4>
-                    @foreach (var comment in post.PostComments)
+                    <p>@post.PostMessageBody</p>
+                    @if (!string.IsNullOrWhiteSpace(post.PostPhoto))
                     {
-                        <p>@comment.CommentText</p>
-                        <p>
-                            @if (comment.User != null)
-                            {
-                                <small>Commented by @comment.User.UserName - @comment.CommentCreatedTimestamp.ToShortDateString()</small>
-                            }
-                            else
-                            {
-                                <small>Author of Comment Unknown - Posted - @comment.CommentCreatedTimestamp.ToShortDateString() </small>
-                            }
-                        </p>
+                        <img src="@post.PostPhoto" alt="Post Image" />
                     }
+                    <p>Posted by @post.AuthorName on @post.PostCreatedTimestamp.ToShortDateString()</p>
                 </div>
-            }
+                @if (post.PostComments.Any())
+                {
+                    <div>
+                        <h4>Comments: </h4>
+                        @foreach (var comment in post.PostComments)
+                        {
+                            <p>@comment.CommentText</p>
+                            <p>
+                                @if (comment.User != null)
+                                {
+                                    <small>Commented by @comment.User.UserName - @comment.CommentCreatedTimestamp.ToShortDateString()</small>
+                                }
+                                else
+                                {
+                                    <small>Author of Comment Unknown - Posted - @comment.CommentCreatedTimestamp.ToShortDateString() </small>
+                                }
+                            </p>
+                        }
+                    </div>
+                }
+            </div>
         </div>
     </div>
 }
