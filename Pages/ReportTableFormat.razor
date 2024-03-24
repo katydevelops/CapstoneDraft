@@ -4,8 +4,8 @@
 
 @if (Query != null && ColumnTitles != null)
 {
-    <table class="table table-hover table-striped">
-        <thead class="table-info">
+    <table class="table table-hover table-striped table-danger">
+        <thead>
             <tr>
                 @foreach (var columnTitle in ColumnTitles)
                 {
@@ -13,7 +13,7 @@
                 }
             </tr>
         </thead>
-        <tbody class="table-warning">
+        <tbody>
             @foreach (var data in Query)
             {
                 <tr>
