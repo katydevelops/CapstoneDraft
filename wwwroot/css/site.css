@@ -349,11 +349,23 @@ ul {
 
 
 .neon-bg-container {
-    background-image: url('/Images/neonunsplash.jpg');
+    position: relative;
     background-size: cover;
-    padding: 30px;
-    max-width: 900px;
+    padding: 50px;
+    max-width: 1000px;
     margin: 20px auto;
     border-radius: 8px;
     box-shadow: 0 5px 10px #808080;
+    opacity: 80%;
+}
+
+.neon-bg-container::before {
+    background-image: url('/Images/largepastelunsplash.jpg');
+    background-size: cover;
+    padding: 50px;
+    max-width: 1000px;
+    margin: 20px auto;
+    border-radius: 8px;
+    box-shadow: 0 5px 10px #808080;
+    opacity: 80%;
 }
