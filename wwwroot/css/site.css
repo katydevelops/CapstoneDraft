@@ -15,16 +15,19 @@ navbar {
 }
 
 
-.nav-link{
+.nav-link {
     text-decoration:none;
     color: midnightblue;
 }
 
 
-.nav-link:hover{
+.nav-link:hover {
     color: #F7E3AB; /* Gold accent color to be used as a part of design */
 }
 
+.card {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
 
 /* Will create full-sized viewport container needed for styling and whitespace effect */
 .fullsize-container {
@@ -37,7 +40,7 @@ navbar {
     margin-top: 30px;
 }
 
-.full-size-container{
+.full-size-container {
     padding: 20px;
     max-width: 900px;
     background: white;
@@ -90,7 +93,7 @@ h2 {
 }
 
 
-.yellow-animated-button{
+.yellow-animated-button {
     background-color: #EDF1F5;
     color: #51739D;
     margin: 20px auto; 
@@ -103,20 +106,19 @@ h2 {
 }
 
 
-.yellow-animated-button:hover
-{
+.yellow-animated-button:hover {
     background-color: #F7E2AB;
     transform: scale(1.00);
     box-shadow: 0 5px 10px #808080;
 }
 
 
-ul{
+ul {
     list-style-type: none; 
 }
 
 
-.social-media-container{
+.social-media-container {
     background: white;
     border-radius: 0.7rem;
     box-shadow: 0 5px 10px #808080;
@@ -194,28 +196,29 @@ ul{
 }
 
 
-.feed-buttom-container form{
+.feed-buttom-container form {
     gap: 10px;
     display: flex;
+    align-items: center;
     margin-bottom: 15px;
 }
 
 
-.feed-comment-container{
-    flex-grow: 1;
+.feed-comment-container .custom-form-elements {
+    flex: 1 1 auto; /* Allows the input to grow */
     padding: 10px;
-    margin-right: 5px;
+    margin-right: 5px; /* Adds some space before the button */
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+}
+
+.feed-comment-container .custom-comment-btn {
+    flex: 0 0 auto; /* Prevents the button from growing */
+    white-space: nowrap; /* Keeps the button text on one line */
 }
 
 
-.feed-comment-container .custom-comment-btn
-{
-    white-space: nowrap;
-    padding: 10px 15px;
-}
-
-
-.feed-edit-comment-container{
+.feed-edit-comment-container {
     gap: 10px;
     display: flex;
     align-items: center;
@@ -223,14 +226,27 @@ ul{
 }
 
 
-.comment-input{
-    flex-grow: 1;
-    height: 40px;
-    max-width: 60%;
+.comment-input,
+.custom-form-elements {
+    width: auto; /* This will need to be adjusted based on your layout */
+    margin-right: 10px;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
 }
 
 
-.comment-button-container form{
+.comment-button-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px; /* Add space between buttons */
+    margin-top: 10px; /* Add space above the button group */
+    margin-bottom: 20px; /* Add space below the button group */
+}
+
+
+.comment-button-container form {
     gap: 10px;
     display: flex;
     margin-bottom: 10px;
