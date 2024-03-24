@@ -371,3 +371,8 @@ ul {
     content: '';
     position: absolute;
 }
+
+
+.table-rounded {
+    border-radius: 0.5rem;
+}
