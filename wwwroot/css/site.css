@@ -204,7 +204,22 @@ ul {
 }
 
 
-.feed-comment-container .custom-form-elements {
+.post-like-edit-delete {
+    display: flex;
+    justify-content: space-evenly; /* This will space out the buttons evenly */
+    align-items: center;
+    padding: 1rem;
+}
+
+
+    .post-like-edit-delete .btn {
+        flex: 0 0 auto; /* Don’t grow or shrink */
+        margin: 0 5px; /* Add some space between the buttons */
+        padding: 5px 15px; /* Adjust to your liking */
+    }
+
+
+.feed-comment-container {
     flex: 1 1 auto; /* Allows the input to grow */
     padding: 10px;
     margin-right: 5px; /* Adds some space before the button */
@@ -223,16 +238,6 @@ ul {
     display: flex;
     align-items: center;
     margin-bottom: 10px;
-}
-
-
-.comment-input,
-.custom-form-elements {
-    width: auto; /* This will need to be adjusted based on your layout */
-    margin-right: 10px;
-    padding: 10px;
-    border: 1px solid #ced4da;
-    border-radius: 0.25rem;
 }
 
 
