@@ -29,7 +29,7 @@
                     <h6>Post Category: @post.PostSubject</h6>
                 </div>
                     <div class="feed-post-body">
-                        <p>@post.PostMessageBody</p>
+                        <p class="feed-post-text">@post.PostMessageBody</p>
                         <p>Posted by @(post.AuthorName) on @post.PostCreatedTimestamp.ToString("MM/dd/yy")</p>
                         <img class="feed-photo" src="@($"/{post.PostPhoto}")" asp-append-version="true" alt="Post image" />
                     </div>
