@@ -64,7 +64,7 @@
                             else
                             {
                                 <p>@comment.CommentText</p>
-                                    <p>- by <strong>@comment.User.UserName</strong> posted on @comment.CommentCreatedTimestamp.ToShortDateString()</p>
+                                    <p><sub>- by <strong>@comment.User.UserName</strong> posted on @comment.CommentCreatedTimestamp.ToShortDateString()</sub></p>
                                 @if (comment.UserId == currentUserId)
                                 {
                                     <div class="comment-button-container">
