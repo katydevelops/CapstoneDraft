@@ -22,8 +22,7 @@
 @if (userAuthenticated)
 {
     <div class="neon-bg-container">
-        <div class="social-media-container">
-            <div class="social-media-card">
+        <div class="card">
                 <h3>Create a New Post</h3>
                 <EditForm Model="@tempFormData" OnValidSubmit="ProcessNewPostAsync">
                     <DataAnnotationsValidator />
@@ -61,7 +60,6 @@
                     </div>
                 </EditForm>
         </div>
-    </div>
 </div>
 }
 else
