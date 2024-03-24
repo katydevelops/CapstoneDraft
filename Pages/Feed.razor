@@ -9,7 +9,7 @@
 @inject ILogger<Feed> Logger
 
 <div class="container mt-4">
-    <button onclick="N"></button>
+    <button onclick="GoToAddPostPageAsync" class="yellow-animated-button">Create a New Post!</button>
     @if (posts == null || !posts.Any())
     {
         <h1>There are currently no posts in the feed!</h1>
