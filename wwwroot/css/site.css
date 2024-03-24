@@ -161,6 +161,12 @@ ul {
     box-shadow: 0 5px 10px #808080;
 }
 
+
+
+
+
+
+
 .feed-post-footer {
     background-color: #F7F9FC;
     padding: 0.5rem;
@@ -274,7 +280,7 @@ ul {
 
 
 .custom-comment-btn {
-    background-color: #ffafc0; /* Soft pink */
+    background-color: lightcoral; /* Soft pink */
     border: none;
     color: white;
     font-weight: bold;
@@ -284,6 +290,7 @@ ul {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     cursor: pointer;
     outline: none;
+    margin: 1rem;
 }
 
 
@@ -298,3 +305,7 @@ ul {
         transform: translateY(1px); /* Pressed down effect */
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     }
+
+.feed-user-comments {
+    padding: 1rem;
+}
