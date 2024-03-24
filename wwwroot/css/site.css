@@ -29,6 +29,11 @@ navbar {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
+h5 {
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
 /* Will create full-sized viewport container needed for styling and whitespace effect */
 .fullsize-container {
     height: 100vh;
@@ -257,6 +262,8 @@ ul {
     padding: 10px;
     border: 1px solid #ced4da;
     border-radius: 0.25rem;
+    min-width: 300px;
+    max-width: 400px;
 }
 
 .comment-button-container {
