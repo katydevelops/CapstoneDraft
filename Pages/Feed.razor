@@ -9,6 +9,7 @@
 @inject ILogger<Feed> Logger
 
 <div class="container mt-4">
+    <button onclick="N"></button>
     @if (posts == null || !posts.Any())
     {
         <h1>There are currently no posts in the feed!</h1>
@@ -92,6 +93,11 @@
         {
             Logger.LogWarning("User is not authenticated.");
         }
+    }
+
+    private async Task GoToAddPostPageAsync()
+    {
+        NavigationManager.NavigateTo("/AddPost");
     }
 
     private async Task LikePostAsync(PostModel Post)
