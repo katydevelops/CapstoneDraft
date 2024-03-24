@@ -222,12 +222,12 @@ ul{
 }
 
 
-.comment-button-container{
+.comment-button-container form{
     gap: 10px;
     display: flex;
     margin-bottom: 10px;
-    justify-content: start;
 }
+
 
 .custom-comment-btn {
     background-color: #ffafc0; /* Soft pink */
