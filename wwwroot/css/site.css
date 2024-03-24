@@ -372,9 +372,3 @@ ul {
     position: absolute;
 }
 
-
-.table-rounded {
-    border-radius: 0.5rem;
-    border-collapse: separate;
-    border-spacing: 0;
-}
