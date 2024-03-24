@@ -194,11 +194,10 @@ ul{
 }
 
 
-.feed-buttom-container {
+.feed-buttom-container form{
     gap: 10px;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    margin-bottom: 15px;
 }
 
 
@@ -226,6 +225,7 @@ ul{
     gap: 10px;
     display: flex;
     margin-bottom: 10px;
+    justify-content: start;
 }
 
 
