@@ -75,8 +75,8 @@ h5 {
     flex-direction: column;
     margin-top: 1rem;
     padding: 1rem;
-    min-width: 400px;
-    max-width: 600px;
+    min-width: 300px;
+    max-width: 500px;
 }
 
 
