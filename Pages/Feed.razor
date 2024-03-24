@@ -45,7 +45,7 @@
                         </div>
                     <div class="feed-comment-container">
                         <form @onsubmit="@(async () => await AddComment(post))">
-                            <input type="text" @bind="commentText" class="custom-form-elements" placeholder="Add a comment" />
+                            <input type="text" @bind="commentText" class="comment-input-textarea" placeholder="Add a comment" />
                             <button type="submit" class="custom-comment-btn">🗯 Comment</button>
                         </form>
                         </div>

@@ -163,7 +163,7 @@ ul {
 
 .feed-post-footer {
     background-color: #F7F9FC;
-    padding-left: 1rem;
+    padding: 0.5rem;
     border-top: 1px solid #EAECEF;
 }
 
@@ -171,9 +171,10 @@ ul {
 .feed-post-header {
     color: darkslategray;
     font-weight: bold;
-    font-size: 1.25rem;
+    font-size: 0.8rem;
     margin-bottom: 1rem;
     background-color: #FCF3D9;
+    padding: 1rem;
 }
 
 
@@ -194,6 +195,7 @@ ul {
 .minify-img {
     max-width: 40%;
     height: auto;
+    padding: 1rem;
 }
 
 
@@ -218,21 +220,21 @@ ul {
         flex: 0 0 auto; /* Don’t grow or shrink */
         margin: 0 5px; /* Add some space between the buttons */
         padding: 5px 15px; /* Adjust to your liking */
+
     }
 
 
 .feed-comment-container {
-    flex: 1 1 auto; /* Allows the input to grow */
-    margin-right: 5px; /* Adds some space before the button */
-    border: 1px solid #ced4da;
-    border-radius: 0.25rem;
+    display: flex;
+    align-items: center;
     padding: 1rem;
+    gap: 10px;
 }
 
-.feed-comment-container .custom-comment-btn {
-    flex: 0 0 auto; /* Prevents the button from growing */
-    white-space: nowrap; /* Keeps the button text on one line */
-}
+    .feed-comment-container .custom-comment-btn {
+        flex: 0 0 auto; /* Prevents the button from growing */
+        white-space: nowrap; /* Keeps the button text on one line */
+    }
 
 
 .feed-edit-comment-container {
@@ -243,6 +245,13 @@ ul {
     padding: 1rem;
 }
 
+.comment-input-textarea {
+    flex-grow: 1; /* Make the input grow to fill the space */
+    margin: 0; /* Override any existing margin */
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+}
 
 .comment-button-container {
     display: flex;
