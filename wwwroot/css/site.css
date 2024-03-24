@@ -184,7 +184,7 @@ ul {
     font-weight: bold;
     font-size: 0.8rem;
     margin-bottom: 1rem;
-    background-color: #FCF3D9;
+    background-color: #FCFCF0;
     padding: 1rem;
 }
 
@@ -197,7 +197,7 @@ ul {
 .feed-post-text {
     color: darkslategray;
     line-height: 1.6;
-    font-size: 1.5rem;
+    font-size: 0.85rem;
     margin-bottom: 0.5rem;
     padding: 1rem;
 }
@@ -315,4 +315,18 @@ ul {
 
 .feed-user-comments {
     padding: 1rem;
+}
+
+
+.card::before .social-media-container::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 5px;
+    background: url('/images/pastelunsplash.png');
+    background-size: cover;
+    background-position: center;
 }
