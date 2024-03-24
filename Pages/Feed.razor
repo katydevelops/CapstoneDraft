@@ -31,7 +31,7 @@
                     <div class="feed-post-body">
                         <p class="feed-post-text">@post.PostMessageBody</p>
                         <p class="feed-post-text">Posted by @(post.AuthorName) on @post.PostCreatedTimestamp.ToString("MM/dd/yy")</p>
-                        <img class="feed-photo" src="@($"/{post.PostPhoto}")" asp-append-version="true" alt="Post image" />
+                        <img class="feed-photo" src="@($"/{post.PostPhoto}")" asp-append-version="true" alt="Post image" class="minify-img"/>
                     </div>
                     <div class="feed-button-container">
                         <button class="btn btn-danger" @onclick="() => LikePostAsync(post)">😍 Like (@post.PostLikes)</button>
