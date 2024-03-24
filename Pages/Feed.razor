@@ -14,6 +14,10 @@
     {
         <h1>There are currently no posts in the feed!</h1>
     }
+    @if (!string.IsNullOrEmpty(FeedErrorMessage))
+    {
+       <div class="alert alert-danger" role="alert">@FeedErrorMessage</div>
+    }
     @foreach (var post in posts)
     {
         <div class="fullsize-container">
