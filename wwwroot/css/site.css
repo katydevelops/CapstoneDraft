@@ -160,3 +160,9 @@ ul{
 .feed-button-container{
     
 }
+
+.feed-post-header {
+    color: #FCF3D9;
+    font-weight: bold;
+    font-size: 1.25rem;
+}
