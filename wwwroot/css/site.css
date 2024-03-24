@@ -362,10 +362,12 @@ ul {
 .neon-bg-container::before {
     background-image: url('/Images/largepastelunsplash.jpg');
     background-size: cover;
-    padding: 50px;
-    max-width: 1000px;
-    margin: 20px auto;
-    border-radius: 8px;
-    box-shadow: 0 5px 10px #808080;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     opacity: 80%;
+    z-index: -1;
+    content: '';
+    position: absolute;
 }
