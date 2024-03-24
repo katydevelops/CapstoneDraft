@@ -10,6 +10,7 @@
 @inject SignInManager<UserModel> LoginManager
 
 <div class="fullsize-container">
+    <div class="neon-bg-container">
         <div class="social-media-card">
             <h1>Edit Profile</h1>
         <EditForm Model="@userModel" OnValidSubmit="UpdateUserProfileAsync">
@@ -50,6 +51,7 @@
                 </div>
             </EditForm>
         </div>
+    </div>
 </div>
 
 @code {
