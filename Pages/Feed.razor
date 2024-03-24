@@ -8,7 +8,7 @@
 @inject NavigationManager NavigationManager
 @inject ILogger<Feed> Logger
 
-<div class="container mt-4">
+<div class="full-size-container">
     <button @onclick="GoToAddPostPageAsync" class="yellow-animated-button">Create a New Post!</button>
     @if (posts == null || !posts.Any())
     {
