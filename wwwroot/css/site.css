@@ -162,8 +162,9 @@ ul{
 }
 
 .feed-post-header {
-    color: #FCF3D9;
+    color: darkslategray;
     font-weight: bold;
     font-size: 1.25rem;
     margin-bottom: 1rem;
+    background-color: #FCF3D9;
 }
