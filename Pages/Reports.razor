@@ -10,13 +10,15 @@
     <div class="social-media-container">
         <div class="social-media-card">
             <h2>Safety Net Reports</h2>
-            <select @onchange="ProcessReportSelection">
-                <option value="0">Select a report:</option>
-                <option value="1">Total Posts Per User Report</option>
-                <option value="2">Total Comments Per User Report</option>
-                <option value="3">Total Number of Posts Per Category</option>
-                <option value="4">Latest User Activity Report</option>
-            </select>
+            <div class="center-form"></div>
+                <select @onchange="ProcessReportSelection">
+                    <option value="0">Select a report:</option>
+                    <option value="1">Total Posts Per User Report</option>
+                    <option value="2">Total Comments Per User Report</option>
+                    <option value="3">Total Number of Posts Per Category</option>
+                    <option value="4">Latest User Activity Report</option>
+                </select>
+            </div>
         </div>
         @if (reportDisplayTable != null)
         {
