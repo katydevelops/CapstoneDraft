@@ -30,10 +30,6 @@ navbar {
 }
 
 
-.h3 {
-    text-align: center; 
-}
-
 
 h5 {
     font-weight: bold;
@@ -378,3 +374,8 @@ ul {
     position: absolute;
 }
 
+
+.center-header-container{
+    text-align: center;
+    align-content: center;
+}
