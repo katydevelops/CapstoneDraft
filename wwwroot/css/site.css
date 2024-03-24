@@ -202,7 +202,16 @@ ul{
 
 
 .feed-comment-container{
+    flex-grow: 1;
+    padding: 10px;
+    margin-right: 5px;
+}
 
+
+.feed-comment-container .custom-comment-btn
+{
+    white-space: nowrap;
+    padding: 10px 15px;
 }
 
 
