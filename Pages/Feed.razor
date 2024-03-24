@@ -39,8 +39,8 @@
                             <button class="btn btn-danger" @onclick="() => LikePostAsync(post)">😍 Like (@post.PostLikes)</button>
                                 @if (post.UserId == currentUserId)
                                 {
-                                    <button class="btn btn-warning" @onclick="() => EditPost(post.PostId)">Edit</button>
-                                    <button class="btn btn-danger" @onclick="() => DeletePostAsync(post.PostId)">Delete</button>
+                                    <button class="btn btn-warning" @onclick="() => EditPost(post.PostId)">Edit Post</button>
+                                    <button class="btn btn-danger" @onclick="() => DeletePostAsync(post.PostId)">Delete Post</button>
                                 }
                             </div>
                         </div>
