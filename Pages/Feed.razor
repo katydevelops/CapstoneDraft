@@ -23,6 +23,7 @@
         @foreach (var post in posts)
         {
             <div class="fullsize-container">
+                <div class="card mb-3">
                 <div class="social-media-container">
                     <h4>Name: @post.AuthorName</h4>
                     <h5>Subject:  @post.PostSubject</h5>
@@ -70,6 +71,7 @@
                         </div>
                     </div>
                 </div>
+                </div>
             </div>
         }
     }
@@ -105,7 +107,7 @@
 
     private async Task GoToAddPostPageAsync()
     {
-        await NavigationManager.NavigateTo("/AddPost");
+        NavigationManager.NavigateTo("/AddPost");
     }
 
     private async Task LikePostAsync(PostModel Post)
