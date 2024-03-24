@@ -37,6 +37,15 @@ navbar {
     margin-top: 30px;
 }
 
+.full-size-container{
+    padding: 20px;
+    max-width: 900px;
+    background: white;
+    margin: 20px auto;
+    border-radius: 8px;
+    box-shadow: 0 5px 10px #808080;
+}
+
 
 /* Will center elements in middle of the page as a stylistic choice */
 .center-form {
@@ -150,12 +159,12 @@ ul{
     box-shadow: 0 5px 10px #808080;
 }
 
-
 .feed-post-footer {
     background-color: #F7F9FC;
     padding-left: 1rem;
     border-top: 1px solid #EAECEF;
 }
+
 
 .feed-post-header {
     color: darkslategray;
@@ -165,9 +174,11 @@ ul{
     background-color: #FCF3D9;
 }
 
+
 .feed-post-body {
     padding: 1rem;
 }
+
 
 .feed-post-text{
     color: darkslategray;
@@ -176,14 +187,21 @@ ul{
     margin-bottom: 0.5rem;
 }
 
+
 .minify-img {
     max-width: 40%;
     height: auto;
 }
+
 
 .feed-buttom-container {
     gap: 10px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+
+.feed-comment-container{
+
 }
