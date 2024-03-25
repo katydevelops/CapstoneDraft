@@ -7,11 +7,10 @@
 @if (post != null)
 {
     <div class="neon-bg-container">
-        <div class="social-media-container">
+        <div class="card">
             <div class="feed-post-header">
-            <h6>Post Subject: @post.PostSubject</h6>
-            </div>
-            <div class="card">
+                <h6><strong>Post Subject:</strong> @post.PostSubject</h6>
+        </div>
                 <div class="social-media-card">
                 <div>
                     <p>@post.PostMessageBody</p>
@@ -43,8 +42,8 @@
                 }
                 </div>
             </div>
-        </div>
-    </div>
+    
+</div>
 }
 
 
