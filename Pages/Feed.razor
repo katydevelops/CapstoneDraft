@@ -136,6 +136,10 @@
         {
             posts = await PostService.FetchFeedPostAsync();
         }
+        else
+        {
+            posts = await 
+        }
     }
 
     private async Task LikePostAsync(PostModel Post)

@@ -115,6 +115,11 @@ namespace CapstoneDraft.Services
                 _logger.LogError(error, "You are receiving an error while adding this comment to the database.");
                 throw;
             }
-       }
+        }
+
+        public async Task<List<PostModel>> FetchPostsByCategoryAsync(string category)
+        {
+            return await _databaseConnection.Posts.Where(post => post.PostCategory == category).ToListAsync();
+        }
     }
 }
