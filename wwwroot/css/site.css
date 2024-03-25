@@ -211,14 +211,6 @@ ul {
 }
 
 
-.minify-img {
-    max-width: 40%;
-    height: auto;
-    padding: 1rem;
-    
-}
-
-
 .feed-buttom-container form {
     gap: 10px;
     display: flex;
@@ -349,7 +341,6 @@ ul {
     margin: 20px auto;
     border-radius: 0.7rem;
     box-shadow: 0 5px 10px #808080;
-    opacity: 80%;
 }
 
     .neon-bg-container::before {
@@ -502,3 +493,11 @@ ul {
         transform: scale(1.00);
         box-shadow: 0 5px 10px #808080;
     }
+
+
+.minify-img {
+    max-width: 40%;
+    height: auto;
+    padding: 1rem;
+    border-radius: 1.5rem;
+}
