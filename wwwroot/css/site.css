@@ -294,11 +294,6 @@ ul {
     }
 
 
-    .comment-button-container > button {
-        margin: 0;
-        display: inline-block;
-    }
-
 .custom-comment-btn {
     background-color: lightcoral; /* Soft pink */
     border: none;

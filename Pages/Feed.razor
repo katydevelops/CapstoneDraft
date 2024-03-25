@@ -58,7 +58,7 @@
                                 <div class="feed-edit-comment-container">
                                     <input type="text" @bind="commentText" class="comment-input"/>
                                     <button @onclick="() => SaveCommentAsync(comment)" class="save-button">Save</button>
-                                    <button class="btn btn-danger" @onclick="() => CancelEditing()">Cancel</button>
+                                    <button class="cancel-button" @onclick="() => CancelEditing()">Cancel</button>
                                 </div>
                             }
                             else
