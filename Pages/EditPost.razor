@@ -27,7 +27,7 @@
                         <div class="social-media-card">
                             <h3>Edit Post</h3>
                         <EditForm Model="tempFormData" OnValidSubmit="SubmitUpdatedPostAsync" novalidate>
-                                <div>
+                                <div class="center-form">
                                     <label for="category" class="custom-form-elements">Category: </label>
                                         <InputSelect id="category" @bind-Value="tempFormData.TempPostCategory" class="custom-input-elements" required>
                                             <option value="">Select a Category</option>
