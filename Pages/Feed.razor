@@ -127,7 +127,7 @@
     private async Task CategoryDropdownSelectedAsync(ChangeEventArgs args)
     {
         categorySelected = args.Value?.ToString();
-        await Update
+        await UpdateCategoryDropdownAsync();
     }
 
     private async Task LikePostAsync(PostModel Post)
