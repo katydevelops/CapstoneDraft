@@ -327,7 +327,7 @@ ul {
 }
 
 
-.card::before  {
+.card::before {
     content: '';
     display: block;
     position: absolute;
@@ -338,6 +338,7 @@ ul {
     background: url('/images/pastelunsplash.png');
     background-size: cover;
     background-position: center;
+    border-radius: 0.7rem;
 }
 
 .social-media-card::before {
@@ -352,6 +353,7 @@ ul {
     background-size: cover;
     background-position: center;
     z-index: 1;
+    border-radius: 0.7rem;
 }
 
 
@@ -366,18 +368,19 @@ ul {
     opacity: 80%;
 }
 
-.neon-bg-container::before {
-    background-image: url('/Images/largepastelunsplash.jpg');
-    background-size: cover;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    opacity: 80%;
-    z-index: -1;
-    content: '';
-    position: absolute;
-}
+    .neon-bg-container::before {
+        background-image: url('/Images/largepastelunsplash.jpg');
+        background-size: cover;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        opacity: 80%;
+        z-index: -1;
+        content: '';
+        position: absolute;
+        border-radius: 0.7rem;
+    }
 
 
 .center-header-container{
