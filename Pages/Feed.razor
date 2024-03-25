@@ -138,8 +138,9 @@
         }
         else
         {
-            posts = await 
+            posts = await PostService.FetchPostsByCategoryAsync(categorySelected);
         }
+        StateHasChanged();
     }
 
     private async Task LikePostAsync(PostModel Post)
