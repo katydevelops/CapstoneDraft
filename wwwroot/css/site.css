@@ -386,7 +386,7 @@ ul {
 
 
     .like-button:hover {
-        background-color: #FFE0EC;
+        background-color: #FFE0F2;
         transform: scale(1.00);
         box-shadow: 0 5px 10px #808080;
     }
