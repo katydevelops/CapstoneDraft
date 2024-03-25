@@ -215,6 +215,7 @@ ul {
     max-width: 40%;
     height: auto;
     padding: 1rem;
+    
 }
 
 
@@ -386,7 +387,7 @@ ul {
 
 
     .like-button:hover {
-        background-color: #FFE0F2;
+        background-color: #C3E2FA;
         transform: scale(1.00);
         box-shadow: 0 5px 10px #808080;
     }
@@ -478,7 +479,7 @@ ul {
 }
 
 
-    save-button:hover {
+    .save-button:hover {
         background-color: #F7E2AB;
         transform: scale(1.00);
         box-shadow: 0 5px 10px #808080;
@@ -496,8 +497,8 @@ ul {
 }
 
 
-cancel-button:hover {
-    background-color: #F7E2AB;
-    transform: scale(1.00);
-    box-shadow: 0 5px 10px #808080;
-}
+    .cancel-button:hover {
+        background-color: #F7E2AB;
+        transform: scale(1.00);
+        box-shadow: 0 5px 10px #808080;
+    }
