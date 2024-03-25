@@ -443,7 +443,7 @@ ul {
 
 
     .delete-button:hover {
-        background-color: #E6C3C3;
+        background-color: #F2DCDE;
         transform: scale(1.00);
         box-shadow: 0 5px 10px #808080;
     }
