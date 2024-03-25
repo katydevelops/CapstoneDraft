@@ -27,6 +27,7 @@ navbar {
 
 .card {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 0.7rem;
 }
 
 
@@ -360,7 +361,7 @@ ul {
     padding: 50px;
     max-width: 1000px;
     margin: 20px auto;
-    border-radius: 8px;
+    border-radius: 0.7rem;
     box-shadow: 0 5px 10px #808080;
     opacity: 80%;
 }
