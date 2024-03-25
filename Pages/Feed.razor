@@ -10,6 +10,15 @@
 
 <div class="full-size-container">
     <button @onclick="GoToAddPostPageAsync" class="yellow-animated-button">Create a New Post!</button>
+    <div class="custom-form-elements">
+        <label for="category">Category: </label>
+        <select @onchange="CategoryDropdownSelected">
+            <option value="">Select a Category</option>
+            <option value="Safety Tip">Safety Tip</option>
+            <option value="Safety Event">Safety Event</option>
+            <option value="Report a Safety Incident">Report a Safety Incident</option>
+        </select>
+    </div>
     @if (posts == null || !posts.Any())
     {
         <h1>There are currently no posts in the feed!</h1>
