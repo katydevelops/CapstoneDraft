@@ -68,8 +68,8 @@
                                 @if (comment.UserId == currentUserId)
                                 {
                                     <div class="comment-button-container">
-                                        <button class="edit-button" @onclick="() => EditComment(comment)">Edit</button>
-                                        <button class="delete-button" @onclick="() => DeleteCommentAsync(comment.CommentId)">Delete</button>
+                                        <button class="edit-comment-button" @onclick="() => EditComment(comment)">Edit</button>
+                                        <button class="delete-comment-button" @onclick="() => DeleteCommentAsync(comment.CommentId)">Delete</button>
                                     </div>
                                 }
                             }
