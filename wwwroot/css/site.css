@@ -485,3 +485,23 @@ ul {
         transform: scale(1.00);
         box-shadow: 0 5px 10px #808080;
     }
+
+
+.cancel-button {
+    background-color: #EDF1F5;
+    color: #51739D;
+    margin: 20px auto;
+    display: block;
+    text-align: center;
+    padding: 10px 20px;
+    border: none;
+    transition: background-color 0.3s ease;
+    border-radius: 15px;
+}
+
+
+cancel-button:hover {
+    background-color: #F7E2AB;
+    transform: scale(1.00);
+    box-shadow: 0 5px 10px #808080;
+}
