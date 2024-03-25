@@ -505,11 +505,10 @@ ul {
 
 .post-category-dropdown {
     width: 50%; /* Set the width of the dropdown */
-    padding: 0.8rem 1rem; /* Make it "fat" */
-    border-radius: 20px; /* Rounded corners for the "cute" factor */
+    padding: 0.5rem 2rem; /* Make it "fat" */
+    border-radius: 10px; /* Rounded corners for the "cute" factor */
     border: 1px solid #ced4da; /* Standard border, can be changed to match the theme */
-    font-size: 1.2rem; /* Larger text for better readability */
+    font-size: 1.0rem; /* Larger text for better readability */
     background-color: #f8f9fa; /* A light pastel background */
-    color: #495057; /* Text color, can be changed as needed */
-    cursor: pointer; /* Cursor changes to a pointer to indicate it's a dropdown */
+    color: darkslategray;
 }
