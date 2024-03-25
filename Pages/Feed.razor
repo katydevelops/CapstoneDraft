@@ -124,7 +124,10 @@
         NavigationManager.NavigateTo("/AddPost");
     }
 
-
+    private async Task CategoryDropdownSelected(ChangeEventArgs args)
+    {
+         = args.Value?.ToString();
+    }
 
     private async Task LikePostAsync(PostModel Post)
     {
