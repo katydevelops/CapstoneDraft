@@ -475,8 +475,6 @@ ul {
 .save-button {
     background-color: #EDF1F5;
     color: #51739D;
-    margin: 20px auto;
-    display: block;
     text-align: center;
     padding: 10px 20px;
     border: none;
@@ -495,8 +493,6 @@ ul {
 .cancel-button {
     background-color: #EDF1F5;
     color: #51739D;
-    margin: 20px auto;
-    display: block;
     text-align: center;
     padding: 10px 20px;
     border: none;
