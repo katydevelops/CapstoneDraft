@@ -130,6 +130,11 @@
         await UpdateCategoryDropdownAsync();
     }
 
+    private async Task UpdateCategoryDropdownAsync()
+    {
+        if (string.IsNullOrEmpty(categorySelected) || categorySelected == "All Categories Selected")
+    }
+
     private async Task LikePostAsync(PostModel Post)
     {
         Post.PostLikes++;
