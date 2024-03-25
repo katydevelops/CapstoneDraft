@@ -507,8 +507,8 @@ ul {
     width: 50%; /* Set the width of the dropdown */
     padding: 0.5rem 2rem; /* Make it "fat" */
     border-radius: 10px; /* Rounded corners for the "cute" factor */
-    border: 1px solid #ced4da; /* Standard border, can be changed to match the theme */
-    font-size: 1.0rem; /* Larger text for better readability */
-    background-color: #f8f9fa; /* A light pastel background */
+    border: 1px dashed #E0E0E0; 
+    font-size: 1.0rem; 
+    background-color: #FCFCFC; 
     color: darkslategray;
 }
