@@ -133,6 +133,9 @@
     private async Task UpdateCategoryDropdownAsync()
     {
         if (string.IsNullOrEmpty(categorySelected) || categorySelected == "All Categories Selected")
+        {
+            posts = await PostService.FetchFeedPostAsync();
+        }
     }
 
     private async Task LikePostAsync(PostModel Post)
