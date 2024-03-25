@@ -98,6 +98,7 @@
     private int editedCommentId;
     private string currentUserId;
     private string FeedErrorMessage;
+    private string categorySelected = "";
 
 
     protected override async Task OnInitializedAsync()
@@ -122,6 +123,8 @@
     {
         NavigationManager.NavigateTo("/AddPost");
     }
+
+
 
     private async Task LikePostAsync(PostModel Post)
     {
