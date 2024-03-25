@@ -30,7 +30,7 @@
                 </div>
                 <div class="feed-post-body">
                     <p class="feed-post-text">@post.PostMessageBody</p>
-                    <p class="feed-post-text"><sub>Posted by @(post.AuthorName) on @post.PostCreatedTimestamp.ToString("MM/dd/yy")</sub></p>
+                    <p class="feed-post-text"><sub>Posted by <strong>@(post.AuthorName) </strong>- @post.PostCreatedTimestamp.ToString("MM/dd/yy")</sub></p>
                     <img src="@($"/{post.PostPhoto}")" asp-append-version="true" alt="Post image" class="minify-img"/>
                 </div>
                 <div class="feed-post-footer">
