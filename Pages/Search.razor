@@ -10,10 +10,12 @@
 <div class="neon-bg-container">
         <div class="social-media-card">
             <h2>Search User Posts and Comments</h2>
-            <form @onsubmit="SearchPostsAndCommentsAsync">
-            <input type="text" @bind="searchQuery" placeholder="Enter your search query!" class="custom-dropdown" />
-                <button type="submit" class="yellow-animated-button">Search!</button>
-            </form>
+                <div class="center-form">
+                    <form @onsubmit="SearchPostsAndCommentsAsync">
+                    <input type="text" @bind="searchQuery" placeholder="Enter your search query!" class="custom-dropdown" />
+                        <button type="submit" class="yellow-animated-button">Search!</button>
+                    </form>
+        </div>
             @if (queryResults != null && queryResults.Any())
             {
                 <div>
