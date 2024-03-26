@@ -25,6 +25,12 @@ navbar {
     color: #F7E3AB; /* Gold accent color to be used as a part of design */
 }
 
+
+.register-link {
+    color: #F7E3AB;
+}
+
+
 .card {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
