@@ -17,8 +17,12 @@
             <label for="Password">Password</label>
             <input type="Password" class="custom-input-elements" id="Password" name="Password" />
         </div>
+        @if (!string.IsNullOrEmpty(Model.LoginFormErrorMessage))
+        {
+            <div class="alert alert-danger">@Model.LoginFormErrorMessage</div>
+        }
         <button type="submit" class="yellow-animated-button">Login</button>
     </form>
     <br />
-    <p> Don't have an account? <a href="/register">Register here!</a></p>
+    <p> Don't have an account? <a class="nav-link "href="/register">Register here!</a></p>
 </div>
