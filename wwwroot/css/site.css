@@ -516,4 +516,6 @@ ul {
 .center-input {
     align-content: center;
     align-items: center;
+    display: flex;
+    text-align: center;
 }
