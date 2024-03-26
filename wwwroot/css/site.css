@@ -497,11 +497,12 @@ ul {
 
 
 .comment-button {
-    background-color: #EDF1F5;
+    background-color: #8389E6;
     color: #51739D;
     margin: 20px auto;
+    margin-left: 0.8rem;
     text-align: center;
-    padding: 10px 20px;
+    padding: 10px 30px;
     border: none;
     transition: background-color 0.3s ease;
     border-radius: 15px;
