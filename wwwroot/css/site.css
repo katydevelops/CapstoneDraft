@@ -287,32 +287,7 @@ ul {
     }
 
 
-.custom-comment-btn {
-    background-color: lightcoral; /* Soft pink */
-    border: none;
-    color: white;
-    font-weight: bold;
-    padding: 10px 20px;
-    border-radius: 20px; /* Rounded edges */
-    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    cursor: pointer;
-    outline: none;
-    margin: 1rem;
-}
 
-
-    .custom-comment-btn:hover, .custom-comment-btn:focus {
-        background-color: #ffd3e0; /* Lighter shade for hover */
-        transform: translateY(-2px); /* Slight lift */
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    }
-
-
-    .custom-comment-btn:active {
-        transform: translateY(1px); /* Pressed down effect */
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    }
 
 .feed-user-comments {
     padding: 1rem;
@@ -518,3 +493,25 @@ ul {
     align-items: center;
     text-align: center;
 }
+
+
+
+.comment-button {
+    background-color: #EDF1F5;
+    color: #51739D;
+    margin: 20px auto;
+    display: block;
+    text-align: center;
+    padding: 10px 20px;
+    border: none;
+    transition: background-color 0.3s ease;
+    border-radius: 15px;
+}
+
+
+    .comment-button:hover {
+        background-color: #E3F7FA;
+        transform: scale(1.00);
+        box-shadow: 0 5px 10px #808080;
+    }
+

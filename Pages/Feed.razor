@@ -9,8 +9,10 @@
 @inject ILogger<Feed> Logger
 
 <div class="full-size-container">
+    <div class="custom-input-elements">
     <h2 class="center-form">Welcome to the Safety Net Feed!</h2>
     <button @onclick="GoToAddPostPageAsync" class="yellow-animated-button">Create a New Post!</button>
+    </div>
     <div class="custom-input-elements">
         <div class="center-form">
         <label for="category">Filter Posts by Category: </label>
@@ -58,7 +60,7 @@
                     <div class="feed-comment-container">
                         <form @onsubmit="@(async () => await AddComment(post))">
                             <input type="text" @bind="commentText" class="comment-input-textarea" placeholder="Add a comment" />
-                            <button type="submit" class="custom-comment-btn">🗯 Comment</button>
+                                <button type="submit" class="comment-button ">🗯 Comment</button>
                         </form>
                         </div>
                      <div class="feed-user-comments">
