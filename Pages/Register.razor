@@ -15,21 +15,27 @@
                     <EditForm Model="@registerModelInstance" OnValidSubmit="@ProcessUserRegistration">
                     <DataAnnotationsValidator />
                         <div class="custom-form-elements">
+                        <label for="firstName">First Name:</label>
                             <InputText id="firstName" class="custom-input-elements" @bind-Value="@registerModelInstance.FirstName" placeholder="First Name" />
                         </div>
                         <div class="custom-form-elements">
+                        <label for="lastName">Last Name</label>
                             <InputText id="lastName" class="custom-input-elements" @bind-Value="@registerModelInstance.LastName" placeholder="Last Name" />
                         </div>
                         <div class="custom-form-elements">
+                        <label for="userName">Username:</label>
                             <InputText id="username" class="custom-input-elements" @bind-Value="@registerModelInstance.Username" placeholder="Username" />
                         </div>
                         <div class="custom-form-elements">
+                        <label for="phone">Phone:</label>
                             <InputText id="phone" class="custom-input-elements" @bind-Value="@registerModelInstance.Phone" placeholder="Phone" />
                         </div>
                         <div class="custom-form-elements">
+                        <label for="firstName">Email:</label>
                             <InputText id="email" class="custom-input-elements" @bind-Value="@registerModelInstance.Email" placeholder="E-Mail Address" />
                         </div>
                         <div class="custom-form-elements">
+                        <label for="firstName">Phone:</label>
                             <InputText type="password" id="password" class="custom-input-elements" @bind-Value="@registerModelInstance.Password" placeholder="Password" />
                         </div>
                         <div class="custom-form-elements">
