@@ -67,6 +67,7 @@
     private bool DisplayPasswordChangeMessage = false; // Display a success message to let use know password has been update
     private bool DisplayErrorMessage = false;
     private bool DisplayProfileUpdatedMessage = false;
+    private string PasswordValidationMessage;
 
     // Class to hold the current password and new password which will be used in ChangePasswordAsync built-in ASP Core method
     public class ChangeUserPassword
@@ -80,6 +81,11 @@
         if (userModel == null)
         {
             Logger.LogInformation("The usermodel is null which is causing an error!");
+        }
+        if (string.IsNullOrEmpty(changeUserPassword.CurrentPassword) || string.IsNullOrEmpty(changeUserPassword.NewPassword))
+        {
+            PasswordValidationMessage = "Please complete the missing password information!";
+            return;
         }
         // Use built in ChangePasswordAsync method to update new password in the database and display success message to user
         await UserManager.ChangePasswordAsync(userModel, changeUserPassword.CurrentPassword, changeUserPassword.NewPassword);
