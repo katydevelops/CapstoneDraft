@@ -8,6 +8,7 @@
 @inject NavigationManager NavigationManager
 @inject UserManager<UserModel> UserManager;
 @inject SignInManager<UserModel> LoginManager
+@inject ILogger<UserProfile> Logger
 
 <div class="fullsize-container">
         <div class="social-media-card">
@@ -76,6 +77,10 @@
 
     private async Task UpdatePasswordAsync()
     {
+        if (userModel == null)
+        {
+            Logger.LogInformation("The usermodel is null which is causing an error!");
+        }
         // Use built in ChangePasswordAsync method to update new password in the database and display success message to user
         await UserManager.ChangePasswordAsync(userModel, changeUserPassword.CurrentPassword, changeUserPassword.NewPassword);
         DisplayPasswordChangeMessage = true;
