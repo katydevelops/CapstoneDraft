@@ -49,6 +49,11 @@
     {
         // Clear old error message
         searchResultsErrorMessage = string.Empty;
+        if(string.IsNullOrWhiteSpace(searchQuery))
+        {
+            searchResultsErrorMessage = "Please enter a term in the search bar to continue!";
+            queryResults = new List<PostModel>();
+        }
         try
         {
             queryResults = await PostService.QueryPostsAndCommentsAsync(searchQuery);
