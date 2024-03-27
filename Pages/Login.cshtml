@@ -10,7 +10,7 @@
     <form method="post" class="center-form">
         @Html.AntiForgeryToken() <!-- Received 400 status codes until I enabled AntiForgeryToken; this is a built-in security measure ASP.NET to prevent cross-site scripting-->
         <div class="custom-form-elements">
-            <img src="/Images//MainTitle.png" alt="Safety Net Title Image" />
+            <img src="/Images//MainTitle.png" alt="Safety Net Title Image" class="main-title-img"/>
             <label for="Username">Username</label>
             <input type="text" class="custom-input-elements" id="Username" name="Username" value="@Model.Username" />
         </div>
