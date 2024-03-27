@@ -32,6 +32,10 @@ namespace CapstoneDraft.Services
 
         public async Task<List<PostModel>> QueryPostsAndCommentsAsync(string searchQuery)
         {
+            if (string.IsNullOrWhiteSpace(searchQuery)) 
+            {
+                return new List<PostModel>();
+            }
             try
             {
                 var lowerCaseQuery = searchQuery.ToLower() ?? string.Empty;
