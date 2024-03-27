@@ -54,7 +54,11 @@
                     <button type="submit" class="yellow-animated-button">Update Password!</button>
                 </div>
         </EditForm>
-            @if (DisplayPasswordChangeMessage)
+        @if (!string.IsNullOrEmpty(PasswordValidationMessage))
+        {
+            <div class="alert alert-danger" role="alert">@PasswordValidationMessage</div>
+        }
+        @if (DisplayPasswordChangeMessage)
             {
                 <div class="alert alert-success" role="alert">Your password has been changed successfully!</div>
             }
