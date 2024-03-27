@@ -21,6 +21,7 @@
 
 @if (userAuthenticated)
 {
+    <div class="fullsize-container">
     <div class="card">
         <div class="social-media-card">
             <div class="center-header-container">
@@ -64,6 +65,7 @@
         </div>
     </div>
 </div>
+    </div>
 }
 else
 {
@@ -73,6 +75,8 @@ else
 {
     <div class="alert alert-danger" role="alert">@AddPostErrorMessage</div>
 }
+
+
 
 @code {
     private TemporaryPostModel tempFormData = new TemporaryPostModel();
