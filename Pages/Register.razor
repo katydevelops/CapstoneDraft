@@ -14,6 +14,7 @@
                 <div class="center-form">
                     <EditForm Model="@registerModelInstance" OnValidSubmit="@ProcessUserRegistration">
                     <DataAnnotationsValidator />
+                    <ValidationSummary />
                         <div class="custom-form-elements">
                         <label for="firstName">First Name:</label>
                             <InputText id="firstName" class="custom-input-elements" @bind-Value="@registerModelInstance.FirstName" placeholder="First Name" />
