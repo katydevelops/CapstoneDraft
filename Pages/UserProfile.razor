@@ -35,24 +35,24 @@
                 <button type="submit" class="yellow-animated-button">Save Changes!</button>
             </div>
         </EditForm>
+        @if (DisplayProfileUpdatedMessage)
+        {
+            <div class="alert alert-success" role="alert">Your profile has been updated!</div>
+        }
             <h2>Update Password</h2>
             <EditForm Model="@changeUserPassword" OnValidSubmit="UpdatePasswordAsync">
                 <div class="custom-form-elements">
                     <label for="currentPassword">Current Password:</label>
-                    <InputText id="currentPassword" @bind-Value="@changeUserPassword.CurrentPassword" class="custom-input-elements" />
+                <InputText id="currentPassword" @bind-Value="@changeUserPassword.CurrentPassword" class="custom-input-elements" type="password" />
                 </div>
                 <div class="custom-form-elements">
                     <label for="newPassword">New Password:</label>
-                    <InputText id="newPassword" @bind-Value="@changeUserPassword.NewPassword" class="custom-input-elements" />
+                    <InputText id="newPassword" @bind-Value="@changeUserPassword.NewPassword" class="custom-input-elements" type="password"/>
                 </div>
                 <div class="custom-form-elements">
                     <button type="submit" class="yellow-animated-button">Update Password!</button>
                 </div>
         </EditForm>
-            @if (DisplayProfileUpdatedMessage)
-            {
-            <div class="alert alert-success" role="alert">Your profile has been updated!</div>
-            }
             @if (DisplayPasswordChangeMessage)
             {
                 <div class="alert alert-success" role="alert">Your password has been changed successfully!</div>
