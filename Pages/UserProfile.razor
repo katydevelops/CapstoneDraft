@@ -48,7 +48,15 @@
                 <div class="custom-form-elements">
                     <button type="submit" class="yellow-animated-button">Update Password!</button>
                 </div>
-            </EditForm>
+        </EditForm>
+            @if (DisplayProfileUpdatedMessage)
+            {
+            <div class="alert alert-success" role="alert">Your profile has been updated!</div>
+            }
+            @if (DisplayPasswordChangeMessage)
+            {
+                <div class="alert alert-success" role="alert">Your password has been changed successfully!</div>
+            }
         </div>
 </div>
 
