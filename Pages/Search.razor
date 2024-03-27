@@ -17,6 +17,10 @@
                         <button type="submit" class="yellow-animated-button">Search!</button>
                     </form>
             </div>
+            @if (!string.IsNullOrEmpty(searchResultsErrorMessage))
+            {
+                <div class="alert alert-danger" role="alert">@searchResultsErrorMessage</div>
+            }
         </div>
             @if (queryResults != null && queryResults.Any())
             {
