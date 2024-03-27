@@ -6,23 +6,24 @@
 }
 
 <div class="fullsize-container">
-    <img src="/Images//MainTitle.png" alt="Safety Net Title Image" />
+    
     <form method="post" class="center-form">
         @Html.AntiForgeryToken() <!-- Received 400 status codes until I enabled AntiForgeryToken; this is a built-in security measure ASP.NET to prevent cross-site scripting-->
         <div class="custom-form-elements">
+            <img src="/Images//MainTitle.png" alt="Safety Net Title Image" />
             <label for="Username">Username</label>
             <input type="text" class="custom-input-elements" id="Username" name="Username" value="@Model.Username" />
         </div>
         <div class="custom-form-elements">
             <label for="Password">Password</label>
             <input type="Password" class="custom-input-elements" id="Password" name="Password" />
+            <button type="submit" class="yellow-animated-button">Login</button>
         </div>
-        @if (!string.IsNullOrEmpty(Model.LoginFormErrorMessage))
-        {
-            <div class="alert alert-danger">@Model.LoginFormErrorMessage</div>
-        }
-        <button type="submit" class="yellow-animated-button">Login</button>
     </form>
+    @if (!string.IsNullOrEmpty(Model.LoginFormErrorMessage))
+    {
+        <div class="alert alert-danger">@Model.LoginFormErrorMessage</div>
+    }
     <br />
     <p> Don't have an account? <a class="register-link" href="/register">Register here!</a></p>
 </div>
