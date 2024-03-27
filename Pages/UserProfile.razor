@@ -1,5 +1,6 @@
 ﻿@page "/userprofile"
 
+@using CapstoneDraft.DataAnnotations;
 @using CapstoneDraft.Models;
 @using CapstoneDraft.Services;
 @using Microsoft.AspNetCore.Identity;
@@ -132,5 +133,12 @@
             var userId = UserManager.GetUserId(currentLoggedInUser);
             userModel = await UserManager.FindByIdAsync(userId);
         }
+    }
+
+    public class ChangePasswordModel
+    {
+        [PasswordAnnotation]
+
+
     }
 }
