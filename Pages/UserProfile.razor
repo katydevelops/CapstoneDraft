@@ -72,18 +72,11 @@
 
 @code {
     private UserModel userModel = new();
-    private ChangeUserPassword changeUserPassword = new();
+    private ChangePasswordModel changeUserPassword = new();
     private bool DisplayPasswordChangeMessage = false; // Display a success message to let use know password has been update
     private bool DisplayErrorMessage = false;
     private bool DisplayProfileUpdatedMessage = false;
     private string PasswordValidationMessage;
-
-    // Class to hold the current password and new password which will be used in ChangePasswordAsync built-in ASP Core method
-    public class ChangeUserPassword
-    {
-        public string CurrentPassword { get; set; }
-        public string NewPassword { get; set; }
-    }
 
     private async Task UpdatePasswordAsync()
     {
@@ -135,13 +128,14 @@
         }
     }
 
+    // Class to hold the current password and new password which will be used in ChangePasswordAsync built-in ASP Core method
     public class ChangePasswordModel
     {
         [PasswordAnnotation]
         public string CurrentPassword { get; set; }
 
         [PasswordAnnotation]
-        public string UpdatedPassword { get; set; }
+        public string NewPassword { get; set; }
 
     }
 }
