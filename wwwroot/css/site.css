@@ -15,6 +15,16 @@ navbar {
 }
 
 
+.main-title-img {
+    transition: transform 0.3s ease-in-out;
+}
+
+
+.main-title-img:hover {
+    transform: scale(1.00);
+}
+
+
 .nav-link {
     text-decoration:none;
     color: midnightblue;
