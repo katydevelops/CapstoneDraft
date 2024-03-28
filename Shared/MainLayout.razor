@@ -4,6 +4,7 @@
 
 @inject NavigationManager NavigationManager
 @inject SignInManager<UserModel> SignInManager
+@inject ILogger<MainLayout> Logger
 
 
 
@@ -34,6 +35,7 @@
 
     private void BeginLogout()
     {
+        Logger.LogInformation("BeginLogout method called");
         if (_logoutCompletionSource == null || _logoutCompletionSource.Task.IsCompleted)
         {
             _logoutCompletionSource = new TaskCompletionSource<bool>();
