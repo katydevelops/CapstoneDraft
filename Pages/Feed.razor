@@ -8,20 +8,22 @@
 @inject NavigationManager NavigationManager
 @inject ILogger<Feed> Logger
 
+if (userAuthenticated)
+{
 <div class="full-size-container">
     <div class="custom-input-elements">
         <h2 class="center-form">🌐 Welcome to the Safety Net Feed! 🌐</h2>
-    <button @onclick="GoToAddPostPageAsync" class="yellow-animated-button">Create a New Post!</button>
+        <button @onclick="GoToAddPostPageAsync" class="yellow-animated-button">Create a New Post!</button>
     </div>
     <div class="custom-input-elements">
         <div class="center-form">
-        <label for="category">Filter Posts by Category: </label>
+            <label for="category">Filter Posts by Category: </label>
             <select @onchange="CategoryDropdownSelectedAsync" class="custom-dropdown">
-            <option value="">Select a Category</option>
-            <option value="Safety Tip">Safety Tip</option>
-            <option value="Safety Event">Safety Event</option>
-            <option value="Report a Safety Incident">Report a Safety Incident</option>
-        </select>
+                <option value="">Select a Category</option>
+                <option value="Safety Tip">Safety Tip</option>
+                <option value="Safety Event">Safety Event</option>
+                <option value="Report a Safety Incident">Report a Safety Incident</option>
+            </select>
         </div>
     </div>
     @if (posts == null || !posts.Any())
@@ -56,48 +58,51 @@
                             <button class="like-button" @onclick="() => LikePostAsync(post)">😍 Like (@post.PostLikes)</button>
                             @if (post.UserId == currentUserId)
                             {
-                                 <button class="edit-button" @onclick="() => EditPost(post.PostId)">Edit Post 📝</button>
-                                 <button class="delete-button" @onclick="() => DeletePostAsync(post.PostId)">Delete Post 🚮</button>
+                                <button class="edit-button" @onclick="() => EditPost(post.PostId)">Edit Post 📝</button>
+                                <button class="delete-button" @onclick="() => DeletePostAsync(post.PostId)">Delete Post 🚮</button>
                             }
                         </div>
-                    <div class="feed-comment-container">
-                        <form @onsubmit="@(async () => await AddComment(post))">
-                            <input type="text" @bind="commentText" class="comment-input-textarea" placeholder="Add a comment" />
+                        <div class="feed-comment-container">
+                            <form @onsubmit="@(async () => await AddComment(post))">
+                                <input type="text" @bind="commentText" class="comment-input-textarea" placeholder="Add a comment" />
                                 <button type="submit" class="comment-button">📣 Comment</button>
-                        </form>
+                            </form>
                         </div>
-                     <div class="feed-user-comments">
-                         <h5>Comments:</h5>
-                         @foreach (var comment in post.PostComments)
-                         {
-                            if (editedCommentId == comment.CommentId)
+                        <div class="feed-user-comments">
+                            <h5>Comments:</h5>
+                            @foreach (var comment in post.PostComments)
                             {
-                                <div class="feed-edit-comment-container">
-                                    <input type="text" @bind="commentText" class="comment-input"/>
-                                    <button @onclick="() => SaveCommentAsync(comment)" class="save-button">Save</button>
-                                    <button class="cancel-button" @onclick="() => CancelEditing()">Cancel</button>
-                                </div>
-                            }
-                            else
-                            {
-                                <p>@comment.CommentText</p>
-                                    <p><sub>by <strong>@comment.User.UserName</strong> posted on @comment.CommentCreatedTimestamp.ToShortDateString()</sub></p>
-                                @if (comment.UserId == currentUserId)
+                                if (editedCommentId == comment.CommentId)
                                 {
-                                    <div class="comment-button-container">
-                                        <button class="edit-comment-button" @onclick="() => EditComment(comment)">Edit</button>
-                                        <button class="delete-comment-button" @onclick="() => DeleteCommentAsync(comment.CommentId)">Delete</button>
+                                    <div class="feed-edit-comment-container">
+                                        <input type="text" @bind="commentText" class="comment-input" />
+                                        <button @onclick="() => SaveCommentAsync(comment)" class="save-button">Save</button>
+                                        <button class="cancel-button" @onclick="() => CancelEditing()">Cancel</button>
                                     </div>
                                 }
+                                else
+                                {
+                                    <p>@comment.CommentText</p>
+                                    <p><sub>by <strong>@comment.User.UserName</strong> posted on @comment.CommentCreatedTimestamp.ToShortDateString()</sub></p>
+                                    @if (comment.UserId == currentUserId)
+                                    {
+                                        <div class="comment-button-container">
+                                            <button class="edit-comment-button" @onclick="() => EditComment(comment)">Edit</button>
+                                            <button class="delete-comment-button" @onclick="() => DeleteCommentAsync(comment.CommentId)">Delete</button>
+                                        </div>
+                                    }
+                                }
                             }
-                         }
-                     </div>
+                        </div>
                     </div>
                 </div>
             </div>
         }
     }
 </div>
+
+
+}
 
 
 @code {
@@ -107,6 +112,7 @@
     private string currentUserId;
     private string FeedErrorMessage;
     private string categorySelected = "";
+    private bool userAuthenticated;
 
 
     protected override async Task OnInitializedAsync()
