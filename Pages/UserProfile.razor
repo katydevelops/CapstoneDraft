@@ -15,7 +15,7 @@
         <div class="social-media-card">
             <h1>Edit Profile</h1>
         <EditForm Model="@userModel" OnValidSubmit="UpdateUserProfileAsync">
-            <DataAnnotationsValidator />
+            <DataAnnotationsValidator class="validation-summary-message" />
             <ValidationSummary class="validation-summary-message" />
                 <div class="custom-form-elements">
                 <label for="firstName">First Name:</label>
