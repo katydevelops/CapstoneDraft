@@ -539,9 +539,20 @@ ul {
     }
 
 
-.validation-summary-message{
-    color: red;
-    font-weight: bold;
-    font-size: 1rem;
-    background-color: yellow;
+.validation-summary-message {
+    color: red; /* Or any color you want */
+    border: 1px solid red; /* Optional: adds a border around the summary */
+    background-color: #ffcccc; /* Optional: adds a background color */
+    padding: 10px; /* Optional: adds space inside the border */
+    border-radius: 5px; /* Optional: rounds the corners of the border */
+    margin-bottom: 15px; /* Optional: adds space below the summary */
+}
+
+ .validation-summary-message ul {
+        padding-left: 20px;
+        list-style-type: none; /* Removes default list styling */
+    }
+
+.validation-summary-message li {
+   color: red; /* Color for individual error messages */
 }
