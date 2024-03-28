@@ -108,16 +108,30 @@
         Logger.LogDebug("Values being updated: Email = {Email}, PhoneNumber = {PhoneNumber}", userModel.Email, userModel.PhoneNumber);
 
 
-        IdentityResult profileSuccessfullyUpdated = await UserManager.UpdateAsync(userModel);
-        if (profileSuccessfullyUpdated.Succeeded)
+        try
         {
-            DisplayProfileUpdatedMessage = true;
-            Logger.LogInformation("User profile updated successfully for user with ID '{UserId}'", userModel.Id);
+            IdentityResult profileSuccessfullyUpdated = await UserManager.UpdateAsync(userModel);
+            if (profileSuccessfullyUpdated.Succeeded)
+            {
+                DisplayProfileUpdatedMessage = true;
+                Logger.LogInformation("User profile updated successfully for user with ID '{UserId}'", userModel.Id);
 
-            return;
+                return;
+            }
+            else
+            {
+                foreach (var error in profileSuccessfullyUpdated.Errors)
+                {
+                    Logger.LogError("Error updating user profile for user with ID '{UserId}': {Error}", userModel.Id, error.Description);
+                }
+
+                DisplayErrorMessage = true;
+            }
         }
-        else
+        catch (Exception ex)
         {
+            // Log the exception if one occurs.
+            Logger.LogError(ex, "An exception occurred while updating the user profile for user with ID '{UserId}'", userModel.Id);
             DisplayErrorMessage = true;
         }
     }
