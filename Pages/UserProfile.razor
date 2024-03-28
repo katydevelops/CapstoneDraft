@@ -37,7 +37,7 @@
                 <InputText id="email" @bind-Value="@userModel.Email" class="custom-input-elements" @oninput="ValidateEmail" />
                 @if (!EmailValidated)
                 {
-                    <span class="regex-validation-message"
+                    <span class="regex-validation-message">Please enter a valid email address.</span>
                 }
             </div>
             <div class="custom-form-elements">
