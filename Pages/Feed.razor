@@ -8,8 +8,7 @@
 @inject NavigationManager NavigationManager
 @inject ILogger<Feed> Logger
 
-@if (userAuthenticated)
-{
+
 <div class="full-size-container">
     <div class="custom-input-elements">
         <h2 class="center-form">🌐 Welcome to the Safety Net Feed! 🌐</h2>
@@ -102,11 +101,6 @@
 </div>
 
 
-}
-else
-{
-    <p>Please login to see posts!</p>
-}
 
 
 @code {
@@ -116,7 +110,6 @@ else
     private string currentUserId;
     private string FeedErrorMessage;
     private string categorySelected = "";
-    private bool userAuthenticated = false;
 
 
     protected override async Task OnInitializedAsync()
@@ -130,7 +123,6 @@ else
         {
             Logger.LogInformation("User claims: {0}", loggedInUser.Claims.Select(c => $"{c.Type}: {c.Value}"));
 
-            userAuthenticated = true;
             Logger.LogInformation("User is authenticated. Fetching posts.");
             var loggedInUserId = UserManager.GetUserId(loggedInUser);
             currentUserId = loggedInUserId;
