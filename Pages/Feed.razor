@@ -124,8 +124,12 @@ else
         Logger.LogInformation("Fetching user authentication state.");
         var userAuthenticationState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
         var loggedInUser = userAuthenticationState.User;
+        Logger.LogInformation("User authenticated: {0}", loggedInUser.Identity.IsAuthenticated);
+
         if (loggedInUser.Identity.IsAuthenticated)
         {
+            Logger.LogInformation("User claims: {0}", loggedInUser.Claims.Select(c => $"{c.Type}: {c.Value}"));
+
             userAuthenticated = true;
             Logger.LogInformation("User is authenticated. Fetching posts.");
             var loggedInUserId = UserManager.GetUserId(loggedInUser);
