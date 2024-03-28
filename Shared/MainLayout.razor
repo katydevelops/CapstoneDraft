@@ -50,7 +50,16 @@
 
     private async Task Logout()
     {
-        await SignInManager.SignOutAsync();
-        NavigationManager.NavigateTo("/login", forceLoad: true);
+        try
+        {
+            Logger.LogInformation("Logout method called");
+            await SignInManager.SignOutAsync();
+            Logger.LogInformation("Sign out successful, navigating to login page.");
+            NavigationManager.NavigateTo("/login", forceLoad: true);
+        }
+        catch (Exception ex)
+        {
+            Logger.LogError(ex, "Error occurred during logout");
+        }
     }
 }
