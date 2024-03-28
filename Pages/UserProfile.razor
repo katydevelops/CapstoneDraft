@@ -104,6 +104,8 @@
 
     private async Task UpdateUserProfileAsync()
     {
+        Logger.LogInformation("Attempting to update user profile for user with ID '{UserId}'", userModel.Id);
+
         IdentityResult profileSuccessfullyUpdated = await UserManager.UpdateAsync(userModel);
         if (profileSuccessfullyUpdated.Succeeded)
         {
