@@ -539,7 +539,7 @@ ul {
     }
 
 
-.validation-summary-message {
+.regex-validation-message {
     color: red !important;
     border: 1px solid red; /* Optional: adds a border around the summary */
     background-color: #ffcccc !important;

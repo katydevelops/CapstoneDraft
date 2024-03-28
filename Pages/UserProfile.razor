@@ -35,6 +35,10 @@
             <div class="custom-form-elements">
                 <label for="email">E-Mail Address:</label>
                 <InputText id="email" @bind-Value="@userModel.Email" class="custom-input-elements" @oninput="ValidateEmail" />
+                @if (!EmailValidated)
+                {
+                    <span class="regex-validation-message"
+                }
             </div>
             <div class="custom-form-elements">
                 <button type="submit" class="yellow-animated-button">Save Changes!</button>
