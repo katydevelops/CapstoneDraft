@@ -15,7 +15,7 @@
     <a href="/reports" class="nav-link">Reports</a>
     <a href="/search" class="nav-link">Search</a>
     <a href="/" class="nav-link">Logout</a>
-    <button class="logout-button" @onclick="Logout">Logout</button>
+    <button class="logout-button" @onclick="BeginLogout">Logout</button>
 
 </nav>
 
@@ -30,5 +30,25 @@
 </footer>
 
 @code {
+    private TaskCompletionSource<bool> _logoutCompletionSource;
 
+    protected override void OnInitialized()
+    {
+        _logoutCompletionSource = new TaskCompletionSource<bool>();
+        _logoutCompletionSource.Task.ContinueWith(async _ =>
+        {
+            await Logout();
+        }, TaskScheduler.Default);
+    }
+
+    private void BeginLogout()
+    {
+        _logoutCompletionSource.SetResult(true);
+    }
+
+    private async Task Logout()
+    {
+        await SignInManager.SignOutAsync();
+        NavigationManager.NavigateTo("/login", forceLoad: true);
+    }
 }
