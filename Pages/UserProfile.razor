@@ -120,6 +120,10 @@
         Logger.LogDebug("Values being updated: Email = {Email}, PhoneNumber = {PhoneNumber}", userModel.Email, userModel.PhoneNumber);
         try
         {
+            if (!EmailValidated || !PhoneValidated)
+            {
+                return;
+            }
             IdentityResult profileSuccessfullyUpdated = await UserManager.UpdateAsync(userModel);
             if (profileSuccessfullyUpdated.Succeeded)
             {
