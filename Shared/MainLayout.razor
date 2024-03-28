@@ -33,20 +33,23 @@
 @code {
     private TaskCompletionSource<bool> _logoutCompletionSource;
 
-    private void BeginLogout()
-    {
-        Logger.LogInformation("BeginLogout method called");
-        if (_logoutCompletionSource == null || _logoutCompletionSource.Task.IsCompleted)
+
+        private async Task BeginLogout()
         {
-            _logoutCompletionSource = new TaskCompletionSource<bool>();
-            _logoutCompletionSource.Task.ContinueWith(async _ =>
+            Logger.LogInformation("BeginLogout method called");
+
+            try
             {
-                await Logout();
-            }, TaskScheduler.Default);
+                await SignInManager.SignOutAsync();
+                Logger.LogInformation("User signed out.");
+                NavigationManager.NavigateTo("/", true);
+            }
+            catch (Exception ex)
+            {
+                Logger.LogError(ex, "Error during logout.");
+            }
         }
 
-        _logoutCompletionSource.SetResult(true);
-    }
 
     private async Task Logout()
     {
