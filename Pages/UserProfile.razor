@@ -118,6 +118,11 @@
         }
         else
         {
+            foreach (var error in profileSuccessfullyUpdated.Errors)
+            {
+                Logger.LogError("Error updating user profile for user with ID '{UserId}': {Error}", userModel.Id, error.Description);
+            }
+
             DisplayErrorMessage = true;
         }
     }
