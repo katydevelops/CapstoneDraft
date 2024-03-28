@@ -32,17 +32,17 @@
 @code {
     private TaskCompletionSource<bool> _logoutCompletionSource;
 
-    protected override void OnInitialized()
-    {
-        _logoutCompletionSource = new TaskCompletionSource<bool>();
-        _logoutCompletionSource.Task.ContinueWith(async _ =>
-        {
-            await Logout();
-        }, TaskScheduler.Default);
-    }
-
     private void BeginLogout()
     {
+        if (_logoutCompletionSource == null || _logoutCompletionSource.Task.IsCompleted)
+        {
+            _logoutCompletionSource = new TaskCompletionSource<bool>();
+            _logoutCompletionSource.Task.ContinueWith(async _ =>
+            {
+                await Logout();
+            }, TaskScheduler.Default);
+        }
+
         _logoutCompletionSource.SetResult(true);
     }
 
