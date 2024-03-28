@@ -45,7 +45,10 @@
                 <div class="feed-post-body">
                     <p class="feed-post-text">@post.PostMessageBody</p>
                     <p class="feed-post-text"><sub>Posted by <strong>@(post.AuthorName) </strong> - @post.PostCreatedTimestamp.ToString("MM/dd/yy")</sub></p>
-                    <img src="@($"/{post.PostPhoto}")" asp-append-version="true" alt="Post image" class="minify-img"/>
+                    @if (!string.IsNullOrWhiteSpace(post.PostPhoto))
+                    {
+                        <img src="@($"/{post.PostPhoto}")" asp-append-version="true" alt="Post image" class="minify-img" />
+                    }
                 </div>
                 <div class="feed-post-footer">
                     <div class="feed-post-button-container">
