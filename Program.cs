@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -23,7 +24,7 @@ builder.Services.AddServerSideBlazor();
 builder.Services.AddDbContext<CapstoneContext>(options => options.UseSqlite(builder.Configuration.GetConnectionString("CapstoneDraftConnectionString")));
 
 // Configure ASP.NET Identity in application to handle authentication and authorization and set require confirmed user account to false for easier testing to prevent having to verify real email addresses
-builder.Services.AddDefaultIdentity<UserModel>(options => options.SignIn.RequireConfirmedAccount = false).AddRoles<IdentityRole>().AddEntityFrameworkStores<CapstoneContext>();
+builder.Services.AddDefaultIdentity<UserModel>(options => {options.SignIn.RequireConfirmedAccount = false; options.User.RequireUniqueEmail = true;}).AddRoles<IdentityRole>().AddEntityFrameworkStores<CapstoneContext>();
 
 
 // Services that will be used in Safety Net app
