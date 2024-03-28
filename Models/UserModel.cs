@@ -9,12 +9,6 @@ namespace CapstoneDraft.Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
 
-        [EmailAddress]
-        public override string Email { get; set; }
-
-        [Phone]
-        public override string PhoneNumber { get; set; }
-
         public DateTime CreatedTimeStamp { get; set; }
         public DateTime? UserLastActiveTimeStamp { get; set; }
 
