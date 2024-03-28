@@ -112,6 +112,8 @@
         if (profileSuccessfullyUpdated.Succeeded)
         {
             DisplayProfileUpdatedMessage = true;
+            Logger.LogInformation("User profile updated successfully for user with ID '{UserId}'", userModel.Id);
+
             return;
         }
         else
