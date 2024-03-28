@@ -106,8 +106,6 @@
     {
         Logger.LogInformation("Attempting to update user profile for user with ID '{UserId}'", userModel.Id);
         Logger.LogDebug("Values being updated: Email = {Email}, PhoneNumber = {PhoneNumber}", userModel.Email, userModel.PhoneNumber);
-
-
         try
         {
             IdentityResult profileSuccessfullyUpdated = await UserManager.UpdateAsync(userModel);
@@ -130,10 +128,9 @@
         }
         catch (Exception ex)
         {
-            // Log the exception if one occurs.
             Logger.LogError(ex, "An exception occurred while updating the user profile for user with ID '{UserId}'", userModel.Id);
             DisplayErrorMessage = true;
-        }
+        } 
     }
 
     // User all built-in methods of ASP.NET Core to fetch the state of the user, extract the the user identity details and store it into a variable that will then be used to fetch the user ID and model data if the user is properly authenticated
