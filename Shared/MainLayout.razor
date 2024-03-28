@@ -3,8 +3,7 @@
 @using CapstoneDraft.Models;
 
 @inject NavigationManager NavigationManager
-@inject SignInManager<UserModel> SignInManager
-@inject ILogger<MainLayout> Logger
+
 
 
 
@@ -16,7 +15,8 @@
     <a href="/reports" class="nav-link">Reports</a>
     <a href="/search" class="nav-link">Search</a>
     <a href="/" class="nav-link">Logout</a>
-    <button class="logout-button" @onclick="BeginLogout">Logout</button>
+    <a href="/Logout">Test</a>
+
 
 </nav>
 
@@ -31,38 +31,5 @@
 </footer>
 
 @code {
-    private TaskCompletionSource<bool> _logoutCompletionSource;
 
-
-        private async Task BeginLogout()
-        {
-            Logger.LogInformation("BeginLogout method called");
-
-            try
-            {
-                await SignInManager.SignOutAsync();
-                Logger.LogInformation("User signed out.");
-                NavigationManager.NavigateTo("/", true);
-            }
-            catch (Exception ex)
-            {
-                Logger.LogError(ex, "Error during logout.");
-            }
-        }
-
-
-    private async Task Logout()
-    {
-        try
-        {
-            Logger.LogInformation("Logout method called");
-            await SignInManager.SignOutAsync();
-            Logger.LogInformation("Sign out successful, navigating to login page.");
-            NavigationManager.NavigateTo("/login", forceLoad: true);
-        }
-        catch (Exception ex)
-        {
-            Logger.LogError(ex, "Error occurred during logout");
-        }
-    }
 }
