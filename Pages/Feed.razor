@@ -102,6 +102,14 @@
     }
 </div>
         </Authorized>
+        <NotAuthorized>
+            <!-- Content to display if the user is not authenticated -->
+            <div class="not-authorized-content">
+                <h2>You need to be logged in to view the feed.</h2>
+                <button @onclick="NavigateToLogin">Login</button>
+            </div>
+        </NotAuthorized>
+    </AuthorizeView>
 </CascadingAuthenticationState>
 
 
@@ -135,6 +143,11 @@
         {
             Logger.LogWarning("User is not authenticated.");
         }
+    }
+
+    private void NavigateToLogin()
+    {
+        NavigationManager.NavigateTo("/login");
     }
 
     private async Task GoToAddPostPageAsync()
