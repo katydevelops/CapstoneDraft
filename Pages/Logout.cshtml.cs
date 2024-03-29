@@ -25,7 +25,7 @@ namespace CapstoneDraft.Pages
             _logger.LogInformation("User logged out successfully."); // Log successful logout
 
             // If RedirectToPage("/") does not work as expected, you may need to specify the exact page route
-            return RedirectToPage("/"); // Assuming there is an Index.cshtml or adjust according to your correct page route
+            return RedirectToPage("/feed"); // Assuming there is an Index.cshtml or adjust according to your correct page route
         }
     }
 }
