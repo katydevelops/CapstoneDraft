@@ -23,8 +23,6 @@
             }
             else
             {
-                     <div class="social-media-card">
-                        <div class="center-form">
                             <h3>Edit Post</h3>
                                 <EditForm Model="tempFormData" OnValidSubmit="SubmitUpdatedPostAsync" novalidate>
                                 
@@ -76,12 +74,10 @@
                                 <button type="submit" class="yellow-animated-button">Save!</button>
                             </div>
                         </EditForm>
-                        </div>
                         @if (!String.IsNullOrEmpty(EditPostErrorMessage))
                         {
                             <div class="alert alert-danger" role="alert">@EditPostErrorMessage</div>
                         }
-                     </div>
             }
         </div>
     </div>
