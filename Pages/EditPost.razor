@@ -12,7 +12,7 @@
     <div class="full-size-container">
         <div class="social-media-card">
             <div class="center-form">
-            <h2>Edit Post Test</h2>
+            <h2>Edit Your Post Below:</h2>
             @if (!userAuthenticated)
             {
                 <p>Please login in order to edit posts!</p>
@@ -23,7 +23,6 @@
             }
             else
             {
-                            <h3>Edit Post</h3>
                                 <EditForm Model="tempFormData" OnValidSubmit="SubmitUpdatedPostAsync" novalidate>
                                 
                                     <label for="category" class="custom-form-elements">Category: </label>
