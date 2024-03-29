@@ -15,6 +15,7 @@
 
 <div class="full-size-container">
         <div class="social-media-card">
+            <div class="center-form">
             <h1>Edit Profile</h1>
         <EditForm Model="@userModel" OnValidSubmit="UpdateUserProfileAsync">
             <DataAnnotationsValidator  />
@@ -79,6 +80,7 @@
             <div class="alert alert-danger" role="alert">Your are receiving an error!</div>
         }
         </div>
+    </div>
 </div>
 
 @code {
