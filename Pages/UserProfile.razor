@@ -118,6 +118,8 @@
 
     private async Task UpdatePasswordAsync()
     {
+        var userAuthenticationState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        var currentLoggedInUser = userAuthenticationState.User;
         if (userModel == null)
         {
             Logger.LogInformation("The usermodel is null which is causing an error!");
@@ -126,6 +128,12 @@
         {
             PasswordValidationMessage = "Please complete the missing password information!";
             return;
+        }
+        var loggedInUser = await UserManager.GetUserAsync(currentLoggedInUser);
+        var passwordValidated = await UserManager.CheckPasswordAsync(loggedInUser, changeUserPassword.CurrentPassword)
+        if (!)
+        {
+            
         }
         // Use built in ChangePasswordAsync method to update new password in the database and display success message to user
         var passwordUpdated = await UserManager.ChangePasswordAsync(userModel, changeUserPassword.CurrentPassword, changeUserPassword.NewPassword);
