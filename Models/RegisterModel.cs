@@ -20,7 +20,7 @@ namespace CapstoneDraft.Models
         public string Password { get; set; }
 
 
-        // Using ASP.NET built in DataAnnotations for phone and email format
+        // Using ASP.NET built in DataAnnotations for phone and email format in order to add validation to register page
         [Required]
         [Phone]
         public string Phone { get; set; }
