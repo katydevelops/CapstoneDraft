@@ -14,7 +14,6 @@
 @inject NavigationManager NavigationManager
 @inject UserManager<UserModel> UserManager;
 @inject AuthenticationStateProvider AuthenticationStateProvider
-@inject ILogger<AddPost> Logger
 
 
 @if (!string.IsNullOrEmpty(AddPostErrorMessage))
@@ -89,16 +88,15 @@ else
 
 
 @code {
-    private TemporaryPostModel tempFormData = new TemporaryPostModel();
-    private bool userAuthenticated = false;
-    private string AddPostErrorMessage;
+    private TemporaryPostModel tempFormData = new TemporaryPostModel(); // Temp form data will hold data entered by the user in the input fields
+    private bool userAuthenticated = false; // Flag to handle rendering content if user is not authenticated
+    private string AddPostErrorMessage; // Error messaging handling to display relevant error message to the user
 
     // Fetch authentication state for user using built in ASP.NET methods and if they are authenticated then load the add new post functionality by trigger flag on load
     protected override async Task OnInitializedAsync()
     {
         var userAuthenticationState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
         userAuthenticated = userAuthenticationState.User.Identity.IsAuthenticated;
-        Logger.LogInformation("User authenticated status: {Authenticated}", userAuthenticated);
     }
 
     private async Task ProcessNewPostAsync()
@@ -120,7 +118,6 @@ else
                 UserId = loggedInUserId,
                 PostPhoto = tempFormData.TempPostPhoto
             };
-        Logger.LogInformation($"Post will be created with image path: {newPost.PostPhoto}");
         try
         {
             await PostService.AddNewPostAsync(newPost);
@@ -147,7 +144,6 @@ else
             }
             catch (Exception ex)
             {
-                Logger.LogError(ex, "Error uploading file.");
                 AddPostErrorMessage = "An error occurred while processing the file. Please try again.";
             }
         }
