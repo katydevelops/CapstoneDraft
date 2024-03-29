@@ -147,6 +147,7 @@ else
                 // Update the UI model with the path of the saved file
                 tempFormData.TempPostPhoto = savedFilePath;
             }
+            // Error handling to handle any file that is uploaded besides the accepted png and jpg file formats
             catch (Exception error)
             {
                 AddPostErrorMessage = "Your file is invalid. Please select a different file and then try again!";
