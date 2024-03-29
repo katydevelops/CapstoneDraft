@@ -5,11 +5,15 @@
     Layout = "_Layout";
 }
 
-<h3>Are you sure you want to logout?</h3>
+<div class="full-size-container">
+    <div class="card">
+        <h3>Are you sure you want to logout?</h3>
 
-<form method="post">
-    @Html.AntiForgeryToken()
-    <button type="submit" class="btn btn-warning">Yes, logout</button>
-</form>
+        <form method="post">
+            @Html.AntiForgeryToken()
+            <button type="submit" class="btn btn-warning">Yes, logout</button>
+        </form>
 
-<a href="/feed" class="btn btn-info">No, return to feed</a>
+        <a href="/feed" class="btn btn-info">No, return to feed</a>
+    </div>
+</div>
