@@ -547,3 +547,14 @@ ul {
     border-radius: 5px; /* Optional: rounds the corners of the border */
     margin-bottom: 15px; /* Optional: adds space below the summary */
 }
+
+
+.unathorized-container {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: flex-start; /*needed to prevent element overflow into the nav bar*/
+    padding-top: 3rem;
+    margin-top: 6rem;
+}
