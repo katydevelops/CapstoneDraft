@@ -30,7 +30,7 @@ namespace CapstoneDraft.Pages
             {
                 await _signInManager.SignOutAsync();
                 _logger.LogInformation("User logged out successfully.");
-                return RedirectToPage("/Login"); // Adjust this to your login page's actual path
+                return RedirectToPage("/"); // Adjust this to your login page's actual path
             }
             catch (Exception ex)
             {
