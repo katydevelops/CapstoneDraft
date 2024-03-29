@@ -14,7 +14,7 @@
                 <div class="center-form">
                     <EditForm Model="@registerModelInstance" OnValidSubmit="@ProcessUserRegistration">
                     <DataAnnotationsValidator />
-                    <ValidationSummary style="color: red; background: #FFD4D4; font-weight: bold"/>
+                    <ValidationSummary style="color: red; background: #FFD4D4; font-weight: bold; font-size: 1rem;"/>
                         <div class="custom-form-elements">
                         <label for="firstName">First Name:</label>
                             <InputText id="firstName" class="custom-input-elements" @bind-Value="@registerModelInstance.FirstName" placeholder="First Name" />
