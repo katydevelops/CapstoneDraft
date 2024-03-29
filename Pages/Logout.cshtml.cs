@@ -24,11 +24,20 @@ namespace CapstoneDraft.Pages
             _logger.LogInformation("Accessed Logout page");
         }
 
-        // This method is called when the user confirms the logout action
         public async Task<IActionResult> OnPostAsync()
         {
-            await _signInManager.SignOutAsync();
-            return RedirectToPage("/Login"); // Adjust this to your login page's actual path
+            try
+            {
+                await _signInManager.SignOutAsync();
+                _logger.LogInformation("User logged out successfully.");
+                return RedirectToPage("/Login"); // Adjust this to your login page's actual path
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "An error occurred while logging out.");
+                // Optionally redirect to an error page or return to the current page with an error message
+                return RedirectToPage("/Error");
+            }
         }
     }
 }
