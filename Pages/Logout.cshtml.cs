@@ -17,7 +17,7 @@ namespace CapstoneDraft.Pages
         public async Task<IActionResult> OnGetAsync()
         {
             await _signInManager.SignOutAsync();
-            return RedirectToPage("/");
+            return RedirectToPage("~/");
         }
     }
 }
