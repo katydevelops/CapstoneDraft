@@ -8,7 +8,6 @@
 <div class="center-container">
     <div class="neon-bg-container">
             <div class="center-form">
-                <div class="card">
                 <div class="social-media-card">
                     <div class="feed-post-header">
                     <h3>Are you sure you want to logout?</h3>
@@ -16,13 +15,12 @@
                     <div class="feed-post-body">
                     <form method="post">
                         @Html.AntiForgeryToken()
-                        <button type="submit" class="btn btn-warning">Yes, logout</button>
+                        <button type="submit" class="yellow-animated-button">Yes, logout</button>
                     </form>
 
                     <a href="/feed" class="btn btn-info">No, return to feed</a>
                     </div>
                 </div>
-            </div>
         </div>
     </div>
 </div>
