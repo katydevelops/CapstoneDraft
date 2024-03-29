@@ -62,12 +62,12 @@
                 <div class="custom-form-elements">
                     <label for="currentPassword">Current Password:</label>
                 <InputText id="currentPassword" @bind-Value="@changeUserPassword.CurrentPassword" class="custom-input-elements" type="password" />
-                                <ValidationMessage For="@(() => changeUserPassword.CurrentPassword)" style="color: red; background: #FAF2F3; font-weight: bold; font-size: 1.2rem; border-radius: 25px;" />
+                                <ValidationMessage For="@(() => changeUserPassword.CurrentPassword)" style="color: red; background: #FAF2F3; font-weight: bold; font-size: 1.2rem; padding: 1rem; border-radius: 25px;" />
                 </div>
                 <div class="custom-form-elements">
                     <label for="newPassword">New Password:</label>
                     <InputText id="newPassword" @bind-Value="@changeUserPassword.NewPassword" class="custom-input-elements" type="password"/>
-                                <ValidationMessage For="@(() => changeUserPassword.NewPassword)" style="color: red; background: #FAF2F3; font-weight: bold; font-size: 1.2rem; border-radius: 25px;" />
+                                <ValidationMessage For="@(() => changeUserPassword.NewPassword)" style="color: red; background: #FAF2F3; font-weight: bold; font-size: 1.2rem; padding: 1rem; border-radius: 25px;" />
                 </div>
                 <div class="custom-form-elements">
                     <button type="submit" class="yellow-animated-button">Update Password!</button>
