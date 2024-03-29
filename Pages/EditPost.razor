@@ -9,30 +9,28 @@
 @inject ILogger<EditPost> Logger
 
 
-    <div class="full-size-container">
-        <div class="social-media-card">
-            <div class="center-form">
+<div class="full-size-container">
+    <div class="social-media-card">
+        <div class="center-form">
             <h2>Edit Your Post Below:</h2>
-            @if (!userAuthenticated)
-            {
-                <p>Please login in order to edit posts!</p>
-            }
-            else if (!postAuthor)
-            {
-                <p>You are not the author of this post - your request is denied!</p>
-            }
-            else
-            {
-                                <EditForm Model="tempFormData" OnValidSubmit="SubmitUpdatedPostAsync" novalidate>
-                                
-                                    <label for="category" class="custom-form-elements">Category: </label>
-                                        <InputSelect id="category" @bind-Value="tempFormData.TempPostCategory" class="custom-input-elements" required>
-                                            <option value="">Select a Category</option>
-                                            <option value="Safety Tip">Safety Tip</option>
-                                            <option value="Safety Event">Safety Event</option>
-                                            <option value="Report a Safety Incident">Report a Safety Incident</option>
-                                        </InputSelect>
-
+                @if (!userAuthenticated)
+                {
+                    <p>Please login in order to edit posts!</p>
+                }
+                else if (!postAuthor)
+                {
+                    <p>You are not the author of this post - your request is denied!</p>
+                }
+                else
+                {
+                    <EditForm Model="tempFormData" OnValidSubmit="SubmitUpdatedPostAsync" novalidate>
+                         <label for="category" class="custom-form-elements">Category: </label>
+                            <InputSelect id="category" @bind-Value="tempFormData.TempPostCategory" class="custom-input-elements" required>
+                                <option value="">Select a Category</option>
+                                <option value="Safety Tip">Safety Tip</option>
+                                <option value="Safety Event">Safety Event</option>
+                                <option value="Report a Safety Incident">Report a Safety Incident</option>
+                            </InputSelect>
                                 <div class="custom-form-elements">
                                     <label for="name">Your Name: </label>
                                     <InputText id="name" class="custom-input-elements" @bind-Value="@tempFormData.TempPostNameOfPostAuthor" />
@@ -68,24 +66,23 @@
                                 <label for="updated-image" class="custom-form-elements">New Image: </label>
                                 <InputFile id="updated-image" OnChange="@ProcessNewImageAsync" />
                             </div>
-                            
                             <div>
                                 <button type="submit" class="yellow-animated-button">Save!</button>
                             </div>
-                        </EditForm>
-                        @if (!String.IsNullOrEmpty(EditPostErrorMessage))
-                        {
-                            <div class="alert alert-danger" role="alert">@EditPostErrorMessage</div>
-                        }
-            }
+                    </EditForm>
+                    @if (!String.IsNullOrEmpty(EditPostErrorMessage))
+                    {
+                        <div class="alert alert-danger" role="alert">@EditPostErrorMessage</div>
+                    }
+                }
         </div>
     </div>
 </div>
 
 
 @code {
-        [Parameter]
-        public int EditPostId { get; set; }
+    [Parameter]
+    public int EditPostId { get; set; }
     private TemporaryPostModel tempFormData = new();
     private PostModel postModel;
     private string EditPostErrorMessage;
