@@ -106,6 +106,7 @@ else
         {
             AddPostErrorMessage = "You must include your name with you post!";
         }
+        // Fetch authentication state of user again to ensure that the correct user is being associated with the new post that is being saved to the database
         var loggedInUser = (await AuthenticationStateProvider.GetAuthenticationStateAsync()).User;
         var loggedInUserId = UserManager.GetUserId(loggedInUser);
         var newPost = new PostModel
