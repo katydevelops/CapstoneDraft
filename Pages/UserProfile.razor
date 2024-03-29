@@ -131,7 +131,7 @@
         }
         var loggedInUser = await UserManager.GetUserAsync(currentLoggedInUser);
         var passwordValidated = await UserManager.CheckPasswordAsync(loggedInUser, changeUserPassword.CurrentPassword)
-        if (!)
+        if (!passwordValidated)
         {
             
         }
