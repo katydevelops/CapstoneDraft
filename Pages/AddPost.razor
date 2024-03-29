@@ -18,8 +18,9 @@
 
 
             
-
-@if (userAuthenticated)
+@* Add flag to only show the Add Post end point if the user is validated via AuthenticationStateProvider first
+ *@
+ @if (userAuthenticated)
 {
     <div class="full-size-container">
         <div class="social-media-card">
