@@ -125,6 +125,11 @@ h2 {
     padding: 20px 40px;
 }
 
+h6 
+{
+    color: darkslategray;
+    margin-top: 0;
+}
 
 .yellow-animated-button {
     background-color: #EDF1F5;
