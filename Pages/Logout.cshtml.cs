@@ -32,7 +32,7 @@ namespace CapstoneDraft.Pages
             {
                 await _signInManager.SignOutAsync();
                 _logger.LogInformation("User logged out successfully.");
-                return LocalRedirect("/feed");
+                return LocalRedirect("/");
             }
             catch (Exception ex)
             {
