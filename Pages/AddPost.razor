@@ -122,6 +122,7 @@ else
             };
         try
         {
+            // Add new post to database and return to feed where the new post will be displayed for the user to see
             await PostService.AddNewPostAsync(newPost);
             NavigationManager.NavigateTo("/feed");
         }
