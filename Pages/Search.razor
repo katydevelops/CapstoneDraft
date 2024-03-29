@@ -25,29 +25,32 @@
                 <div class="alert alert-danger" role="alert">@searchResultsErrorMessage</div>
             }
         </div>
-            @if (queryResults != null && queryResults.Any())
-            {
-                <div>
-                    <ul>
-                        @foreach (var post in queryResults)
-                        {
-                            <li>
-                                <div class="search-card">
-                                    <h4>@((MarkupString)HighlightSearchQuery(post.PostSubject, searchQuery))</h4>
-                                    <p>@GetPostWithSearchQueryPreview(post.PostMessageBody, searchQuery)</p>
-                                    <p>Posted by @(post.AuthorName ?? "Anonymous") on @post.PostCreatedTimestamp.ToShortDateString()</p>
-                                    <button @onclick="() => ViewPost(post.PostId)" class="yellow-animated-button">View Full Post!</button>
-                                </div>
-                            </li>
-                        }
-                    </ul>
-                    </div>
-                }
-                else
-                {
-                    <div class="alert alert-danger" role="alert">A search result matching your term was not located - please try again!</div>
+        @if (searchStarted)
+        {
+                    if (queryResults != null && queryResults.Any())
+                    {
+                        <div>
+                            <ul>
+                                @foreach (var post in queryResults)
+                                {
+                                    <li>
+                                        <div class="search-card">
+                                            <h4>@((MarkupString)HighlightSearchQuery(post.PostSubject, searchQuery))</h4>
+                                            <p>@GetPostWithSearchQueryPreview(post.PostMessageBody, searchQuery)</p>
+                                            <p>Posted by @(post.AuthorName ?? "Anonymous") on @post.PostCreatedTimestamp.ToShortDateString()</p>
+                                            <button @onclick="() => ViewPost(post.PostId)" class="yellow-animated-button">View Full Post!</button>
+                                        </div>
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="alert alert-danger" role="alert">A search result matching your term was not located - please try again!</div>
+                    }
+        }
 
-                }
             </div>
         </Authorized>
         <NotAuthorized>
@@ -74,12 +77,14 @@
 @code {
     private string searchQuery;
     private List<PostModel> queryResults;
+    private bool searchStarted = false;
     private string searchResultsErrorMessage;
 
     private async Task SearchPostsAndCommentsAsync()
     {
         // Clear old error message
         searchResultsErrorMessage = string.Empty;
+        searchStarted = true;
         if(string.IsNullOrWhiteSpace(searchQuery))
         {
             searchResultsErrorMessage = "Please enter a term in the search bar to continue!";
