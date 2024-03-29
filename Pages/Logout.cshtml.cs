@@ -20,6 +20,8 @@ namespace CapstoneDraft.Pages
         // This method is called when navigating to /Logout, showing the confirmation message
         public void OnGet()
         {
+            // Log when the logout page is accessed
+            _logger.LogInformation("Accessed Logout page");
         }
 
         // This method is called when the user confirms the logout action
