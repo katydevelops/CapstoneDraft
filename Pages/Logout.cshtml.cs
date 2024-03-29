@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Identity;
 using CapstoneDraft.Models;
+using Microsoft.Extensions.Logging;
 
 namespace CapstoneDraft.Pages
 {
