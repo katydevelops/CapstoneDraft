@@ -26,6 +26,7 @@ namespace CapstoneDraft.Pages
 
         public async Task<IActionResult> OnPostAsync()
         {
+            _logger.LogInformation("Onpost is being trigger right now: ");
             try
             {
                 await _signInManager.SignOutAsync();
