@@ -134,7 +134,7 @@ else
     }
 
 
-    // Pass in Blazor InputFileChangeEventArgs which will store details about the image 
+    // This method fires when the user uploads the file into the form - it passes in Blazor's InputFileChangeEventArgs which will store details about the image 
     private async Task ProcessFileUploadAsync(InputFileChangeEventArgs args)
     {
         var file = args.File;
@@ -142,7 +142,7 @@ else
         {
             try
             {
-                // Call the service to process the file and get the saved path
+                // Call the upload photo service to handle the compression of the file and then receive the saved path back
                 var savedFilePath = await UploadPhotoService.ProcessSelectedPhotoAsync(file);
                 // Update the UI model with the path of the saved file
                 tempFormData.TempPostPhoto = savedFilePath;
