@@ -16,10 +16,7 @@
 @inject AuthenticationStateProvider AuthenticationStateProvider
 
 
-@if (!string.IsNullOrEmpty(AddPostErrorMessage))
-{
-    <div class="alert alert-danger" role="alert">@AddPostErrorMessage</div>
-}
+
 
 @* Add flag to only show the Add Post end point if the user is validated via AuthenticationStateProvider first
  *@
@@ -65,6 +62,10 @@
                         <button type="submit" class="yellow-animated-button">Submit</button>
                     </div>
                 </EditForm>
+                @if (!string.IsNullOrEmpty(AddPostErrorMessage))
+                {
+                    <div class="alert alert-danger" role="alert">@AddPostErrorMessage</div>
+                }
         </div>
     </div>
 </div>
@@ -125,7 +126,7 @@ else
         }
         catch
         {
-            AddPostErrorMessage = "Your post cannot be created at this time. Please try again.";
+            AddPostErrorMessage = "Please enter ALL the required post fields and then submit again!";
         }
         tempFormData = new TemporaryPostModel();
     }
