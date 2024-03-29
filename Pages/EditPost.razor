@@ -9,8 +9,9 @@
 @inject ILogger<EditPost> Logger
 
 
-<div class="neon-bg-container">
-    <div class="social-media-container">
+    <div class="full-size-container">
+        <div class="social-media-card">
+            <div class="center-form">
             <h2>Edit Post Test</h2>
             @if (!userAuthenticated)
             {
@@ -22,9 +23,7 @@
             }
             else
             {
-                <div>
-                    <div>
-                        <div class="social-media-card">
+                     <div class="social-media-card">
                         <div class="center-form">
                             <h3>Edit Post</h3>
                                 <EditForm Model="tempFormData" OnValidSubmit="SubmitUpdatedPostAsync" novalidate>
@@ -83,11 +82,10 @@
                             <div class="alert alert-danger" role="alert">@EditPostErrorMessage</div>
                         }
                      </div>
-                 </div>
-            </div>
             }
         </div>
     </div>
+</div>
 
 
 @code {
