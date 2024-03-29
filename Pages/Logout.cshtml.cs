@@ -13,7 +13,7 @@ namespace CapstoneDraft.Pages
         private readonly ILogger<LogoutModel> _logger;
         private readonly NavigationManager _navigationManager;
 
-        public LogoutModel(SignInManager<UserModel> signInManager, ILogger<LogoutModel> logger)
+        public LogoutModel(SignInManager<UserModel> signInManager, ILogger<LogoutModel> logger, NavigationManager navigationManager)
         {
             _signInManager = signInManager;
             _logger = logger;
