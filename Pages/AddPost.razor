@@ -17,7 +17,11 @@
 @inject ILogger<AddPost> Logger
 
 
-            
+@if (!string.IsNullOrEmpty(AddPostErrorMessage))
+{
+    <div class="alert alert-danger" role="alert">@AddPostErrorMessage</div>
+}
+
 @* Add flag to only show the Add Post end point if the user is validated via AuthenticationStateProvider first
  *@
  @if (userAuthenticated)
@@ -80,10 +84,6 @@ else
             </div>
         </div>
     </div>
-}
-@if(!string.IsNullOrEmpty(AddPostErrorMessage))
-{
-    <div class="alert alert-danger" role="alert">@AddPostErrorMessage</div>
 }
 
 
