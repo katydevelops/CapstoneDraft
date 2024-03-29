@@ -26,8 +26,9 @@ navbar {
 
 
 .nav-link {
-    text-decoration:none;
+    text-decoration: none;
     color: midnightblue;
+    margin: 0 3rem;
 }
 
 
