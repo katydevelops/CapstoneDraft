@@ -58,16 +58,16 @@
         }
             <h2>Update Password</h2>
             <EditForm Model="@changeUserPassword" OnValidSubmit="UpdatePasswordAsync">
-                <DataAnnotationsValidator />
+                            <DataAnnotationsValidator class="regex-validation-message" />
                 <div class="custom-form-elements">
                     <label for="currentPassword">Current Password:</label>
                 <InputText id="currentPassword" @bind-Value="@changeUserPassword.CurrentPassword" class="custom-input-elements" type="password" />
-                                <ValidationMessage For="@(() => changeUserPassword.CurrentPassword)" class="regex-validation-message" />
+                                <ValidationMessage For="@(() => changeUserPassword.CurrentPassword)"  />
                 </div>
                 <div class="custom-form-elements">
                     <label for="newPassword">New Password:</label>
                     <InputText id="newPassword" @bind-Value="@changeUserPassword.NewPassword" class="custom-input-elements" type="password"/>
-                                <ValidationMessage For="@(() => changeUserPassword.NewPassword)" class="regex-validation-message" />
+                                <ValidationMessage For="@(() => changeUserPassword.NewPassword)"  />
                 </div>
                 <div class="custom-form-elements">
                     <button type="submit" class="yellow-animated-button">Update Password!</button>
