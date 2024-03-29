@@ -6,15 +6,15 @@
 @inject NavigationManager NavigationManager
 
 @* Wrap register form in data annotations validator to capture missing properties marked as [Required] in the model and also ensure that username and password match custom annotation set *@
-<div class="neon-bg-container">
-    <div class="card">
-        <div class="social-media-card">
+<div class="full-size-container">
+    <div class="social-media-card">
+        <div class="center-form">
                 <h1>Welcome!</h1>
                 <h2>Please register for Safety App below!</h2>
                 <div class="center-form">
                     <EditForm Model="@registerModelInstance" OnValidSubmit="@ProcessUserRegistration">
                     <DataAnnotationsValidator />
-                    <ValidationSummary style="color: red; background: #FFD4D4; font-weight: bold; font-size: 1rem;"/>
+                    <ValidationSummary style="color: red; background: #FFD4D4; font-weight: bold; font-size: 2rem;"/>
                         <div class="custom-form-elements">
                         <label for="firstName">First Name:</label>
                             <InputText id="firstName" class="custom-input-elements" @bind-Value="@registerModelInstance.FirstName" placeholder="First Name" />
