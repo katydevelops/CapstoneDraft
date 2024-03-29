@@ -579,3 +579,8 @@ ul {
     padding-top: 3rem;
     margin-top: 6rem;
 }
+
+ValidationSummary{
+    color: yellow;
+    font-size: 3rem;
+}
