@@ -130,10 +130,11 @@
             return;
         }
         var loggedInUser = await UserManager.GetUserAsync(currentLoggedInUser);
-        var passwordValidated = await UserManager.CheckPasswordAsync(loggedInUser, changeUserPassword.CurrentPassword)
+        var passwordValidated = await UserManager.CheckPasswordAsync(loggedInUser, changeUserPassword.CurrentPassword);
         if (!passwordValidated)
         {
             PasswordValidationMessage = "Your current password is incorrect - please try again!";
+            return;
         }
         // Use built in ChangePasswordAsync method to update new password in the database and display success message to user
         var passwordUpdated = await UserManager.ChangePasswordAsync(userModel, changeUserPassword.CurrentPassword, changeUserPassword.NewPassword);
