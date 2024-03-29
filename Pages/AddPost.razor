@@ -129,7 +129,7 @@ else
         {
             AddPostErrorMessage = "Please enter ALL the required post fields and then submit again!";
         }
-        tempFormData = new TemporaryPostModel();
+        tempFormData = new TemporaryPostModel(); // Reset temp form data to clear the input that the current user entered so that a blank form is shown next time
     }
 
     private async Task ProcessFileUploadAsync(InputFileChangeEventArgs args)
