@@ -13,6 +13,9 @@
 @inject SignInManager<UserModel> LoginManager
 @inject ILogger<UserProfile> Logger
 
+<CascadingAuthenticationState>
+        <AuthorizeView>
+        <Authorized>
 <div class="full-size-container">
         <div class="social-media-card">
             <div class="center-form">
