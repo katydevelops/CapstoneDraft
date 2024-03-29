@@ -133,6 +133,8 @@ else
         tempFormData = new TemporaryPostModel(); // Reset temp form data to clear the input that the current user entered so that a blank form is shown next time
     }
 
+
+    // Pass in Blazor InputFileChangeEventArgs which will store details about the image 
     private async Task ProcessFileUploadAsync(InputFileChangeEventArgs args)
     {
         var file = args.File;
@@ -145,9 +147,9 @@ else
                 // Update the UI model with the path of the saved file
                 tempFormData.TempPostPhoto = savedFilePath;
             }
-            catch (Exception ex)
+            catch (Exception error)
             {
-                AddPostErrorMessage = "An error occurred while processing the file. Please try again.";
+                AddPostErrorMessage = "Your file is invalid. Please select a different file and then try again!";
             }
         }
     }
