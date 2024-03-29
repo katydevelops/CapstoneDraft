@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Identity;
 using CapstoneDraft.Models;
 using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.Components;
 
 namespace CapstoneDraft.Pages
 {
@@ -10,6 +11,7 @@ namespace CapstoneDraft.Pages
     {
         private readonly SignInManager<UserModel> _signInManager;
         private readonly ILogger<LogoutModel> _logger;
+        private readonly NavigationManager _navigationManager;
 
         public LogoutModel(SignInManager<UserModel> signInManager, ILogger<LogoutModel> logger)
         {
