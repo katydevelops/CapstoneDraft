@@ -144,7 +144,7 @@ else
             {
                 // Call the upload photo service to handle the compression of the file and then receive the saved path back
                 var savedFilePath = await UploadPhotoService.ProcessSelectedPhotoAsync(file);
-                // Update the UI model with the path of the saved file
+                // Store the compressed file path to the temp form data model which will then be passed to the PostPhoto variable when the post is saved to the database
                 tempFormData.TempPostPhoto = savedFilePath;
             }
             // Error handling to handle any file that is uploaded besides the accepted png and jpg file formats
