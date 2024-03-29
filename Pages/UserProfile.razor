@@ -67,7 +67,7 @@
                 <div class="custom-form-elements">
                     <label for="newPassword">New Password:</label>
                     <InputText id="newPassword" @bind-Value="@changeUserPassword.NewPassword" class="custom-input-elements" type="password"/>
-                                <ValidationMessage For="@(() => changeUserPassword.NewPassword)" />
+                                <ValidationMessage For="@(() => changeUserPassword.NewPassword)" regex-validation-message />
                 </div>
                 <div class="custom-form-elements">
                     <button type="submit" class="yellow-animated-button">Update Password!</button>
