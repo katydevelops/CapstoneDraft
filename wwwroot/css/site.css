@@ -511,6 +511,19 @@ ul {
     color: darkslategray;
 }
 
+@media screen and (max-width: 768px) {
+    .custom-dropdown {
+        width: 100%; 
+    }
+}
+
+/* Media query for larger screens */
+@media screen and (min-width: 1200px) {
+    .custom-dropdown {
+        width: 70%; 
+    }
+}
+
 .center-input {
     align-content: center;
     align-items: center;
