@@ -26,7 +26,7 @@
         <div class="social-media-card">
             <div class="center-form">
                 <h2>Create a New Post</h2>
-            
+                @* Temp form data will hold the information entered by the user via the UI inputs and save as a Post *@
                 <EditForm Model="@tempFormData" OnValidSubmit="ProcessNewPostAsync">
                     <DataAnnotationsValidator />
                     <ValidationSummary />
