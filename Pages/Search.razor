@@ -7,6 +7,9 @@
 @inject PostService PostService
 @inject NavigationManager NavigationManager
 
+<CascadingAuthenticationState>
+        <AuthorizeView>
+        <Authorized>
 <div class="neon-bg-container">
         <div class="social-media-card">
         <div class="center-input">
@@ -42,6 +45,26 @@
 
             }
 </div>
+        </Authorized>
+        <NotAuthorized>
+            <div class="unathorized-container ">
+                <div class="neon-bg-container">
+                    <div class="center-form">
+                        <div class="social-media-card">
+                            <div class="feed-post-header">
+                                <h3>You need to be logged in to view the search results!</h3>
+                            </div>
+                            <div class="feed-post-body">
+                                <button class="yellow-animated-button" onclick="location.href='/';">Login</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </NotAuthorized>
+    </AuthorizeView>
+</CascadingAuthenticationState>
+
 
 
 @code {
