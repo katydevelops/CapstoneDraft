@@ -14,9 +14,9 @@
 @inject ILogger<UserProfile> Logger
 
 <CascadingAuthenticationState>
-        <AuthorizeView>
-        <Authorized>
-<div class="full-size-container">
+    <AuthorizeView>
+        <Authorized Context="authorizedContext">
+            <div class="full-size-container">
         <div class="social-media-card">
             <div class="center-form">
             <h1>Edit Profile</h1>
@@ -85,13 +85,11 @@
         </div>
     </div>
 </div>
-        </Authorized>
+</Authorized>
         <NotAuthorized>
-            <!-- Content to display if the user is not authenticated -->
             <div class="not-authorized-content">
                 <h2>You need to be logged in to view the feed.</h2>
                 <button class="animated-yellow-button" onclick="location.href='/';">Login</button>
-
             </div>
         </NotAuthorized>
     </AuthorizeView>
