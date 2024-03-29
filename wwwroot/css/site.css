@@ -58,13 +58,13 @@ h5 {
 }
 
 /* Will create full-sized viewport container needed for styling and whitespace effect */
-.fullsize-container {
+.center-container {
     height: 100vh;
     display: flex;
     align-items: center;
     flex-direction: column;
     justify-content: flex-start; /*needed to prevent element overflow into the nav bar*/
-    padding-top: 6rem;
+    padding-top: 10rem;
     margin-top: 6rem;
 }
 
