@@ -9,98 +9,98 @@
 
 
 <CascadingAuthenticationState>
-        <AuthorizeView>
+    <AuthorizeView>
         <Authorized>
-<div class="full-size-container">
-    <div class="custom-input-elements">
-        <h2 class="center-form">🌐 Welcome to the Safety Net Feed! 🌐</h2>
-        <button @onclick="GoToAddPostPageAsync" class="yellow-animated-button">Create a New Post!</button>
-    </div>
-    <div class="custom-input-elements">
-        <div class="center-form">
-            <label for="category">Filter Posts by Category: </label>
-            <select @onchange="CategoryDropdownSelectedAsync" class="custom-dropdown">
-                <option value="">Select a Category</option>
-                <option value="Safety Tip">Safety Tip</option>
-                <option value="Safety Event">Safety Event</option>
-                <option value="Report a Safety Incident">Report a Safety Incident</option>
-            </select>
-        </div>
-    </div>
-    @if (posts == null || !posts.Any())
-    {
-        <h1>There are currently no posts in the feed!</h1>
-    }
-    @if (!string.IsNullOrEmpty(FeedErrorMessage))
-    {
-        <div class="alert alert-danger" role="alert">@FeedErrorMessage</div>
-    }
-    else
-    {
-        @foreach (var post in posts)
-        {
-            <div class="card mb-3">
-                <div class="feed-post-header">
-                    <h6><strong>Name:</strong> @post.AuthorName</h6>
-                    <h6><strong>Subject:</strong> @post.PostSubject</h6>
-                    <h6><strong>Post Category:</strong> @post.PostCategory</h6>
+            <div class="full-size-container">
+                <div class="custom-input-elements">
+                    <h2 class="center-form">🌐 Welcome to the Safety Net Feed! 🌐</h2>
+                    <button @onclick="GoToAddPostPageAsync" class="yellow-animated-button">Create a New Post!</button>
                 </div>
-                <div class="feed-post-body">
-                    <p class="feed-post-text">@post.PostMessageBody</p>
-                    <p class="feed-post-text"><sub>Posted by <strong>@(post.AuthorName) </strong> - @post.PostCreatedTimestamp.ToString("MM/dd/yy")</sub></p>
-                    @if (!string.IsNullOrWhiteSpace(post.PostPhoto))
-                    {
-                        <img src="@($"/{post.PostPhoto}")" asp-append-version="true" alt="Post image" class="minify-img" />
-                    }
-                </div>
-                <div class="feed-post-footer">
-                    <div class="feed-post-button-container">
-                        <div class="post-like-edit-delete">
-                            <button class="like-button" @onclick="() => LikePostAsync(post)">😍 Like (@post.PostLikes)</button>
-                            @if (post.UserId == currentUserId)
-                            {
-                                <button class="edit-button" @onclick="() => EditPost(post.PostId)">Edit Post 📝</button>
-                                <button class="delete-button" @onclick="() => DeletePostAsync(post.PostId)">Delete Post 🚮</button>
-                            }
-                        </div>
-                        <div class="feed-comment-container">
-                            <form @onsubmit="@(async () => await AddComment(post))">
-                                <input type="text" @bind="commentText" class="comment-input-textarea" placeholder="Add a comment" />
-                                <button type="submit" class="comment-button">📣 Comment</button>
-                            </form>
-                        </div>
-                        <div class="feed-user-comments">
-                            <h5>Comments:</h5>
-                            @foreach (var comment in post.PostComments)
-                            {
-                                if (editedCommentId == comment.CommentId)
-                                {
-                                    <div class="feed-edit-comment-container">
-                                        <input type="text" @bind="commentText" class="comment-input" />
-                                        <button @onclick="() => SaveCommentAsync(comment)" class="save-button">Save</button>
-                                        <button class="cancel-button" @onclick="() => CancelEditing()">Cancel</button>
-                                    </div>
-                                }
-                                else
-                                {
-                                    <p>@comment.CommentText</p>
-                                    <p><sub>by <strong>@comment.User.UserName</strong> posted on @comment.CommentCreatedTimestamp.ToShortDateString()</sub></p>
-                                    @if (comment.UserId == currentUserId)
-                                    {
-                                        <div class="comment-button-container">
-                                            <button class="edit-comment-button" @onclick="() => EditComment(comment)">Edit</button>
-                                            <button class="delete-comment-button" @onclick="() => DeleteCommentAsync(comment.CommentId)">Delete</button>
-                                        </div>
-                                    }
-                                }
-                            }
-                        </div>
+                <div class="custom-input-elements">
+                    <div class="center-form">
+                        <label for="category">Filter Posts by Category: </label>
+                        <select @onchange="CategoryDropdownSelectedAsync" class="custom-dropdown">
+                            <option value="">Select a Category</option>
+                            <option value="Safety Tip">Safety Tip</option>
+                            <option value="Safety Event">Safety Event</option>
+                            <option value="Report a Safety Incident">Report a Safety Incident</option>
+                        </select>
                     </div>
                 </div>
+                @if (posts == null || !posts.Any())
+                {
+                    <h1>There are currently no posts in the feed!</h1>
+                }
+                @if (!string.IsNullOrEmpty(FeedErrorMessage))
+                {
+                    <div class="alert alert-danger" role="alert">@FeedErrorMessage</div>
+                }
+                else
+                {
+                    @foreach (var post in posts)
+                    {
+                        <div class="card mb-3">
+                            <div class="feed-post-header">
+                                <h6><strong>Name:</strong> @post.AuthorName</h6>
+                                <h6><strong>Subject:</strong> @post.PostSubject</h6>
+                                <h6><strong>Post Category:</strong> @post.PostCategory</h6>
+                            </div>
+                            <div class="feed-post-body">
+                                <p class="feed-post-text">@post.PostMessageBody</p>
+                                <p class="feed-post-text"><sub>Posted by <strong>@(post.AuthorName) </strong> - @post.PostCreatedTimestamp.ToString("MM/dd/yy")</sub></p>
+                                @if (!string.IsNullOrWhiteSpace(post.PostPhoto))
+                                {
+                                    <img src="@($"/{post.PostPhoto}")" asp-append-version="true" alt="Post image" class="minify-img" />
+                                }
+                            </div>
+                            <div class="feed-post-footer">
+                                <div class="feed-post-button-container">
+                                    <div class="post-like-edit-delete">
+                                        <button class="like-button" @onclick="() => LikePostAsync(post)">😍 Like (@post.PostLikes)</button>
+                                        @if (post.UserId == currentUserId)
+                                        {
+                                            <button class="edit-button" @onclick="() => EditPost(post.PostId)">Edit Post 📝</button>
+                                            <button class="delete-button" @onclick="() => DeletePostAsync(post.PostId)">Delete Post 🚮</button>
+                                        }
+                                    </div>
+                                    <div class="feed-comment-container">
+                                        <form @onsubmit="@(async () => await AddComment(post))">
+                                            <input type="text" @bind="commentText" class="comment-input-textarea" placeholder="Add a comment" />
+                                            <button type="submit" class="comment-button">📣 Comment</button>
+                                        </form>
+                                    </div>
+                                    <div class="feed-user-comments">
+                                        <h5>Comments:</h5>
+                                        @foreach (var comment in post.PostComments)
+                                        {
+                                            if (editedCommentId == comment.CommentId)
+                                            {
+                                                <div class="feed-edit-comment-container">
+                                                    <input type="text" @bind="commentText" class="comment-input" />
+                                                    <button @onclick="() => SaveCommentAsync(comment)" class="save-button">Save</button>
+                                                    <button class="cancel-button" @onclick="() => CancelEditing()">Cancel</button>
+                                                </div>
+                                            }
+                                            else
+                                            {
+                                                <p>@comment.CommentText</p>
+                                                <p><sub>by <strong>@comment.User.UserName</strong> posted on @comment.CommentCreatedTimestamp.ToShortDateString()</sub></p>
+                                                @if (comment.UserId == currentUserId)
+                                                {
+                                                    <div class="comment-button-container">
+                                                        <button class="edit-comment-button" @onclick="() => EditComment(comment)">Edit</button>
+                                                        <button class="delete-comment-button" @onclick="() => DeleteCommentAsync(comment.CommentId)">Delete</button>
+                                                    </div>
+                                                }
+                                            }
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
             </div>
-        }
-    }
-</div>
         </Authorized>
         <NotAuthorized>
             <div class="unathorized-container ">
