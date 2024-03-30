@@ -58,6 +58,7 @@
                                     <img src="@($"/{post.PostPhoto}")" asp-append-version="true" alt="Post image" class="minify-img" />
                                 }
                             </div>
+                            @* Post footer will show the like, edit and delete post for the author of the post - or only the like button for users who are not the author of the post *@
                             <div class="feed-post-footer">
                                 <div class="feed-post-button-container">
                                     <div class="post-like-edit-delete">
