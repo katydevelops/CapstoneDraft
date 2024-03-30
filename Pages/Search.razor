@@ -34,14 +34,14 @@
                                 @foreach (var post in queryResults)
                                 {
                                     <li>
-                                        <div class="social-media-card">
+                                        
                                             <div class="search-card">
                                                 <h4>@((MarkupString)HighlightSearchQuery(post.PostSubject, searchQuery))</h4>
                                                 <p>@GetPostWithSearchQueryPreview(post.PostMessageBody, searchQuery)</p>
-                                                <p>Posted by @(post.AuthorName ?? "Anonymous") on @post.PostCreatedTimestamp.ToShortDateString()</p>
+                                            <p><sub>Posted by <strong>@(post.AuthorName ?? "Anonymous") on <strong>@post.PostCreatedTimestamp.ToShortDateString()</strong></sub></p>
                                                 <button @onclick="() => ViewPost(post.PostId)" class="yellow-animated-button">View Full Post!</button>
                                             </div>
-                                        </div>
+                                        
                                     </li>
                                 }
                             </ul>

@@ -200,8 +200,8 @@ ul {
 
 
 .search-card {
-    padding: 1rem;
-    max-width: 600px;
+    padding: 3rem;
+    max-width: 500px;
     background: white;
     text-align: center;
     margin: 2.5rem auto;
@@ -209,6 +209,10 @@ ul {
     box-shadow: 0 5px 10px #808080;
 }
 
+.search-card p {
+    padding: 0.5rem;
+    margin: 1rem;
+}
 
 
 
