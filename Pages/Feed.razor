@@ -113,7 +113,7 @@
             </div>
         </Authorized>
         <NotAuthorized>
-            @* If not authorized through Authentication State Provider, the user will see a message that they need to login to see the feed a button to route them to the  *@
+            @* If not authorized through Authentication State Provider, the user will see a message that they need to login to see the feed and a button to route them to do so  *@
             <div class="unathorized-container ">
                 <div class="neon-bg-container">
                     <div class="center-form">
@@ -140,11 +140,12 @@
     private int editedCommentId;
     private string currentUserId;
     private string FeedErrorMessage;
-    private string categorySelected = "";
+    private string categorySelected = ""; // Initialize category selected to show all
 
 
     protected override async Task OnInitializedAsync()
     {
+        // Grab user state via Authentication State Provider, then grab the current user Id which will be used to show the edit and delete functionality for their own posts
         var userAuthenticationState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
         var loggedInUser = userAuthenticationState.User;
 
@@ -160,11 +161,7 @@
         }
     }
 
-    private void NavigateToLogin()
-    {
-        NavigationManager.NavigateTo("~/");
-    }
-
+    // Navigation for the Create a New Post button
     private async Task GoToAddPostPageAsync()
     {
         NavigationManager.NavigateTo("/AddPost");
