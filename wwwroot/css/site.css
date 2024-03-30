@@ -121,20 +121,25 @@ h2 {
     padding: 20px 40px;
 }
 
+
 h3 {
     color: coral;
     text-align: center;
 }
+
+
+h5 {
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
 
 h6 
 {
     color: darkslategray;
 }
 
-h5 {
-    font-weight: bold;
-    margin-bottom: 1rem;
-}
+
 
 .yellow-animated-button {
     background-color: #EDF1F5;
