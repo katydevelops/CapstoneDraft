@@ -183,8 +183,12 @@
             {
                 EditPostErrorMessage = "Invalid file format - please select a .jpeg or .png image and try again!";
             }
-            var newSelectedImagePath = await UploadPhotoService.ProcessSelectedPhotoAsync(newSelectedImage);
-            tempFormData.TempPostPhoto = newSelectedImagePath;
+            else
+            {
+                EditPostErrorMessage = string.Empty;
+                var newSelectedImagePath = await UploadPhotoService.ProcessSelectedPhotoAsync(newSelectedImage);
+                tempFormData.TempPostPhoto = newSelectedImagePath;
+            }
             StateHasChanged();
         }
     }
