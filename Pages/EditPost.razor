@@ -66,8 +66,9 @@
                                 </div>
                             }
                             <div>
+                                @* The ProcessNewImageAsync method will run the user's newly selected photo through image compression before updating it to the database and feed *@
                                 <label for="updated-image" class="custom-form-elements">New Image: </label>
-                                <InputFile id="updated-image" OnChange="@ProcessNewImageAsync" />
+                                <InputFile id="updated-image" OnChange="@ProcessNewImageAsync" /> 
                             </div>
                             <div>
                                 <button type="submit" class="yellow-animated-button">Save!</button>
