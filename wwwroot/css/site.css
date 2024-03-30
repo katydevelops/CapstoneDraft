@@ -52,12 +52,6 @@ navbar {
 }
 
 
-
-h5 {
-    font-weight: bold;
-    margin-bottom: 1rem;
-}
-
 /* Will create full-sized viewport container needed for styling and whitespace effect */
 .center-container {
     height: 100vh;
@@ -135,6 +129,11 @@ h3 {
 h6 
 {
     color: darkslategray;
+}
+
+h5 {
+    font-weight: bold;
+    margin-bottom: 1rem;
 }
 
 .yellow-animated-button {
@@ -585,3 +584,7 @@ ul {
     padding-left: 1rem;
 }
 
+.search-subheading{
+    font-size: 0.5rem;
+    margin-bottom: 2rem;
+}
