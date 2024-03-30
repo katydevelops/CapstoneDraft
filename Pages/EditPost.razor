@@ -123,6 +123,7 @@
 
     private void LoadPostDetails(PostModel postModel)
     {
+        // Need to translate the post details to the Temporary Post Model so that the details will load into the input fields for the user to make the direct changes they want
         tempFormData.TempPostCategory = postModel.PostCategory;
         tempFormData.TempPostNameOfPostAuthor = postModel.AuthorName;
         tempFormData.TempPostUserLocation = postModel.UserLocation;
