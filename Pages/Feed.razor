@@ -190,6 +190,7 @@
 
     private async Task LikePostAsync(PostModel Post)
     {
+        // Trigger like event handler and store the update number of likes to the post in the database so it can be retrieved in the future
         Post.PostLikes++;
         await PostService.EditPostAsync(Post);
     }
