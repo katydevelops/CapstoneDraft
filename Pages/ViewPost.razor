@@ -4,6 +4,7 @@
 @inject PostService PostService
 @inject NavigationManager NavigationManager
 
+@* Load the post details with the purpose of the user being able to view all the information and any corresponding image that matches their serach ter *@m
 @if (post != null)
 {
     <div class="neon-bg-container">
@@ -45,18 +46,17 @@
                 }
                 </div>
             </div>
-    
 </div>
 }
 
 
 @code {
     [Parameter]
-    public int PostId { get; set; }
+    public int PostId { get; set; } // PostId component parameter will allow the Search page to pass the id parameter to this View Post child component
     private PostModel post;
 
     protected override async Task OnInitializedAsync()
     {
-        post = await PostService.FetchPostAsync(PostId);
+        post = await PostService.FetchPostAsync(PostId); // At component intialization, load the post the matches the corresponding Id
     }
 }
