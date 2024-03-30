@@ -140,7 +140,7 @@
             EditPostErrorMessage = "You are not authorized to edit this post!";
             return;
         }
-        LoadPostInputFields();
+        UpdatePostFromInputFields();
         await SaveUpdatedPostAsync();
     }
 
@@ -158,8 +158,9 @@
         }
     }
 
-    private void LoadPostInputFields()
+    private void UpdatePostFromInputFields()
     {
+        // Updates the post id with the changes that the user edited in the input fields
         postModel.PostCategory = tempFormData.TempPostCategory;
         postModel.AuthorName = tempFormData.TempPostNameOfPostAuthor;
         postModel.UserLocation = tempFormData.TempPostUserLocation;
