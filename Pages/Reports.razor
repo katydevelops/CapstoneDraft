@@ -68,7 +68,7 @@
                     report => new object[] { report.Key, report.Value.TotalComments, report.Value.LatestCommentTimestamp?.ToString("g") ?? "No comments reutrned!" });
                     break;
                 case 3:
-                    reportTitle = "Total Number of Posts Per Category";
+                    reportTitle = "Total Number of Posts Per Category Report";
                     var totalPostsPerCategory = await ReportService.GetTotalPostsPerCategoryAsync();
                     reportDisplayTable = CreateReportDisplayTable(totalPostsPerCategory, new[] { "Category", "Total Posts Per Category" },
                     report => new object[] { report.Key, report.Value });
