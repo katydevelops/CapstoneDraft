@@ -15,7 +15,7 @@
         </div>
                 <div class="social-media-card">
                 <div>
-                    <p class="editpost-subheading">Post Details:</p>
+                    <p class="view-post-subheading">Post Details:</p>
                     <p>@post.PostMessageBody</p>
                     @if (!string.IsNullOrWhiteSpace(post.PostPhoto))
                     {
@@ -26,7 +26,7 @@
                 @if (post.PostComments.Any())
                 {
                     <div>
-                        <h4>Comments: </h4>
+                        <p class="view-post-subheading">Comments: </p>
                         @foreach (var comment in post.PostComments)
                         {
                             <p>@comment.CommentText</p>
