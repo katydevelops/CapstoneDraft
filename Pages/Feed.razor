@@ -203,6 +203,7 @@
 
     private async Task DeletePostAsync(int postId)
     {
+        // Grab the post in the collection that matches the selected Id and store it to the pending deletion variable. Perform a null check and ensure that the user deleting the post is the author of the post before deleting.
         var postPendingDeletion = posts.FirstOrDefault(post => post.PostId == postId);
         if (postPendingDeletion != null && postPendingDeletion.UserId == currentUserId)
         {
