@@ -97,6 +97,7 @@
 
     protected override async Task OnInitializedAsync()
     {
+        // Grab user authentication state - if the user is not authenticated then send them to the login page - if they are authenticated as the post author, then load the post based on the Id so they can make edits
         var userAuthenticationState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
         userAuthenticated = userAuthenticationState.User.Identity.IsAuthenticated;
         if (!userAuthenticated)
