@@ -92,7 +92,7 @@
     private TemporaryPostModel tempFormData = new();
     private PostModel postModel;
     private string EditPostErrorMessage;
-    private bool ShowImageRemovedAlert; // Error handling to prevent crash if image is removed from post before navigating to edit post
+    private bool ShowImageRemovedAlert; // Show success message when the user removes the original post image
     private bool userAuthenticated; // Flag to ensure that only the post author can edit a post - not another user
     private bool postAuthor;
 
@@ -181,6 +181,7 @@
 
     private async Task ProcessNewImageAsync(InputFileChangeEventArgs args)
     {
+        // Pass in InputFileChangeEventArgs to record file info of new photo, ensure that the photo is in the proper format and then send to the UploadPhotoService for image size compression
         var newSelectedImage = args.File;
         if (newSelectedImage != null)
         {
