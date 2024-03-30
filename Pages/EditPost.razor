@@ -134,6 +134,7 @@
 
     private async Task SubmitUpdatedPostAsync()
     {
+        // Add another check to make sure the user is authorized to save the changes they made in the input fields, and if so, save changes to the post Id in the database
         if (!postAuthor || !userAuthenticated)
         {
             EditPostErrorMessage = "You are not authorized to edit this post!";
