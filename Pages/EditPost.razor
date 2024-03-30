@@ -146,6 +146,7 @@
 
     private async Task SaveUpdatedPostAsync()
     {
+        // After saving the changes to the post Id - navigate back to the feed so the user can see the live updated post
         try
         {
             await PostService.EditPostAsync(postModel);
