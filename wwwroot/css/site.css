@@ -200,9 +200,10 @@ ul {
 
 
 .search-card {
-    text-align: center;
     padding: 1rem;
+    max-width: 600px;
     background: white;
+    text-align: center;
     margin: 2.5rem auto;
     border-radius: 0.4rem;
     box-shadow: 0 5px 10px #808080;
