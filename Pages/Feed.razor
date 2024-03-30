@@ -195,6 +195,7 @@
         await PostService.EditPostAsync(Post);
     }
 
+    // Navigate to the Edit Post component while passing the post Id as a paramter
     private void EditPost(int postId)
     {
         NavigationManager.NavigateTo($"/EditPost/{postId}");
