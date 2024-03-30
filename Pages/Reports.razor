@@ -22,7 +22,9 @@
         </div>
         @if (!string.IsNullOrEmpty(reportTitle))
         {
-            <h3>@reportTitle</h3>
+            <div class="feed-card-header">
+            <h5>@reportTitle</h5>
+            </div>
         }
         @if (reportDisplayTable != null)
         {
