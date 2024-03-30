@@ -167,6 +167,7 @@
         NavigationManager.NavigateTo("/AddPost");
     }
 
+    // Trigger drop down event handler that will filter the feed based on the user's category selection
     private async Task CategoryDropdownSelectedAsync(ChangeEventArgs args)
     {
         categorySelected = args.Value?.ToString();
@@ -175,6 +176,7 @@
 
     private async Task UpdateCategoryDropdownAsync()
     {
+        // If no category is selected - show all posts - otherwise, filter the posts based on the category they were posted under
         if (string.IsNullOrEmpty(categorySelected) || categorySelected == "All Categories Selected")
         {
             posts = await PostService.FetchFeedPostAsync();
