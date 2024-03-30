@@ -54,6 +54,7 @@
                     report => new object[] { report.Key, report.Value.TotalPosts, report.Value.LatestPostTimestamp });
                     break;
                 case 2:
+                    private string reportTitle = "Total Comments Per User Report";
                     var totalCommentsPerUser = await ReportService.GetTotalCommentsPerUserAsync();
                     reportDisplayTable = CreateReportDisplayTable(totalCommentsPerUser, new[] { "Username", "Comment Count", "Latest Comment Timestamp " },
                     report => new object[] { report.Key, report.Value.TotalComments, report.Value.LatestCommentTimestamp?.ToString("g") ?? "No comments reutrned!" });
