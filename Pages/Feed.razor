@@ -69,6 +69,7 @@
                                             <button class="delete-button" @onclick="() => DeletePostAsync(post.PostId)">Delete Post 🚮</button>
                                         }
                                     </div>
+                                    @* The feed comment container holds the text area and the post button for other users to leave comments for each post *@
                                     <div class="feed-comment-container">
                                         <form @onsubmit="@(async () => await AddComment(post))">
                                             <input type="text" @bind="commentText" class="comment-input-textarea" placeholder="Add a comment" />
