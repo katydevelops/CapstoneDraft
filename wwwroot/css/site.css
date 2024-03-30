@@ -215,41 +215,6 @@ ul {
 }
 
 
-
-
-
-
-.feed-post-footer {
-    background-color: #F7F9FC;
-    padding: 0.5rem;
-    border-top: 1px solid #EAECEF;
-}
-
-
-.feed-post-header {
-    color: darkslategray;
-    font-weight: bold;
-    font-size: 0.8rem;
-    margin-bottom: 1rem;
-    background-color: #FCFCF0;
-    padding: 1rem;
-}
-
-
-.feed-post-body {
-    padding: 1rem;
-}
-
-
-.feed-post-text {
-    color: darkslategray;
-    line-height: 1.6;
-    font-size: 0.85rem;
-    margin-bottom: 0.5rem;
-    padding-left: 1rem;
-}
-
-
 .feed-buttom-container form {
     gap: 10px;
     display: flex;
@@ -591,3 +556,33 @@ ul {
     margin-top: 6rem;
 }
 
+
+.feed-post-header {
+    color: darkslategray;
+    font-weight: bold;
+    font-size: 0.8rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    background-color: #FCFCF0;
+    padding: 0.5rem;
+}
+
+
+.feed-post-body {
+    padding: 1rem;
+}
+
+.feed-post-footer {
+    background-color: #F7F9FC;
+    padding: 0.5rem;
+    border-top: 1px solid #EAECEF;
+}
+
+
+.feed-post-text {
+    color: darkslategray;
+    line-height: 1.6;
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+    padding-left: 1rem;
+}

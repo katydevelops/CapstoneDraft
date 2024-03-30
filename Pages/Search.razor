@@ -38,7 +38,7 @@
                                             <div class="search-card">
                                                 <h4>@((MarkupString)HighlightSearchQuery(post.PostSubject, searchQuery))</h4>
                                                 <p>@GetPostWithSearchQueryPreview(post.PostMessageBody, searchQuery)</p>
-                                            <p><sub>Posted by <strong> @(post.AuthorName ?? "Anonymous")</strong> on <strong>@post.PostCreatedTimestamp.ToShortDateString()</strong></sub></p>
+                                            <p><sub>Posted by <strong> @(post.AuthorName ?? "Anonymous") </strong> on <strong>@post.PostCreatedTimestamp.ToShortDateString()</strong></sub></p>
                                                 <button @onclick="() => ViewPost(post.PostId)" class="yellow-animated-button">View Full Post!</button>
                                             </div>
                                         
