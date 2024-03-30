@@ -48,37 +48,39 @@
             switch (selectedReport)
             {
                 case 1:
-                    private string reportTitle = "Total Posts Per User Report";
+                    reportTitle = "Total Posts Per User Report";
                     var totalPostPerUser = await ReportService.GetTotalPostsPerUserAsync();
                     reportDisplayTable = CreateReportDisplayTable(totalPostPerUser, new[] { "Username", "Total Posts", "Latest Post Timestamp" },
                     report => new object[] { report.Key, report.Value.TotalPosts, report.Value.LatestPostTimestamp });
                     break;
                 case 2:
-                    private string reportTitle = "Total Comments Per User Report";
+                    reportTitle = "Total Comments Per User Report";
                     var totalCommentsPerUser = await ReportService.GetTotalCommentsPerUserAsync();
                     reportDisplayTable = CreateReportDisplayTable(totalCommentsPerUser, new[] { "Username", "Comment Count", "Latest Comment Timestamp " },
                     report => new object[] { report.Key, report.Value.TotalComments, report.Value.LatestCommentTimestamp?.ToString("g") ?? "No comments reutrned!" });
                     break;
                 case 3:
-                    private string reportTitle = "Total Number of Posts Per Category";
+                    reportTitle = "Total Number of Posts Per Category";
                     var totalPostsPerCategory = await ReportService.GetTotalPostsPerCategoryAsync();
                     reportDisplayTable = CreateReportDisplayTable(totalPostsPerCategory, new[] { "Category", "Total Posts Per Category" },
                     report => new object[] { report.Key, report.Value });
                     break;
                 case 4:
-                    private string reportTitle = "Latest User Activity Report";
+                    reportTitle = "Latest User Activity Report";
                     var userLastActive = await ReportService.GetUserLastActiveDetailsAsync();
                     reportDisplayTable = CreateReportDisplayTable(userLastActive, new[] { "Username", "Email", "User Last Active" },
                     report => new object[] { report.UserName, report.Email, report.UserLastActive.HasValue ? report.UserLastActive.Value.ToString("g") : "This user has never logged in!" });
                     return;
                 default:
                     reportDisplayTable = null;
+                    reportTitle = string.Empty;
                     break;
             }
         }
         catch
         {
             reportDisplayTable = null;
+            rivate string reportTitle = string.Empty;
         }
         StateHasChanged();
     }
