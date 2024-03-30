@@ -24,6 +24,7 @@
                 }
                 else
                 {
+                    @* Load selected post details into user input fields via the temporary post model so that the user will be able to directly edit what they wish to *@
                     <EditForm Model="tempFormData" OnValidSubmit="SubmitUpdatedPostAsync" novalidate>
                          <label for="category" class="custom-form-elements">Category: </label>
                             <InputSelect id="category" @bind-Value="tempFormData.TempPostCategory" class="custom-input-elements" required>
