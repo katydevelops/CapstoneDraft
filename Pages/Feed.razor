@@ -246,6 +246,7 @@
 
     private async Task RefreshFeed()
     {
+        // Refresh the feed by fetching all of the posts in the database, including the updated changes to any of the post data and refresh the state to ensure the UI updates to show the most up-to-date post information
         posts = await PostService.FetchFeedPostAsync();
         StateHasChanged();
     }
