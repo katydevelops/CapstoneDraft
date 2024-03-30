@@ -6,7 +6,7 @@
 @inject UserManager<UserModel> UserManager;
 @inject AuthenticationStateProvider AuthenticationStateProvider
 @inject NavigationManager NavigationManager
-@inject ILogger<Feed> Logger
+
 
 <CascadingAuthenticationState>
         <AuthorizeView>
@@ -134,23 +134,18 @@
 
     protected override async Task OnInitializedAsync()
     {
-        Logger.LogInformation("Fetching user authentication state.");
         var userAuthenticationState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
         var loggedInUser = userAuthenticationState.User;
-        Logger.LogInformation("User authenticated: {0}", loggedInUser.Identity.IsAuthenticated);
 
         if (loggedInUser.Identity.IsAuthenticated)
         {
-            Logger.LogInformation("User claims: {0}", loggedInUser.Claims.Select(c => $"{c.Type}: {c.Value}"));
-
-            Logger.LogInformation("User is authenticated. Fetching posts.");
             var loggedInUserId = UserManager.GetUserId(loggedInUser);
             currentUserId = loggedInUserId;
             posts = await PostService.FetchFeedPostAsync();
         }
         else
         {
-            Logger.LogWarning("User is not authenticated.");
+            FeedErrorMessage = "You are not authorized to view the feed at this time - please login and try again!";
         }
     }
 
@@ -191,24 +186,20 @@
 
     private void EditPost(int postId)
     {
-        Logger.LogInformation($"Navigating to edit post page for post ID: {postId}");
         NavigationManager.NavigateTo($"/EditPost/{postId}");
     }
 
     private async Task DeletePostAsync(int postId)
     {
-        Logger.LogInformation($"Attempting to delete post ID: {postId}");
         var postPendingDeletion = posts.FirstOrDefault(post => post.PostId == postId);
         if (postPendingDeletion != null && postPendingDeletion.UserId == currentUserId)
         {
             await PostService.RemovePostAsync(postId);
             posts.Remove(postPendingDeletion);
-            Logger.LogInformation($"Post ID: {postId} deleted successfully.");
             StateHasChanged();
         }
         else
         {
-            Logger.LogWarning($"Unauthorized attempt to delete post ID: {postId}");
             FeedErrorMessage = "You do not have authorization to delete this post!";
         }
     }
