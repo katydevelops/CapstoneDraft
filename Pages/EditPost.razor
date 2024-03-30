@@ -1,12 +1,13 @@
 ﻿@page "/EditPost/{EditPostId:int}"
+
 @using CapstoneDraft.Models;
 @using CapstoneDraft.Services;
+
 @inject PostService PostService
 @inject UserManager<UserModel> UserManager;
 @inject NavigationManager NavigationManager
 @inject AuthenticationStateProvider AuthenticationStateProvider
 @inject UploadPhotoService UploadPhotoService
-@inject ILogger<EditPost> Logger
 
 
 <div class="full-size-container">
@@ -98,7 +99,6 @@
     {
         var userAuthenticationState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
         userAuthenticated = userAuthenticationState.User.Identity.IsAuthenticated;
-        Logger.LogInformation("User authenticated status: {Authenticated}", userAuthenticated);
         if (!userAuthenticated)
         {
             NavigationManager.NavigateTo("/");
@@ -148,9 +148,8 @@
             await PostService.EditPostAsync(postModel);
             NavigationManager.NavigateTo("/feed");
         }
-        catch (Exception error)
+        catch
         {
-            Logger.LogError(error, "You are receiving the following error");
             EditPostErrorMessage = "An error occurred while updating this post - please try again!";
         }
     }
