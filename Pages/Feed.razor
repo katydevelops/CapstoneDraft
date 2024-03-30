@@ -83,6 +83,7 @@
                                         {
                                             if (editedCommentId == comment.CommentId)
                                             {
+                                                @* The feed edit comment container will enable users to edit and delete their own comments if they are authorized through Authentication State Provider *@
                                                 <div class="feed-edit-comment-container">
                                                     <input type="text" @bind="commentText" class="comment-input" />
                                                     <button @onclick="() => SaveCommentAsync(comment)" class="save-button">Save</button>
