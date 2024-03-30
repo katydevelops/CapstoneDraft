@@ -255,6 +255,7 @@
     {
         if (!string.IsNullOrWhiteSpace(commentText))
         {
+            // Store the comment information entered in the textarea by the user to the CommentText property of the model and update it in the database based on the comment id and user id. Clear and reset the edit comment text area and then refresh the state to ensure the edited comment appears.s
             comment.CommentText = commentText;
             await PostService.UpdateCommentAsync(comment.CommentId, commentText, currentUserId);
             editedCommentId = 0;
