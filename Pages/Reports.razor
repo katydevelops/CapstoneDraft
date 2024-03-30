@@ -20,6 +20,10 @@
                 </select>
             </div>
         </div>
+        @if (!string.IsNullOrEmpty(reportTitle))
+        {
+            <h3>@reportTitle</h3>
+        }
         @if (reportDisplayTable != null)
         {
             @reportDisplayTable
