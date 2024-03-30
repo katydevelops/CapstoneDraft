@@ -20,7 +20,7 @@
                     {
                         <img src="@post.PostPhoto" alt="Post Image" />
                     }
-                    <p>Posted by @post.AuthorName on @post.PostCreatedTimestamp.ToShortDateString()</p>
+                    <p><sub>Posted by <strong>@post.AuthorName</strong> on @post.PostCreatedTimestamp.ToShortDateString()</sub></p>
                 </div>
                 @if (post.PostComments.Any())
                 {
