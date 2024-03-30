@@ -58,6 +58,7 @@
                                     <div>
                                         <img src="@($"/{postModel.PostPhoto}")" style="max-width: 200px;" class="image-thumbnail "alt="Current Post Image" />
                                     </div>
+                                    <button type="button" class="yellow-animated-button" @onclick="RemoveImage">Remove Photo</button>
                                 </div>
                             }
                             else if (ShowImageRemovedAlert)
@@ -166,11 +167,12 @@
         postModel.UserLocation = tempFormData.TempPostUserLocation;
         postModel.PostSubject = tempFormData.TempPostSubject;
         postModel.PostMessageBody = tempFormData.TempPostMessageBody;
-
+        // Ensure the newly selected photo is saved to the post Id
         if (!string.IsNullOrEmpty(tempFormData.TempPostPhoto) && tempFormData.TempPostPhoto != postModel.PostPhoto)
         {
             postModel.PostPhoto = tempFormData.TempPostPhoto;
         }
+        // Ensure that the image is removed from 
         else if (string.IsNullOrEmpty(tempFormData.TempPostPhoto))
         {
             postModel.PostPhoto = null;
