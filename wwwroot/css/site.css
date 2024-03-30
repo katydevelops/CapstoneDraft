@@ -565,7 +565,7 @@ ul {
     margin-bottom: 1rem;
     background-color: #FCFCF0;
     padding: 0.5rem;
-    text-align: left;
+    text-align: left !important;
 }
 
 
