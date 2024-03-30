@@ -7,7 +7,7 @@
 @inject AuthenticationStateProvider AuthenticationStateProvider
 @inject NavigationManager NavigationManager
 
-@* Use more sophisticated way of ensuring the user is authorized to view the feed by using Authentication State Provider's built-in Cascading Authentication State component
+@* Implement more sophisticated way of ensuring the user is authorized to view the feed by using Authentication State Provider's built-in Cascading Authentication State component. The user will see the content between the AuthorizeView and Authorized tags if their login details are correctly provided by Authentication State Provider during the component initialization.
  *@
  <CascadingAuthenticationState>
     <AuthorizeView>
