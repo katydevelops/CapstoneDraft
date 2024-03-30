@@ -49,7 +49,7 @@
                                 <h6><strong>Subject:</strong> @post.PostSubject</h6>
                                 <h6><strong>Post Category:</strong> @post.PostCategory</h6>
                             </div>
-                            @* Post body will hold the post details and the author and time stamp of the post *@
+                            @* Post body will hold the post details, photo (if one was uploaded) and the author and time stamp of the post *@
                             <div class="feed-post-body">
                                 <p class="feed-post-text">@post.PostMessageBody</p>
                                 <p class="feed-post-text"><sub>Posted by <strong>@(post.AuthorName) </strong> - @post.PostCreatedTimestamp.ToString("MM/dd/yy")</sub></p>
