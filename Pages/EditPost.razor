@@ -49,6 +49,7 @@
                                     <label for="name">Post Message: </label>
                                 <InputTextArea id="message" class="custom-input-elements" @bind-Value="@tempFormData.TempPostMessageBody" />
                                 </div>
+                            @* Include te ability to edit the post photo, if the user uploaded one, and add error handling to prevent program crash *@
                             @if (!string.IsNullOrEmpty(postModel.PostPhoto))
                             {
                                 <div>
