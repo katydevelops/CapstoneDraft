@@ -127,6 +127,11 @@ h2 {
     padding: 20px 40px;
 }
 
+h3 {
+    color: coral;
+    text-align: center;
+}
+
 h6 
 {
     color: darkslategray;
