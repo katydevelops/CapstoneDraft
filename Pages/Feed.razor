@@ -7,8 +7,9 @@
 @inject AuthenticationStateProvider AuthenticationStateProvider
 @inject NavigationManager NavigationManager
 
-
-<CascadingAuthenticationState>
+@* Use more sophisticated way of ensuring the user is authorized to view the feed by using Authentication State Provider's built-in Cascading Authentication State component
+ *@
+ <CascadingAuthenticationState>
     <AuthorizeView>
         <Authorized>
             <div class="full-size-container">
