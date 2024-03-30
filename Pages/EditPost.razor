@@ -13,6 +13,7 @@
     <div class="social-media-card">
         <div class="center-form">
             <h2>Edit Your Post Below:</h2>
+            @* Add validation to prevent a user that is not logged in - or a user who does not own the post - to edit a post if they directly navigate to the endpoint *@
                 @if (!userAuthenticated)
                 {
                     <p>Please login in order to edit posts!</p>
