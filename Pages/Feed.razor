@@ -29,6 +29,7 @@
                         </select>
                     </div>
                 </div>
+                @* Add error handling to manage the initial feed when there are currently no posts *@
                 @if (posts == null || !posts.Any())
                 {
                     <h1>There are currently no posts in the feed!</h1>
