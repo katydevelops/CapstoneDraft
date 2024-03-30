@@ -178,6 +178,11 @@
         var newSelectedImage = args.File;
         if (newSelectedImage != null)
         {
+            var fileFormat = newSelectedImage.ContentType.ToLower();
+            if (fileFormat != "image/jpeg" && fileFormat != "image/png")
+            {
+                EditPostErrorMessage = "Invalid file format - please select a .jpeg or .png image and try again!";
+            }
             var newSelectedImagePath = await UploadPhotoService.ProcessSelectedPhotoAsync(newSelectedImage);
             tempFormData.TempPostPhoto = newSelectedImagePath;
             StateHasChanged();
