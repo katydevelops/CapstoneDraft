@@ -143,7 +143,7 @@
             PasswordValidationMessage = "Your current password is incorrect - please try again!";
             return;
         }
-        // Use built in ChangePasswordAsync method to update new password in the database and display success message to user
+        // Use built in ChangePasswordAsync method to update new password in the database and display success or error message to user accordingly
         var passwordUpdated = await UserManager.ChangePasswordAsync(userModel, changeUserPassword.CurrentPassword, changeUserPassword.NewPassword);
         if (passwordUpdated.Succeeded)
         {
