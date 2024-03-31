@@ -284,12 +284,15 @@
 
     private async Task DeleteCommentAsync(int commentId)
     {
+        // Delete selected comment based on comment id and affiliated user id
         var commentDeleted = await PostService.RemoveCommentAsync(commentId, currentUserId);
         if (commentDeleted)
         {
+            // Grab the comment id, from the nested Comments collection from the Posts collection
             var commentPendingDeletion = posts.SelectMany(post => post.PostComments).FirstOrDefault(comment => comment.CommentId == commentId);
             if (commentPendingDeletion != null)
             {
+                // Locate the post containing the comment that was deleted from the database and remove it from the UI as well and refresh the state
                 var post = posts.FirstOrDefault(post => post.PostComments.Contains(commentPendingDeletion));
                 post?.PostComments.Remove(commentPendingDeletion);
             }
