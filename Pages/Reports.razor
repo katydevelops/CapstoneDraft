@@ -46,6 +46,7 @@
 
     private async Task ProcessReportSelection(ChangeEventArgs args)
     {
+        // Generate report based on the number selection that the user chose in the report dropdown
         selectedReport = Convert.ToInt32(args.Value);
         await GenerateReportsAsync();
     }
@@ -54,13 +55,15 @@
     {
         try
         {
+            // Switch statement will take the number value that is passed from the ProcessReportSelection and generate the selected report accordingly
             switch (selectedReport)
             {
+                // Report will display the total posts for each user and the latest timestamp for the user's most recent post (if they have posted)
                 case 1:
                     reportTitle = "Total Posts Per User Report";
                     var totalPostPerUser = await ReportService.GetTotalPostsPerUserAsync();
                     reportDisplayTable = CreateReportDisplayTable(totalPostPerUser, new[] { "Username", "Total Posts", "Latest Post Timestamp" },
-                    report => new object[] { report.Key, report.Value.TotalPosts, report.Value.LatestPostTimestamp });
+                    report => new object[] { report.Key, report.Value.TotalPosts, report.Value.LatestPostTimestamp != null ? report.Value.LatestPostTimestamp : "This user has not yet posted!;" });
                     break;
                 case 2:
                     reportTitle = "Total Comments Per User Report";
