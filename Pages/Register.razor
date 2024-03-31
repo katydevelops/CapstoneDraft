@@ -13,10 +13,10 @@
                 <h6>Please register for your Safety Net profile below!</h6>
                 <div class="center-form">
                     <EditForm Model="@registerModelInstance" OnValidSubmit="@ProcessUserRegistration">
+                    @* DataAnnotationsValidator will enforce built-in Identity Manager validations for email and phone as well as custom data annotations that were create for username and password *@
                     <DataAnnotationsValidator />
                     <div class="validation-summary">
                         <ValidationSummary />
-
                     </div>
                         <div class="custom-form-elements">
                         <label for="firstName">First Name:</label>
@@ -83,7 +83,7 @@
         {
             registerSuccessMessage = "Your registration was successful!";
             StateHasChanged();
-            await Task.Delay(2500);
+            await Task.Delay(2500); // Delay the navigation to the login page for 2.5 seconds to ensure the user has time to see the success message first
             NavigationManager.NavigateTo("/", true);
         }
         else
