@@ -123,8 +123,8 @@
     private bool DisplayErrorMessage = false;
     private bool DisplayProfileUpdatedMessage = false;
     private string PasswordValidationMessage;
-    private bool PhoneValidated = true;
-    private bool EmailValidated =  true;
+    private bool PhoneValidated = true; // Flag to confirm when the phone number passes the regex validation
+    private bool EmailValidated = true; // Flag to confirm when the email address passes the regex validation
 
     private async Task UpdatePasswordAsync()
     {
