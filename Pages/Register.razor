@@ -72,6 +72,7 @@
         if (emailExists != null)
         {
             registerErrorMessage = "An account with this email already exists - please login or use a unique email address!";
+            return;
         }
 
         // Create a new user object and store all data from the register input fields
