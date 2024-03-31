@@ -128,6 +128,7 @@
 
     private async Task UpdatePasswordAsync()
     {
+        // Grab the authentication state of the user updating their password and ensure that user has entered both a current and new password and that the current password is actuall correct
         var userAuthenticationState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
         var currentLoggedInUser = userAuthenticationState.User;
         if (string.IsNullOrEmpty(changeUserPassword.CurrentPassword) || string.IsNullOrEmpty(changeUserPassword.NewPassword))
