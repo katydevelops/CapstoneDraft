@@ -538,16 +538,6 @@ ul {
     }
 
 
-.regex-validation-message {
-    color: red;
-    border: 1px solid red; /* Optional: adds a border around the summary */
-    background-color: #ffcccc;
-    padding: 10px; /* Optional: adds space inside the border */
-    border-radius: 5px; /* Optional: rounds the corners of the border */
-    margin-bottom: 15px; /* Optional: adds space below the summary */
-}
-
-
 .unathorized-container {
     height: 100vh;
     display: flex;

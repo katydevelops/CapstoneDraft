@@ -11,8 +11,8 @@
 @inject NavigationManager NavigationManager
 @inject UserManager<UserModel> UserManager;
 @inject SignInManager<UserModel> LoginManager
-@inject ILogger<UserProfile> Logger
 
+@* Cascading Authentication State will ensure that only logged in users can view the Edit Profile information - any user that is not logged in will only see the content advising them they need to be logged in to see their user profile and a button redirecting them to the login page *@
 <CascadingAuthenticationState>
     <AuthorizeView>
         <Authorized Context="authorizedContext">
@@ -22,7 +22,7 @@
                         <h1>Edit Profile</h1>
         <EditForm Model="@userModel" OnValidSubmit="UpdateUserProfileAsync">
             <DataAnnotationsValidator  />
-                            <div class="validation-summary"><ValidationSummary /></div>
+                <ValidationSummary />
 
             <div class="custom-form-elements">
                 <label for="firstName">First Name:</label>
@@ -37,7 +37,7 @@
                 <InputText id="phone" @bind-Value="@userModel.PhoneNumber" class="custom-input-elements" @oninput="ValidatePhone" />
                 @if (!PhoneValidated)
                 {
-                    <span class="regex-validation-message">Please enter a valid phone number!</span>
+                    <span class="validation-summary ">Please enter a valid phone number!</span>
                 }
             </div>
             <div class="custom-form-elements">
@@ -45,7 +45,7 @@
                 <InputText id="email" @bind-Value="@userModel.Email" class="custom-input-elements" @oninput="ValidateEmail" />
                 @if (!EmailValidated)
                 {
-                    <span class="regex-validation-message">Please enter a valid email address!</span>
+                    <span class="validation-summary ">Please enter a valid email address!</span>
                 }
             </div>
             <div class="custom-form-elements">
@@ -153,8 +153,6 @@
 
     private async Task UpdateUserProfileAsync()
     {
-        Logger.LogInformation("Attempting to update user profile for user with ID '{UserId}'", userModel.Id);
-        Logger.LogDebug("Values being updated: Email = {Email}, PhoneNumber = {PhoneNumber}", userModel.Email, userModel.PhoneNumber);
         try
         {
             if (!EmailValidated || !PhoneValidated)
@@ -165,23 +163,15 @@
             if (profileSuccessfullyUpdated.Succeeded)
             {
                 DisplayProfileUpdatedMessage = true;
-                Logger.LogInformation("User profile updated successfully for user with ID '{UserId}'", userModel.Id);
-
                 return;
             }
             else
             {
-                foreach (var error in profileSuccessfullyUpdated.Errors)
-                {
-                    Logger.LogError("Error updating user profile for user with ID '{UserId}': {Error}", userModel.Id, error.Description);
-                }
-
                 DisplayErrorMessage = true;
             }
         }
-        catch (Exception ex)
+        catch
         {
-            Logger.LogError(ex, "An exception occurred while updating the user profile for user with ID '{UserId}'", userModel.Id);
             DisplayErrorMessage = true;
         } 
     }
