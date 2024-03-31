@@ -58,7 +58,7 @@
             // Switch statement will take the number value that is passed from the ProcessReportSelection and generate the selected report accordingly
             switch (selectedReport)
             {
-                // Report 1 will display the total posts for each user and the latest timestamp for the user's most recent post (if they have posted)
+                // Report 1 will display the total posts for each user and the latest timestamp for the user's most recent post (if they have posted). Using the "g" to string will ensure the timestamps are all in general short date foramt.
                 case 1:
                     reportTitle = "Total Posts Per User Report";
                     var totalPostPerUser = await ReportService.GetTotalPostsPerUserAsync();
@@ -73,17 +73,20 @@
                     report => new object[] { report.Key, report.Value.TotalComments, report.Value.LatestCommentTimestamp?.ToString("g") ?? "N/A" });
                     break;
                 case 3:
+                //  Report 3 will display the total number of posts for each of the three categories: safety tip, safety event or report a safety incident.
                     reportTitle = "Total Number of Posts Per Category Report";
                     var totalPostsPerCategory = await ReportService.GetTotalPostsPerCategoryAsync();
                     reportDisplayTable = CreateReportDisplayTable(totalPostsPerCategory, new[] { "Category", "Total Posts Per Category" },
                     report => new object[] { report.Key, report.Value });
                     break;
                 case 4:
+                // Report 4 will display a list of users who are currently registered for the application by their username and email address as well as a last active timestamp if applicable
                     reportTitle = "Latest User Activity Report";
                     var userLastActive = await ReportService.GetUserLastActiveDetailsAsync();
                     reportDisplayTable = CreateReportDisplayTable(userLastActive, new[] { "Username", "Email", "User Last Active" },
-                    report => new object[] { report.UserName, report.Email, report.UserLastActive.HasValue ? report.UserLastActive.Value.ToString("g") : "This user has never logged in!" });
+                    report => new object[] { report.UserName, report.Email, report.UserLastActive.HasValue ? report.UserLastActive.Value.ToString("g") : "This user has not yet logged in!" });
                     return;
+                // The default case is the placeholder in the drop down which will clear the table from the screen
                 default:
                     reportDisplayTable = null;
                     reportTitle = string.Empty;
@@ -98,10 +101,12 @@
         StateHasChanged();
     }
 
+    // Render Fragment will display report table that takes in query enumerable which will hold the data displayed, a columnt title enumerable which will hold the titles of the columns and the query results will include a map of objects that the report methods return.
     private RenderFragment CreateReportDisplayTable<TItem>(IEnumerable<TItem> query, IEnumerable<string> columnTitles, Func<TItem, IEnumerable<object>> queryResults)
     {
         return builder =>
         {
+            // Render Tree Builder will create a data tree based on the DOM to display the report rows, column and data returned on the page when called.
             builder.OpenComponent(0, typeof(ReportTableFormat<TItem>));
             builder.AddAttribute(1, "Query", query);
             builder.AddAttribute(2, "ColumnTitles", columnTitles);
