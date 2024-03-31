@@ -63,7 +63,7 @@
                     reportTitle = "Total Posts Per User Report";
                     var totalPostPerUser = await ReportService.GetTotalPostsPerUserAsync();
                     reportDisplayTable = CreateReportDisplayTable(totalPostPerUser, new[] { "Username", "Total Posts", "Latest Post Timestamp" },
-                    report => new object[] { report.Key, report.Value.TotalPosts, report.Value.LatestPostTimestamp != null ? report.Value.LatestPostTimestamp : "This user has not yet posted!;" });
+                    report => new object[] { report.Key, report.Value.TotalPosts, report.Value.LatestPostTimestamp != null ? report.Value.LatestPostTimestamp : "This user has not yet posted!" });
                     break;
                 case 2:
                     reportTitle = "Total Comments Per User Report";
