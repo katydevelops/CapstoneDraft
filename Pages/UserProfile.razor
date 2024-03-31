@@ -77,13 +77,14 @@
                     <button type="submit" class="yellow-animated-button">Update Password!</button>
                 </div>
         </EditForm>
+        @*  Will show error message if the user doesn't have both current password and new password completed and will show error if current password is wrong *@
         @if (!string.IsNullOrEmpty(PasswordValidationMessage))
         {
             <div class="alert alert-danger" role="alert">@PasswordValidationMessage</div>
         }
         @if (DisplayPasswordChangeMessage)
             {
-                            <div class="alert alert-success text-center" role="alert">Your password has been changed successfully!</div>
+                <div class="alert alert-success text-center" role="alert">Your password has been changed successfully!</div>
             }
         @if (DisplayErrorMessage)
         {
@@ -127,10 +128,6 @@
     {
         var userAuthenticationState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
         var currentLoggedInUser = userAuthenticationState.User;
-        if (userModel == null)
-        {
-            Logger.LogInformation("The usermodel is null which is causing an error!");
-        }
         if (string.IsNullOrEmpty(changeUserPassword.CurrentPassword) || string.IsNullOrEmpty(changeUserPassword.NewPassword))
         {
             PasswordValidationMessage = "Please complete the missing password information!";
