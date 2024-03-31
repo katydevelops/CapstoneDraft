@@ -84,9 +84,10 @@
         }
         @*  Password changed success message will appear once the user passes all validation reqiurements *@
         @if (DisplayPasswordChangeMessage)
-            {
-                <div class="alert alert-success text-center" role="alert">Your password has been changed successfully!</div>
-            }
+        {
+            <div class="alert alert-success text-center" role="alert">Your password has been changed successfully!</div>
+        }
+        @*  Generalized error handling message to prevent potential program crashes *@
         @if (DisplayErrorMessage)
         {
             <div class="alert alert-danger" role="alert">Your are receiving an error updating your user profile - please try again later!</div>
