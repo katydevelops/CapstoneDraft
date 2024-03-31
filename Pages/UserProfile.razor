@@ -203,12 +203,14 @@
 
     }
 
+    // Simple email regex pattern that will ensure the email entered in the user profile meets general standards
     private void ValidateEmail(ChangeEventArgs args)
     {
         var email = args.Value.ToString();
         EmailValidated = Regex.IsMatch(email, @"^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$");
     }
 
+    // Simple email regex pattern that will ensure the phone is 10 numerical digits without requiring any specific format
     private void ValidatePhone(ChangeEventArgs args)
     {
         var phone = args.Value.ToString();
