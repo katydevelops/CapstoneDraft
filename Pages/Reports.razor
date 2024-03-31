@@ -4,9 +4,10 @@
 @using System.Text;
 
 @inject ReportService ReportService
-@implements IDisposable
 
-<div class="neon-bg-container">
+@* Enable the user to select from a list of reports that will display on the screen - mandatory requirements of multiple columns, rows and title included. Mandatory timestamps included in the Total Comments Per User Report, Total Posts Per User Report and Latest User Activity Report to meet this requirement. 
+ *@
+ <div class="neon-bg-container">
     <div class="social-media-container">
         <div class="social-media-card">
             <h2>Safety Net Reports</h2>
@@ -50,7 +51,6 @@
 
     private async Task GenerateReportsAsync()
     {
-        if (_reportTableDisposed) return;
         try
         {
             switch (selectedReport)
@@ -91,11 +91,6 @@
             reportTitle = "No Report Available";
         }
         StateHasChanged();
-    }
-
-    public void Dispose()
-    {
-        _reportTableDisposed = true;
     }
 
     private RenderFragment CreateReportDisplayTable<TItem>(IEnumerable<TItem> query, IEnumerable<string> columnTitles, Func<TItem, IEnumerable<object>> queryResults)
