@@ -36,6 +36,7 @@
                                 @foreach (var post in queryResults)
                                 {
                                     <li>
+                                        @* If multiple results are found, display each result in a search card with the post subject, preview, user and timestamp posted as well a button to view the entire post in order to meet the assignment requirement of a search functionality with multiple row results display *@
                                         <div class="search-card">
                                             <h4>@((MarkupString)HighlightSearchQuery(post.PostSubject, searchQuery))</h4>
                                             <p>@GetPostWithSearchQueryPreview(post.PostMessageBody, searchQuery)</p>
