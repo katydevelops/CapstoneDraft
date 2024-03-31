@@ -130,7 +130,7 @@
             var startSearchIndex = Math.Max(0, searchIndex - 25);
             var endSearchIndex = Math.Min(text.Length, searchIndex + 25 + searchedQuery.Length);
             var querySearchPreview = text.Substring(startSearchIndex, endSearchIndex - startSearchIndex);
-            // This meets the assignment requirement of providing search functionality with multiple row results and displays becuase the preview will provide a rows of the searched index and columns of the multiple posts that match
+            // This meets the assignment requirement of providing search functionality with multiple row results and displays because the preview will enable the user to view all the search results that match their term in a single list
             return $"{querySearchPreview} . . .";
         }
         return text;
