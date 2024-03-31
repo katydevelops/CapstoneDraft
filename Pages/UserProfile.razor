@@ -44,6 +44,7 @@
             <div class="custom-form-elements">
                 <label for="email">E-Mail Address:</label>
                 <InputText id="email" @bind-Value="@userModel.Email" class="custom-input-elements" @oninput="ValidateEmail" />
+                @*  Event handler will trigger email regex for validation purposes *@
                 @if (!EmailValidated)
                 {
                     <span class="validation-summary ">Please enter a valid email address!</span>
