@@ -86,7 +86,7 @@
 
     private async Task SearchPostsAndCommentsAsync()
     {
-        // Clear old error message
+        // Clear old error message to prevent errors from staying on the screen when a user starts another search
         searchResultsErrorMessage = string.Empty;
         searchStarted = true;
         if(string.IsNullOrWhiteSpace(searchQuery))
