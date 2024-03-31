@@ -35,6 +35,7 @@
             <div class="custom-form-elements">
                 <label for="phone">Phone Number:</label>
                 <InputText id="phone" @bind-Value="@userModel.PhoneNumber" class="custom-input-elements" @oninput="ValidatePhone" />
+                @*  Event handler will trigger phone regex for validation purposes *@ 
                 @if (!PhoneValidated)
                 {
                     <span class="validation-summary ">Please enter a valid phone number!</span>
