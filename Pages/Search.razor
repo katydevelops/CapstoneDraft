@@ -120,20 +120,20 @@
         return text;
     }
 
-    private string GetPostWithSearchQueryPreview(string text, string searchedQuery)
+    private string GetPostWithSearchQueryPreview(string searchedText, string searchedQuery)
     {
         // Find the index of the items that were searched by the user
-        var searchIndex = text.IndexOf(searchedQuery, StringComparison.OrdinalIgnoreCase);
+        var searchIndex = searchedText.IndexOf(searchedQuery, StringComparison.OrdinalIgnoreCase);
         if (searchIndex > 0)
         {
             // Search for 25 char before the searched words and 25 chars after the search words to provide a simple preview to the user
             var startSearchIndex = Math.Max(0, searchIndex - 25);
-            var endSearchIndex = Math.Min(text.Length, searchIndex + 25 + searchedQuery.Length);
-            var querySearchPreview = text.Substring(startSearchIndex, endSearchIndex - startSearchIndex);
+            var endSearchIndex = Math.Min(searchedText.Length, searchIndex + 25 + searchedQuery.Length);
+            var querySearchPreview = searchedText.Substring(startSearchIndex, endSearchIndex - startSearchIndex);
             // This meets the assignment requirement of providing search functionality with multiple row results and displays because the preview will enable the user to view all the search results that match their term in a single list
             return $"{querySearchPreview} . . .";
         }
-        return text;
+        return searchedText; // Return search term if a match is not found in the search query to prevent potential program crash
     }
 
     private void ViewPost(int postId)
