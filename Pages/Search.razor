@@ -8,51 +8,50 @@
 @inject NavigationManager NavigationManager
 
 <CascadingAuthenticationState>
-        <AuthorizeView>
+    <AuthorizeView>
         <Authorized>
-<div class="neon-bg-container">
-        <div class="social-media-card">
-        <div class="center-input">
-            <h2>Search User Posts and Comments</h2>
+            <div class="neon-bg-container">
+                <div class="social-media-card">
+                    <div class="center-input">
+                        <h2>Search User Posts and Comments</h2>
                         <p class="subheading">Enter a term below to search Safety Net posts and comments.</p>
-                    <form @onsubmit="SearchPostsAndCommentsAsync">
-                    <input type="text" @bind="searchQuery" placeholder="Enter your search query!" class="custom-dropdown" />
-                        <button type="submit" class="yellow-animated-button">Search!</button>
-                    </form>
-            </div>
-            @if (!string.IsNullOrEmpty(searchResultsErrorMessage))
-            {
-                        <div class="alert alert-danger text-center" role="alert">@searchResultsErrorMessage</div>
-            }
-        </div>
-        @if (searchStarted)
-        {
-                    if (queryResults != null && queryResults.Any())
+                        <form @onsubmit="SearchPostsAndCommentsAsync">
+                            <input type="text" @bind="searchQuery" placeholder="Enter your search query!" class="custom-dropdown" />
+                            <button type="submit" class="yellow-animated-button">Search!</button>
+                        </form>
+                    </div>
+                        @if (!string.IsNullOrEmpty(searchResultsErrorMessage))
+                        {
+                                    <div class="alert alert-danger text-center" role="alert">@searchResultsErrorMessage</div>
+                        }
+                    </div>
+                    @if (searchStarted)
                     {
-                        <div>
-                            <ul>
-                                @foreach (var post in queryResults)
+                                if (queryResults != null && queryResults.Any())
                                 {
-                                    <li>
+                                    <div>
+                                        <ul>
+                                            @foreach (var post in queryResults)
+                                            {
+                                                <li>
                                         
-                                            <div class="search-card">
-                                                <h4>@((MarkupString)HighlightSearchQuery(post.PostSubject, searchQuery))</h4>
-                                                <p>@GetPostWithSearchQueryPreview(post.PostMessageBody, searchQuery)</p>
-                                            <p><sub>Posted by <strong> @(post.AuthorName ?? "Anonymous") </strong> on <strong>@post.PostCreatedTimestamp.ToShortDateString()</strong></sub></p>
-                                                <button @onclick="() => ViewPost(post.PostId)" class="yellow-animated-button">View Full Post!</button>
-                                            </div>
+                                                        <div class="search-card">
+                                                            <h4>@((MarkupString)HighlightSearchQuery(post.PostSubject, searchQuery))</h4>
+                                                            <p>@GetPostWithSearchQueryPreview(post.PostMessageBody, searchQuery)</p>
+                                                        <p><sub>Posted by <strong> @(post.AuthorName ?? "Anonymous") </strong> on <strong>@post.PostCreatedTimestamp.ToShortDateString()</strong></sub></p>
+                                                            <button @onclick="() => ViewPost(post.PostId)" class="yellow-animated-button">View Full Post!</button>
+                                                        </div>
                                         
-                                    </li>
+                                                </li>
+                                            }
+                                        </ul>
+                                    </div>
                                 }
-                            </ul>
-                        </div>
+                                else
+                                {
+                                    <div class="alert alert-danger text-center" role="alert">A search result matching your term was not located - please try again!</div>
+                                }
                     }
-                    else
-                    {
-                        <div class="alert alert-danger text-center" role="alert">A search result matching your term was not located - please try again!</div>
-                    }
-        }
-
             </div>
         </Authorized>
         <NotAuthorized>
