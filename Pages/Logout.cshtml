@@ -15,7 +15,7 @@
                     </div>
                     <div class="feed-post-body">
                     <form method="post">
-                        @Html.AntiForgeryToken()
+                        @Html.AntiForgeryToken() @* Logout method would not work unless AntiForgeryToken was implemented in the form - this is also used as an industry standard security measure to prevent cross-site scripting *@
                         <button type="submit" class="yellow-animated-button">Yes, logout</button>
                     </form>
 
