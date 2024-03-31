@@ -20,6 +20,7 @@
             <button type="submit" class="yellow-animated-button">Login</button>
         </div>
     </form>
+    @* Enable the UI to show a message is the user enters their username and/or password incorrectly *@
     @if (!string.IsNullOrEmpty(Model.LoginFormErrorMessage))
     {
         <div class="alert alert-danger">@Model.LoginFormErrorMessage</div>
