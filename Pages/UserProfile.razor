@@ -38,7 +38,7 @@
                 @*  Event handler will trigger phone regex for validation purposes *@ 
                 @if (!PhoneValidated)
                 {
-                    <span class="validation-summary ">Please enter a valid phone number!</span>
+                    <span class="validation-summary">Please enter a valid phone number!</span>
                 }
             </div>
             <div class="custom-form-elements">
@@ -47,13 +47,14 @@
                 @*  Event handler will trigger email regex for validation purposes *@
                 @if (!EmailValidated)
                 {
-                    <span class="validation-summary ">Please enter a valid email address!</span>
+                    <span class="validation-summary">Please enter a valid email address!</span>
                 }
             </div>
             <div class="custom-form-elements">
                 <button type="submit" class="yellow-animated-button">Save Changes!</button>
             </div>
         </EditForm>
+        @*  Success message will appear after the user selects save changes if all the initial profile data passes validation *@
         @if (DisplayProfileUpdatedMessage)
         {
             <div class="alert alert-success" role="alert">Your profile has been updated!</div>
