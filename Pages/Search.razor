@@ -107,33 +107,33 @@
         }
     }
 
-    private string HighlightSearchQuery(string text, string searchedQuery)
+    private string HighlightSearchQuery(string searchedText, string searchedTerms)
     {
         // To be able to include searches where the user includes spaces, need to split at the white space to search multiple words
-        if (string.IsNullOrWhiteSpace(searchedQuery)) return text;
-        string[] searchedWordsWithoutSpace = searchedQuery.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+        if (string.IsNullOrWhiteSpace(searchedTerms)) return searchedText;
+        string[] searchedWordsWithoutSpace = searchedTerms.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
         // Highlight the searched words after the white space is removed and ignore case sensitivity in the searched query
         foreach (string word in searchedWordsWithoutSpace)
         {
-            text = Regex.Replace(text, word, $@"<span class='highlight-search-query'>{word}</span>", RegexOptions.IgnoreCase);
+            searchedText = Regex.Replace(searchedText, word, $@"<span class='highlight-search-query'>{word}</span>", RegexOptions.IgnoreCase);
         }
-        return text;
+        return searchedText;
     }
 
-    private string GetPostWithSearchQueryPreview(string searchedText, string searchedQuery)
+    private string GetPostWithSearchQueryPreview(string searchedText, string searchedTerms)
     {
         // Find the index of the items that were searched by the user
-        var searchIndex = searchedText.IndexOf(searchedQuery, StringComparison.OrdinalIgnoreCase);
+        var searchIndex = searchedText.IndexOf(searchedTerms, StringComparison.OrdinalIgnoreCase);
         if (searchIndex > 0)
         {
             // Search for 25 char before the searched words and 25 chars after the search words to provide a simple preview to the user
             var startSearchIndex = Math.Max(0, searchIndex - 25);
-            var endSearchIndex = Math.Min(searchedText.Length, searchIndex + 25 + searchedQuery.Length);
+            var endSearchIndex = Math.Min(searchedText.Length, searchIndex + 25 + searchedTerms.Length);
             var querySearchPreview = searchedText.Substring(startSearchIndex, endSearchIndex - startSearchIndex);
             // This meets the assignment requirement of providing search functionality with multiple row results and displays because the preview will enable the user to view all the search results that match their term in a single list
             return $"{querySearchPreview} . . .";
         }
-        return searchedText; // Return search term if a match is not found in the search query to prevent potential program crash
+        return searchedText; // Return searched text if a match is not found in the search query to prevent potential program crash
     }
 
     private void ViewPost(int postId)
