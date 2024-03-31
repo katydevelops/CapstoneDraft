@@ -605,10 +605,9 @@ ul {
 
 .validation-summary {
     color: red; 
-    background: #FFD4D4; 
-    font-weight: bold; 
-    border-radius: 15px; 
-    font-size: 1.1rem; 
+    background: white; 
+    font-weight: bold;  
+    font-size: 1.4rem; 
     text-align: center; 
-    padding: 1.2rem;
+    padding: 0.5rem;
 }
