@@ -602,3 +602,13 @@ ul {
     margin-top: 2rem;
     margin-bottom: 2rem;
 }
+
+.validation-summary {
+    color: red; 
+    background: #FFD4D4; 
+    font-weight: bold; 
+    border-radius: 15px; 
+    font-size: 1.1rem; 
+    text-align: center; 
+    padding: 1.2rem;
+}
