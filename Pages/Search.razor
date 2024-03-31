@@ -89,6 +89,7 @@
         // Clear old error message to prevent errors from staying on the screen when a user starts another search
         searchResultsErrorMessage = string.Empty;
         searchStarted = true;
+        // Prompt the user to enter a term before hitting the search button
         if(string.IsNullOrWhiteSpace(searchQuery))
         {
             searchResultsErrorMessage = "Please enter a term in the search bar to continue!";
