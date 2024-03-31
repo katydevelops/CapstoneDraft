@@ -277,14 +277,15 @@
 
     private void EditComment(CommentModel comment)
     {
+        // Edit button triggers event which takes in comment object as a paramter and updates the id and comment details of the object
         editedCommentId = comment.CommentId;
         commentText = comment.CommentText;
     }
 
     private async Task DeleteCommentAsync(int commentId)
     {
-        var commentedDeleted = await PostService.RemoveCommentAsync(commentId, currentUserId);
-        if (commentedDeleted)
+        var commentDeleted = await PostService.RemoveCommentAsync(commentId, currentUserId);
+        if (commentDeleted)
         {
             var commentPendingDeletion = posts.SelectMany(post => post.PostComments).FirstOrDefault(comment => comment.CommentId == commentId);
             if (commentPendingDeletion != null)
