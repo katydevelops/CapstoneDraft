@@ -159,10 +159,12 @@
     {
         try
         {
+            // Ensure that both the email and phone pass validation - and if not - prompt the user to fix before updating
             if (!EmailValidated || !PhoneValidated)
             {
                 return;
             }
+            // Store the IdentityResult object from the built-in UpdateAsync method to a variable to check if the update to the user's information was successful or not and display the correct message to the user accordingly.
             IdentityResult profileSuccessfullyUpdated = await UserManager.UpdateAsync(userModel);
             if (profileSuccessfullyUpdated.Succeeded)
             {
