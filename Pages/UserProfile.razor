@@ -112,14 +112,13 @@
                     </div>
                 </div>
             </div>
-
         </NotAuthorized>
     </AuthorizeView>
 </CascadingAuthenticationState>
 
 @code {
     private UserModel userModel = new();
-    private ChangePasswordModel changeUserPassword = new ChangePasswordModel();
+    private ChangePasswordModel changeUserPassword = new ChangePasswordModel(); // Initialize Change Password Model since it has been created directly in this component
     private bool DisplayPasswordChangeMessage = false; // Display a success message to let use know password has been update
     private bool DisplayErrorMessage = false;
     private bool DisplayProfileUpdatedMessage = false;
