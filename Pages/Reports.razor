@@ -63,14 +63,14 @@
                     reportTitle = "Total Posts Per User Report";
                     var totalPostPerUser = await ReportService.GetTotalPostsPerUserAsync();
                     reportDisplayTable = CreateReportDisplayTable(totalPostPerUser, new[] { "Username", "Total Posts", "Latest Post Timestamp" },
-                    report => new object[] { report.Key, report.Value.TotalPosts, report.Value.LatestPostTimestamp != null ? report.Value.LatestPostTimestamp : "This user has not yet posted!" });
+                    report => new object[] { report.Key, report.Value.TotalPosts, report.Value.LatestPostTimestamp != null ? report.Value.LatestPostTimestamp.Value.ToString("g") : "This user has not yet posted!" });
                     break;
-                // 
+                // Report 2 will display the total comments for each user and the latest timestamp for the user's most recent comment
                 case 2:
                     reportTitle = "Total Comments Per User Report";
                     var totalCommentsPerUser = await ReportService.GetTotalCommentsPerUserAsync();
                     reportDisplayTable = CreateReportDisplayTable(totalCommentsPerUser, new[] { "Username", "Comment Count", "Latest Comment Timestamp " },
-                    report => new object[] { report.Key, report.Value.TotalComments, report.Value.LatestCommentTimestamp?.ToString("g") ?? "This user has not yet commented!" });
+                    report => new object[] { report.Key, report.Value.TotalComments, report.Value.LatestCommentTimestamp?.ToString("g") ?? "N/A" });
                     break;
                 case 3:
                     reportTitle = "Total Number of Posts Per Category Report";
