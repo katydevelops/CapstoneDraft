@@ -98,6 +98,7 @@
         }
         try
         {
+            // Call post service message to search the posts and comments in the database for the user's search term
             queryResults = await PostService.QueryPostsAndCommentsAsync(searchQuery);
         }
         catch
