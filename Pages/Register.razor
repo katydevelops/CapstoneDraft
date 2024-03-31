@@ -68,6 +68,12 @@
 
     private async Task ProcessUserRegistration()
     {
+        var emailExists = await userManager.FindByEmailAsync(registerModelInstance.Email);
+        if (emailExists != null)
+        {
+            registerErrorMessage = "An account with this email already exists - please login or use a unique email address!";
+        }
+
         // Create a new user object and store all data from the register input fields
         var newlyCreatedUser = new UserModel
         {
