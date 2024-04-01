@@ -106,7 +106,7 @@
     {
         return builder =>
         {
-            // Render Tree Builder will create a data tree based on the DOM to display the report rows, column and data returned on the page when called.
+            // Use a very simple Render Tree Builder class to create a data tree to display the report rows, column and data returned on the page when called. According to Blazor documentation, RenderTree is the "in-memory" representation of the DOM that tracks changes to update the UI dynamically. Using this builder class will enable the report to update on the screen depending on what the user selects from the drop down menu.
             builder.OpenComponent(0, typeof(ReportTableFormat<TItem>));
             builder.AddAttribute(1, "Query", query);
             builder.AddAttribute(2, "ColumnTitles", columnTitles);

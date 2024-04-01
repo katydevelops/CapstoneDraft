@@ -211,10 +211,13 @@ ul {
     box-shadow: 0 5px 10px #808080;
 }
 
-.search-card p {
-    padding: 0.5rem;
-    margin: 1rem;
-}
+    .search-card p {
+        margin: 1rem;
+        width: 100%;
+        padding: 0.5rem;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
 
 
 .feed-buttom-container form {
