@@ -9,7 +9,6 @@ namespace CapstoneDraft.Services
     public class PostService
     {
         private readonly CapstoneContext _databaseConnection;
-        private readonly ILogger<PostService> _logger;
 
         public PostService(CapstoneContext databaseConnection, ILogger<PostService> logger)
         {
