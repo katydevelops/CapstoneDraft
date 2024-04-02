@@ -27,12 +27,9 @@ builder.Services.AddDbContext<CapstoneContext>(options => options.UseSqlite(buil
 builder.Services.AddDefaultIdentity<UserModel>(options => options.SignIn.RequireConfirmedAccount = false).AddRoles<IdentityRole>().AddEntityFrameworkStores<CapstoneContext>();
 
 // Services that will be used in Safety Net app
-builder.Services.AddScoped<UserService>();
 builder.Services.AddScoped<PostService>();
 builder.Services.AddScoped<ReportService>();
 builder.Services.AddScoped<UploadPhotoService>();
-
-
 
 var app = builder.Build();
 
