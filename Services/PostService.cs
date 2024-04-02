@@ -120,6 +120,7 @@ namespace CapstoneDraft.Services
 
         public async Task<List<PostModel>> FetchPostsByCategoryAsync(string category)
         {
+            // Grab all the posts that match the category entered as a parameter and return them as a list
             return await _databaseConnection.Posts.Where(post => post.PostCategory == category).ToListAsync();
         }
     }
