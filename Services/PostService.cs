@@ -13,7 +13,6 @@ namespace CapstoneDraft.Services
         public PostService(CapstoneContext databaseConnection)
         {
             _databaseConnection = databaseConnection;
-            _logger = logger;
         }
 
         // Fetch the post details and include the post details, affiliated comments, user who posted the comments and order by most recent to older posts
