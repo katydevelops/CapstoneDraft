@@ -112,7 +112,7 @@ namespace CapstoneDraft.Services
                 _databaseConnection.Comments.Add(comment);
                 await _databaseConnection.SaveChangesAsync();
             }
-            catch (Exception error)
+            catch
             {
                 throw;
             }
