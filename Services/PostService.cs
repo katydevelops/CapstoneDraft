@@ -10,7 +10,7 @@ namespace CapstoneDraft.Services
     {
         private readonly CapstoneContext _databaseConnection;
 
-        public PostService(CapstoneContext databaseConnection, ILogger<PostService> logger)
+        public PostService(CapstoneContext databaseConnection)
         {
             _databaseConnection = databaseConnection;
             _logger = logger;
