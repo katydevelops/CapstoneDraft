@@ -11,6 +11,5 @@ namespace CapstoneDraft.Models
         public string TempPostSubject { get; set; }
         public string TempPostMessageBody { get; set; }
         public string TempPostPhoto {  get; set; }
-        public IBrowserFile TempPostPhotoFilePath { get; set; } // This will be needed for image compression to prevent users from uploaded large files
     }
 }
