@@ -48,10 +48,11 @@ namespace CapstoneDraft.Services
                     post.PostComments.Any(comments => EF.Functions.Like(comments.CommentText.ToLower(), $"%{lowerCaseQuery}%"))).ToListAsync();
                 return queryResults;
             }
-            catch
+            catch (Exception error)
             {
-                throw;
+                throw new ArgumentException("There was an error processing your search - please try again!", error);
             }
+
         }
 
         public async Task<PostModel> FetchPostAsync(int postId)
@@ -80,6 +81,7 @@ namespace CapstoneDraft.Services
 
         public async Task UpdateCommentAsync(int commentId, string newCommentText, string userId)
         {
+            // Find the comment that matches the comment id and make sure the comment insn't null and the user is the author of the comment based on their user id. After the user is authorized to make changes up the comment to the new comment text entered and then save the changes inthe database.
             var commentPendingUpdate = await _databaseConnection.Comments.Where(comment => comment.CommentId == commentId).FirstOrDefaultAsync();
             if (commentPendingUpdate != null && commentPendingUpdate.UserId == userId)
             {
