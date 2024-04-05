@@ -57,13 +57,15 @@ namespace CapstoneDraft.Services
                 // Use memory stream to compress the image in memory before storing the compressed image to the database
                 await using (var uploadFileSteam = photoFile.OpenReadStream(fileSizeLimit))
                 {
+                    // Compress the image in the memory stream
                     await CompressImageSizeAsync(uploadFileSteam, photoFilePath, photoFileExtension);
                 }
+                // Then once the compression is completed, return the path of the compressed image using System.IO built-in GetRelativePath method
                 return Path.GetRelativePath("wwwroot", photoFilePath);
             }
             catch (Exception error)
             {
-                throw;
+                throw new ArgumentException("There was an error processing your image - please try a different photo!", error);
             }
         }
 
