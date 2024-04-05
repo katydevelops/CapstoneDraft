@@ -49,7 +49,7 @@ namespace CapstoneDraft.Services
 
             try
             {
-                
+                // Check to make sure the photo isn't larger than the allowed limit after compression
                 if (photoFile.Size > fileSizeLimit)
                 {
                     AddPostErrorMessage = "Your selected photo exceeds the maximum file size limit! Please try a different photo!";
