@@ -40,7 +40,7 @@ namespace CapstoneDraft.Services
 
         public async Task<string> ProcessSelectedPhotoAsync(IBrowserFile photoFile)
         {
-            // Create folder for added photos to be upladed to in wwwroot
+            // Create folder at the wwwroot directory for added photos to be upladed to
             var fileDirectory = CreateUploadedPhotoDirectory("wwwroot", "Uploaded_Photos");
             const long fileSizeLimit = 3 * 1024 * 1024; // Needed to make a long for OpenReadSteam to accept
             var photoFileExtension = Path.GetExtension(photoFile.Name);
