@@ -30,12 +30,14 @@ namespace CapstoneDraft.Services
 
         public async Task<List<PostModel>> QueryPostsAndCommentsAsync(string searchQuery)
         {
+            // If the search term is empty then return an empty list in return
             if (string.IsNullOrWhiteSpace(searchQuery)) 
             {
                 return new List<PostModel>();
             }
             try
             {
+                // Convert the search query to lowercase to prevent case sensitivity and then use Entity Framework Core like operation to query the posts and comments where the search query matches the related post and comment properties stored in the database
                 var lowerCaseQuery = searchQuery.ToLower() ?? string.Empty;
                 var queryResults = await _databaseConnection.Posts.Include(post => post.PostComments).Where(post => EF.Functions.Like(post.PostSubject.ToLower(), $"%{lowerCaseQuery}%") ||
                     EF.Functions.Like(post.PostSubject.ToLower(), $"%{lowerCaseQuery}%") ||
