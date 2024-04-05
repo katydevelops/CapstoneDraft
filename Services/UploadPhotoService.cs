@@ -42,7 +42,7 @@ namespace CapstoneDraft.Services
         {
             // Create folder at the wwwroot directory for added photos to be upladed to
             var fileDirectory = CreateUploadedPhotoDirectory("wwwroot", "Uploaded_Photos");
-            const long fileSizeLimit = 3 * 1024 * 1024; // Needed to make a long for OpenReadSteam to accept
+            const long fileSizeLimit = 3 * 1024 * 1024; // Needed to make a long datatype for OpenReadSteam to accept
             var photoFileExtension = Path.GetExtension(photoFile.Name);
             var randomFileName = CreateRandomFileName(photoFileExtension);
             var photoFilePath = Path.Combine(fileDirectory, randomFileName);
