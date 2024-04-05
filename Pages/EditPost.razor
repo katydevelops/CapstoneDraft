@@ -179,7 +179,7 @@
         }
     }
 
-    private async Task ProcessNewImageAsync(InputFileChangeEventArgs args)
+    public async Task ProcessNewImageAsync(InputFileChangeEventArgs args)
     {
         // Pass in InputFileChangeEventArgs to record file info of new photo, ensure that the photo is in the proper format and then send to the UploadPhotoService for image size compression
         var newSelectedImage = args.File;
