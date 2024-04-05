@@ -69,6 +69,7 @@ namespace CapstoneDraft.Services
 
         public async Task RemovePostAsync(int postId)
         {
+            // Find the post that matches the id in the database, store it to the pending deletion variable and performa a null check. If the post isn't null then delete it from the database and save accordingly
             var postPendingDeletion = await _databaseConnection.Posts.FindAsync(postId);
             if (postPendingDeletion != null)
             {
