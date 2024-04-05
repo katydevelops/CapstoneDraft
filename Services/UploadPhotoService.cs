@@ -43,13 +43,13 @@ namespace CapstoneDraft.Services
             // Create folder at the wwwroot directory for added photos to be upladed to
             var fileDirectory = CreateUploadedPhotoDirectory("wwwroot", "Uploaded_Photos");
             const long fileSizeLimit = 3 * 1024 * 1024; // Needed to make a long datatype for OpenReadSteam to accept
-            var photoFileExtension = Path.GetExtension(photoFile.Name);
-            var randomFileName = CreateRandomFileName(photoFileExtension);
-            var photoFilePath = Path.Combine(fileDirectory, randomFileName);
+            var photoFileExtension = Path.GetExtension(photoFile.Name); // Set the extension of the uploaded file
+            var randomFileName = CreateRandomFileName(photoFileExtension); // Generate the random guid-based file name to prevent collisions
+            var photoFilePath = Path.Combine(fileDirectory, randomFileName); // Set the photo name to randomlyGeneratedGuid.fileExtension
 
             try
             {
-                // If the Uploaded Photos folder doesn't yet exist, create ie
+                
                 if (photoFile.Size > fileSizeLimit)
                 {
                     AddPostErrorMessage = "Your selected photo exceeds the maximum file size limit! Please try a different photo!";
