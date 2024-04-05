@@ -71,11 +71,13 @@ namespace CapstoneDraft.Services
 
         public async Task CompressImageSizeAsync(Stream uploadFileStream, string photoFilePath, string photoFileExtension)
         {
+            // Store the image in memory and then compress the image size to prevent it from hitting the file size limit. After compression, the file extension is received as a parameter and then the compressed photo path is saved.
             using var compressPhotoStream = new MemoryStream();
             await uploadFileStream.CopyToAsync(compressPhotoStream);
-            compressPhotoStream.Position = 0;
+            compressPhotoStream.Position = 0; // Need to reset the photo stream to prevent image loading errors from occurring 
             using (var photo = Image.Load(compressPhotoStream))
             {
+                // User SixLabors built-in Mutate and Resize methods to necessary modifications to the actual image object. For our use case, the maximum file size will be set at 500 pixels to prevent large data from being uploaded, especially since we will be deploying to the cloud.
                 photo.Mutate(image => image.Resize(new ResizeOptions
                 {
                     Mode = ResizeMode.Max,
