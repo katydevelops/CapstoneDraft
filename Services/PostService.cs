@@ -56,7 +56,7 @@ namespace CapstoneDraft.Services
 
         public async Task<PostModel> FetchPostAsync(int postId)
         {
-            // 
+            // Fetch the post from the database that matches the post id and return affiliated post comments as well
             return await _databaseConnection.Posts.Include(post => post.User).Include(post => post.PostComments).FirstOrDefaultAsync(post => post.PostId == postId);
         }
 
