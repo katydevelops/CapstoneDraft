@@ -11,8 +11,6 @@ namespace CapstoneDraft.Services
     public class UploadPhotoService
     {
 
-        private readonly ILogger<UploadPhotoervice> _logger;
-
         public string AddPostErrorMessage { get; private set; }
 
         public UploadPhotoService()
