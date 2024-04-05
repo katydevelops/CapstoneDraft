@@ -109,6 +109,7 @@ namespace CapstoneDraft.Services
 
         public async Task AddCommentAsync(CommentModel comment)
         {
+            // If the comment input field isn't empty or blank, save the comment text the user entered then add and save it to the database.
             if (comment == null || string.IsNullOrWhiteSpace(comment.CommentText))
             {
                 return;
@@ -118,9 +119,9 @@ namespace CapstoneDraft.Services
                 _databaseConnection.Comments.Add(comment);
                 await _databaseConnection.SaveChangesAsync();
             }
-            catch
+            catch (Exception error)
             {
-                throw;
+                throw new ArgumentException("There was an error adding your comment - please try again!", error);
             }
         }
 
