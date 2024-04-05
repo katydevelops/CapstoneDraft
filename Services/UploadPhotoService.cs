@@ -11,13 +11,12 @@ namespace CapstoneDraft.Services
     public class UploadPhotoService
     {
 
-        private readonly ILogger<UploadPhotoService> _logger;
+        private readonly ILogger<UploadPhotoervice> _logger;
 
         public string AddPostErrorMessage { get; private set; }
 
-        public UploadPhotoService(ILogger<UploadPhotoService> logger)
+        public UploadPhotoService()
         {
-            _logger = logger;
         }
 
         // Needed to create some kind of "random" filename for the photos becuase collisions could happen if the same filename and extension were updated. The use of new guid was a simple way to create a "random enough" id file name to prevent duplicates from being uploaded for the use of this project.
@@ -60,15 +59,11 @@ namespace CapstoneDraft.Services
                 await using (var uploadFileSteam = photoFile.OpenReadStream(fileSizeLimit))
                 {
                     await CompressImageSizeAsync(uploadFileSteam, photoFilePath, photoFileExtension);
-                    _logger.LogInformation($"Processing file: {photoFile.Name}, Size: {photoFile.Size}, Directory: {fileDirectory}");
-
                 }
-                _logger.LogInformation($"Photo processed and saved at: {photoFilePath}");
                 return Path.GetRelativePath("wwwroot", photoFilePath);
             }
             catch (Exception error)
             {
-                _logger.LogInformation(error, "You are receiving an error with the iamge you are trying to upload - please try agian");
                 throw;
             }
         }
