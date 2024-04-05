@@ -31,7 +31,7 @@ namespace CapstoneDraft.Services
             return createUploadFolder;
         }
 
-
+        // Use SixLabors to set the image encoder type to only allow jpg/jpeg and png images to prevent the user from uploading file formats that aren't relevant to the purpose of Safety Net.
         public IImageEncoder SetPhotoType(string photoType) => photoType.ToLower() switch
         {
             ".jpg" or ".jpeg" => new JpegEncoder { Quality = 50 },
