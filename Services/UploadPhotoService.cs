@@ -22,6 +22,7 @@ namespace CapstoneDraft.Services
 
         public string CreateUploadedPhotoDirectory(string rootFile, string uploadedPhotoDirectory)
         {
+            // Need to check if the upload folder exists, if not, one needs to be created so that all the files uploaded by the user can be saved there.
             var createUploadFolder = Path.Combine(rootFile, uploadedPhotoDirectory);
             if (!Directory.Exists(createUploadFolder))
             {
