@@ -91,7 +91,7 @@
     public int EditPostId { get; set; } // Component parameter will past the post id from the parent, Feed, to the child component, Edit Post
     private TemporaryPostModel tempFormData = new();
     private PostModel postModel;
-    private string EditPostErrorMessage;
+    public string EditPostErrorMessage;
     private bool ShowImageRemovedAlert; // Show success message when the user removes the original post image
     private bool userAuthenticated; // Flag to ensure that only the post author can edit a post - not another user
     private bool postAuthor;
