@@ -214,7 +214,7 @@
     }
 
     // Simple email regex pattern that will ensure the phone is 10 numerical digits without requiring any specific format
-    private void ValidatePhone(ChangeEventArgs args)
+    public void ValidatePhone(ChangeEventArgs args)
     {
         var phone = args.Value.ToString();
         PhoneValidated = Regex.IsMatch(phone, @"^\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}$");
