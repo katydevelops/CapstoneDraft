@@ -207,7 +207,7 @@
     }
 
     // Simple email regex pattern that will ensure the email entered in the user profile meets general standards
-    private void ValidateEmail(ChangeEventArgs args)
+    public void ValidateEmail(ChangeEventArgs args)
     {
         var email = args.Value.ToString();
         EmailValidated = Regex.IsMatch(email, @"^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$");

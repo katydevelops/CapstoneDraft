@@ -10,7 +10,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Bunit.Web" Version="1.27.17" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.19.5" />
     <PackageReference Include="SixLabors.ImageSharp" Version="3.1.3" />
     <PackageReference Include="Microsoft.AspNetCore.Components.Authorization" Version="6.0.27" />
