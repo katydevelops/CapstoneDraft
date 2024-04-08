@@ -429,6 +429,7 @@ ul {
     }
 
 
+/* Delete comment button for when the user wants to delete a comment they posted */
 .delete-comment-button {
     background-color: #EDF1F5;
     color: #51739D;
