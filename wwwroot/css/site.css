@@ -446,7 +446,7 @@ ul {
     }
 
 
-
+/* Save button for when the user wants to save their comment's edits */
 .save-button {
     background-color: #EDF1F5;
     color: #51739D;
@@ -465,7 +465,7 @@ ul {
     }
 
 
-/* Cancel button for when a user wants to cancel editing a comment */
+/* Cancel button for when the user wants to cancel editing a comment */
 .cancel-button {
     background-color: #EDF1F5;
     color: #51739D;
