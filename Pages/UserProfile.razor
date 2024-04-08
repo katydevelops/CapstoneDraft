@@ -22,11 +22,10 @@
                         <h1>Edit Profile</h1>
         <EditForm Model="@userModel" OnValidSubmit="UpdateUserProfileAsync">
             <DataAnnotationsValidator  />
+            @* UNIT TEST MEDIATION: Needed to add large red validation message to prompt user to fix inputs *@
             <div class="validation-summary">
-                                <ValidationSummary />
+                <ValidationSummary />
             </div>
-                
-
             <div class="custom-form-elements">
                 <label for="firstName">First Name:</label>
                     <InputText id="firstName" @bind-Value="@userModel.FirstName" class="custom-input-elements" />
@@ -41,6 +40,7 @@
                 @*  Event handler will trigger phone regex for validation purposes *@ 
                 @if (!PhoneValidated)
                 {
+                    @* UNIT TEST MEDIATION: Needed to add large red validation message to prompt user to fix inputs *@
                     <span class="validation-summary">Please enter a valid phone number!</span>
                 }
             </div>
@@ -50,6 +50,7 @@
                 @*  Event handler will trigger email regex for validation purposes *@
                 @if (!EmailValidated)
                 {
+                                    @* UNIT TEST MEDIATION: Needed to add large red validation message to prompt user to fix inputs *@
                     <span class="validation-summary">Please enter a valid email address!</span>
                 }
             </div>
