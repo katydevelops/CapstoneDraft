@@ -597,6 +597,8 @@ ul {
     margin-bottom: 2rem;
 }
 
+
+/* Add large red font for validation errors that will appear on screen for the user */
 .validation-summary {
     color: red; 
     background: white; 
