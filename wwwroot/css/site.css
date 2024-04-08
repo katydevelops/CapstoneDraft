@@ -484,6 +484,7 @@ ul {
     }
 
 
+/* To make the Edit Post photo preview appear small above the remove photo button */
 .minify-img {
     max-width: 40%;
     height: auto;
