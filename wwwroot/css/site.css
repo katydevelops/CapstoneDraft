@@ -63,6 +63,7 @@ navbar {
     margin-top: 6rem;
 }
 
+
 .full-size-container {
     padding: 20px;
     max-width: 900px;
@@ -105,6 +106,7 @@ navbar {
 }
 
 
+/* Custom headers used throughout application */
 h1 {
     color: coral;
     text-align: center;
@@ -152,14 +154,14 @@ h6
     border-radius: 15px;
 }
 
+    .yellow-animated-button:hover {
+        background-color: #F7E2AB;
+        transform: scale(1.00);
+        box-shadow: 0 5px 10px #808080;
+    }
 
-.yellow-animated-button:hover {
-    background-color: #F7E2AB;
-    transform: scale(1.00);
-    box-shadow: 0 5px 10px #808080;
-}
 
-
+/* Remove bullets from any unordered list element */
 ul {
     list-style-type: none; 
 }
