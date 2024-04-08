@@ -541,17 +541,19 @@ ul {
     }
 
 
+/* Container to hold content for user to see if they access an endpoint while unauthorized */
 .unathorized-container {
     height: 100vh;
     display: flex;
     align-items: center;
     flex-direction: column;
-    justify-content: flex-start; /*needed to prevent element overflow into the nav bar*/
+    justify-content: flex-start;
     padding-top: 3rem;
     margin-top: 6rem;
 }
 
 
+/* Post header where the category, author's name, and post subject will appear  */
 .feed-post-header {
     color: darkslategray;
     font-weight: bold;
