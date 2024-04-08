@@ -392,6 +392,7 @@ ul {
     }
 
 
+/* Edit comment button for when the user wants to edit a comment they posted */
 .edit-comment-button {
     background-color: #EDF1F5;
     color: #51739D;
@@ -409,6 +410,7 @@ ul {
     }
 
 
+/* Delete button for when the user wants to delete one of their posts */
 .delete-button {
     background-color: #EDF1F5;
     color: #51739D;
