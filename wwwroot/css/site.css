@@ -306,13 +306,13 @@ ul {
 
 
 .card::before {
-    content: '';
+    content: ''; /* Need for banner to appear on top of each card */
     display: block;
     position: absolute;
     top: 0;
     right: 0;
-    width: 100%;
-    height: 5px;
+    width: 100%; /* Make stetch the entire length of the card */
+    height: 7px;
     background: url('/images/pastelunsplash.png');
     background-size: cover;
     background-position: center;
@@ -320,7 +320,7 @@ ul {
 
 
 /* Container that will hold neon graphic background to add element to otherwise static design */
-.neon-bg-container {
+    .neon-bg-container {
     position: relative;
     background-size: cover;
     padding: 50px;
