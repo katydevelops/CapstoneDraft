@@ -352,6 +352,7 @@ ul {
 }
 
 
+/* Post like button that will allow user's to like their own post as well as other user's posts */
 .like-button {
     background-color: #EDF1F5;
     color: #51739D;
