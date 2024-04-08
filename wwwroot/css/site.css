@@ -195,7 +195,7 @@ ul {
     margin-bottom: 10px;
 }
 
-
+/* Highlight the search term a light highlighter yellow */
 .highlight-search-query {
     font-weight: bold;
     border-radius: 0.3rem;
