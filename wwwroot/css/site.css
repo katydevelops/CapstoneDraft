@@ -28,12 +28,11 @@ navbar {
     text-decoration: none;
     color: midnightblue;
     margin: 0 3rem;
-}
+}  
 
-
-.nav-link:hover {
-    color: #F7E3AB; /* Gold accent color to be used as a part of design */
-}
+    .nav-link:hover {
+        color: #F7E3AB; /* Gold accent color to be used as a part of design */
+    }
 
 
 .register-link {
