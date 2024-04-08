@@ -46,6 +46,7 @@ navbar {
     }
 
 
+/* Add drop shadow to car for slight 3D effect */
 .card {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
