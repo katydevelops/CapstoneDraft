@@ -500,17 +500,18 @@ ul {
     border-radius: 1.5rem;
 }
 
-
+/* Dropdown to enable user to select a report */
 .custom-dropdown {
-    width: 50%; /* Set the width of the dropdown */
-    padding: 0.5rem 2rem; /* Make it "fat" */
-    border-radius: 10px; /* Rounded corners for the "cute" factor */
+    width: 50%;
+    padding: 0.5rem 2rem; 
+    border-radius: 10px; 
     border: 1px dashed #E0E0E0; 
     font-size: 1.0rem; 
     background-color: #F7F6F2; 
     color: darkslategray;
     text-align: center;
 }
+
 
 @media screen and (max-width: 768px) {
     .custom-dropdown {
