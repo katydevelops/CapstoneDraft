@@ -64,6 +64,7 @@ navbar {
 }
 
 
+/* Container to hold Safety Net's form */
 .full-size-container {
     padding: 20px;
     max-width: 900px;
@@ -569,6 +570,8 @@ ul {
     padding: 1rem;
 }
 
+
+/* Add very faint gray to footer where buttons and comment section will appear on each post */
 .feed-post-footer {
     background-color: #F7F9FC;
     padding: 0.5rem;
@@ -576,6 +579,7 @@ ul {
 }
 
 
+/* Add clean font as design choice for each post's message */
 .feed-post-text {
     color: darkslategray;
     line-height: 1.6;
