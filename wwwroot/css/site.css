@@ -319,6 +319,7 @@ ul {
 }
 
 
+/* Container that will hold neon graphic background to add element to otherwise static design */
 .neon-bg-container {
     position: relative;
     background-size: cover;
