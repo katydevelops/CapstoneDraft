@@ -5,6 +5,7 @@ body {
     margin: 0;
 }
 
+
 /* Container that will hold the nav links and add space around them and keep them fix to the top of the screen */
 navbar {
     width: 100%;
@@ -99,6 +100,7 @@ navbar {
 }
 
 
+/* Add dashed design around input elements in Safety Net forms */
 .custom-input-elements {
     border-radius: 0.3rem;
     margin-bottom: 1rem;
