@@ -65,16 +65,18 @@
         }
             <h2>Update Password</h2>
             <EditForm Model="@changeUserPassword" OnValidSubmit="UpdatePasswordAsync">
-                <DataAnnotationsValidator  />
-                @*  Needed to provide specific ValidationMessage functionality for current password and new password to ensure custome password data annotations were shown to the user *@
+                <DataAnnotationsValidator  />    
+                @*  Needed to provide specific validation message functionality for current password and new password to ensure custoe password data annotations were shown to the user *@
                 <div class="custom-form-elements">
                     <label for="currentPassword">Current Password:</label>
                 <InputText id="currentPassword" @bind-Value="@changeUserPassword.CurrentPassword" class="custom-input-elements" type="password" />
+                                @* UNIT TEST MEDIATION: Needed to add large red validation message to prompt user to fix inputs *@
                                 <div class="validation-summary"><ValidationMessage For="@(() => changeUserPassword.CurrentPassword)" /></div>
                 </div>
                 <div class="custom-form-elements">
                     <label for="newPassword">New Password:</label>
                     <InputText id="newPassword" @bind-Value="@changeUserPassword.NewPassword" class="custom-input-elements" type="password" />
+                                @* UNIT TEST MEDIATION: Needed to add large red validation message to prompt user to fix inputs *@
                                 <div class="validation-summary"><ValidationMessage For="@(() => changeUserPassword.NewPassword)" /></div>
                 </div>
                 <div class="custom-form-elements">
@@ -127,8 +129,8 @@
     private bool DisplayErrorMessage = false;
     private bool DisplayProfileUpdatedMessage = false;
     private string PasswordValidationMessage;
-    public bool PhoneValidated = true; // Flag to confirm when the phone number passes the regex validation
-    public bool EmailValidated = true; // Flag to confirm when the email address passes the regex validation
+    public bool PhoneValidated = true; // Flag to confirm when the phone number passes the regex validation; needed to be public for utilization in unit tests
+    public bool EmailValidated = true; // Flag to confirm when the email address passes the regex validation; needed to be public for utilization in unit tests
 
     private async Task UpdatePasswordAsync()
     {
