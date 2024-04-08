@@ -14,15 +14,14 @@ navbar {
     justify-content: space-around;
 }
 
-
+/* Add slight animation to add a bit of flare to an otherwise static design */
 .main-title-img {
     transition: transform 0.3s ease-in-out;
 }
 
-
-.main-title-img:hover {
-    transform: scale(1.06);
-}
+    .main-title-img:hover {
+        transform: scale(1.06);
+    }
 
 
 .nav-link {
