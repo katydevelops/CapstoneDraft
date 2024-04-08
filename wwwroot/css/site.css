@@ -307,6 +307,7 @@ ul {
 }
 
 
+/* Add a slight accent on the cards which hold the post details on the feed wall to liven up the design */
 .card::before {
     content: ''; /* Need for banner to appear on top of each card */
     display: block;
