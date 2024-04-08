@@ -36,16 +36,14 @@ navbar {
     }
 
 
-
-
+/* Add the gold accent color to the register link */
 .register-link {
     color: #F7E3AB;
 }
 
-
-.register-link:hover{
-    color: white;
-}
+    .register-link:hover{
+        color: white;
+    }
 
 
 .card {
