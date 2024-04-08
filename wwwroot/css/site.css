@@ -206,6 +206,7 @@ ul {
 }
 
 
+/* Card to hold each returned search result */
 .search-card {
     padding: 3rem;
     max-width: 500px;
