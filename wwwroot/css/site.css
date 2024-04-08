@@ -521,7 +521,7 @@ ul {
 }
 
 
-
+/* Create a uniquely designed comment button so it will stand out against the other feed elements */
 .comment-button {
     background-color: #B3B6E3;
     color: white;
@@ -533,7 +533,6 @@ ul {
     transition: background-color 0.3s ease;
     border-radius: 15px;
 }
-
 
     .comment-button:hover {
         background-color: #E3DAF5;
