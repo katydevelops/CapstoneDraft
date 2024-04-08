@@ -254,9 +254,10 @@ ul {
     gap: 10px;
 }
 
+/* Keep comment button static and to the right of the text area*/
     .feed-comment-container .custom-comment-btn {
-        flex: 0 0 auto; /* Prevents the button from growing */
-        white-space: nowrap; /* Keeps the button text on one line */
+        flex: 0 0 auto; 
+        white-space: nowrap; 
     }
 
 
@@ -268,23 +269,24 @@ ul {
     padding: 1rem;
 }
 
+/* Comment input textarea for user to leave a comment on a post */
 .comment-input-textarea {
-    flex-grow: 1; /* Make the input grow to fill the space */
-    margin: 0; /* Override any existing margin */
+    margin: 0;
     padding: 10px;
-    border: 1px solid #ced4da;
+    border: 1px solid #CED4DA;
     border-radius: 0.25rem;
     min-width: 300px;
     max-width: 400px;
 }
+
 
 .comment-button-container {
     display: flex;
     justify-content: flex-start;
     align-items: center;
     gap: 10px; /* Add space between buttons */
-    margin-top: 10px; /* Add space above the button group */
-    margin-bottom: 20px; /* Add space below the button group */
+    margin-top: 10px;
+    margin-bottom: 20px;
     padding: 1rem;
 }
 
@@ -296,8 +298,6 @@ ul {
         justify-content: start;
         padding: 1rem;
     }
-
-
 
 
 .feed-user-comments {
