@@ -512,7 +512,7 @@ ul {
     text-align: center;
 }
 
-
+/* Prevent report dropdown titles from being cut off when the viewport is smaller */
 @media screen and (max-width: 768px) {
     .custom-dropdown {
         width: 100%; 
