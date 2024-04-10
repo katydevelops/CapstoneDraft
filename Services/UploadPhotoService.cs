@@ -13,9 +13,6 @@ namespace CapstoneDraft.Services
 
         public string AddPostErrorMessage { get; private set; }
 
-        public UploadPhotoService()
-        {
-        }
 
         // Needed to create some kind of "random" filename for the photos becuase collisions could happen if the same filename and extension were updated. The use of new guid was a simple way to create a "random enough" id file name to prevent duplicates from being uploaded for the use of this project.
         public string CreateRandomFileName(string fileExtentsion) => $"{Guid.NewGuid()}{fileExtentsion}";
