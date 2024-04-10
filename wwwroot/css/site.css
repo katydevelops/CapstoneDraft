@@ -315,7 +315,7 @@ ul {
     top: 0;
     right: 0;
     width: 100%; /* Make stetch the entire length of the card */
-    height: 7px;
+    height: 7px; /* Give it enough height so that you can see the image */
     background: url('/images/pastelunsplash.png'); /* Add neon background image as accent on top of card */
     background-size: cover;
     background-position: center;
