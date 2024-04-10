@@ -26,6 +26,8 @@ namespace CapstoneDraft.Pages
         [BindProperty]
         public string Password { get; set; }
 
+        // EXAMPLE OF POLYMORPHISM: The method below overrides the OnPostAsync method that is built-into the PageModel class - this allows the Login Razor page to implement it's own custom version of this method and is therefore an example of Polymorphism
+
         // Need OnPostAsync handler because the user is sending an HTTP Post request when they click the login button
         // Use IActionResult return type because method will need to handle various login situations such as the user being able to login or a user getting locked out
         public async Task<IActionResult> OnPostAsync()
