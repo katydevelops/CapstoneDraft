@@ -9,6 +9,7 @@
 {
     <div class="neon-bg-container">
         <div class="card">
+            @* Header of the post that is retrieved *@
             <div class="feed-post-header">
                 <h6><strong>Name:</strong> @post.AuthorName</h6>
                 <h6><strong>Post Subject:</strong> @post.PostSubject</h6>
@@ -16,6 +17,7 @@
         </div>
                 <div class="social-media-card">
                 <div>
+                    @* Body of the post that is retrieved *@
                     <p class="view-post-subheading">Post Details:</p>
                     <p>@post.PostMessageBody</p>
                     @if (!string.IsNullOrWhiteSpace(post.PostPhoto))
@@ -24,6 +26,7 @@
                     }
                     <p><sub>Posted by <strong>@post.AuthorName</strong> on <strong>@post.PostCreatedTimestamp.ToShortDateString()</strong></sub></p>
                 </div>
+                @* Comments (if any) of the post that is retrieved *@
                 @if (post.PostComments.Any())
                 {
                     <div>
