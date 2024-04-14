@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using CapstoneDraft.Models;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace CapstoneDraft.Data
 {
@@ -28,3 +29,4 @@ namespace CapstoneDraft.Data
     }
 }
 
+test
