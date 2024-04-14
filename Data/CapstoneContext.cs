@@ -17,6 +17,7 @@ namespace CapstoneDraft.Data
         public CapstoneContext(DbContextOptions<CapstoneContext> options) : base(options) { }
 
 
+        
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
@@ -26,3 +27,5 @@ namespace CapstoneDraft.Data
         }
     }
 }
+
+test
